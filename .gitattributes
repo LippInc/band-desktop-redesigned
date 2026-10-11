@@ -1,0 +1,3 @@
+# Prettier requires LF line endings. Without this, Git for Windows (core.autocrlf=true) checks files out with CRLF
+# and `pnpm format:check` fails on every file.
+* text=auto eol=lf

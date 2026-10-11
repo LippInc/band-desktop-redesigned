@@ -1,0 +1,63 @@
+{
+  "snapshot": {
+    "revision": 1,
+    "experiments": [
+      {
+        "key": "advanced-agent-details",
+        "title": "Advanced agent details",
+        "description": "Adds Overview and Activity to agent details. These views show usage, runtime errors, and the live activity log.",
+        "visibility": "everyone",
+        "state": "disabled"
+      },
+      {
+        "key": "runtime-setup",
+        "title": "Runtime setup",
+        "description": "Shows the Runtime setup card in agent details. Use it to configure, test, edit, or disable the reusable runtime template. Agent creation and existing runtime sessions are unchanged.",
+        "visibility": "everyone",
+        "state": "disabled"
+      },
+      {
+        "key": "docker-sandboxes",
+        "title": "Docker Sandboxes",
+        "description": "Shows Docker Sandbox creation, configuration, and runtime controls in the desktop app. Existing sandboxed agents keep their recovery and cleanup controls while this experiment is off. The jam CLI and daemon APIs are unchanged.",
+        "visibility": "everyone",
+        "state": "disabled"
+      },
+      {
+        "key": "inbox-section",
+        "title": "Inbox",
+        "description": "Adds the Inbox section to the desktop sidebar. Inbox lists mentions, questions, and permission requests from every room in one place. With it off, Home and each room's Work board still carry questions and permission requests. It does not change the jam inbox command.",
+        "visibility": "everyone",
+        "state": "disabled"
+      },
+      {
+        "key": "sessions-section",
+        "title": "Sessions",
+        "description": "Adds the Sessions section to the desktop sidebar. Sessions lists every local agent's coding-tool processes and their room bindings in one table. With it off, each agent's Sessions tab shows the same processes for that agent alone. It does not change the jam sessions command.",
+        "visibility": "everyone",
+        "state": "disabled"
+      },
+      {
+        "key": "usage-diagnostics",
+        "title": "Usage diagnostics",
+        "description": "Adds an Advanced section below Usage & Cost with local capture-recovery and reconciliation details. Ordinary usage and cost reporting is unchanged.",
+        "visibility": "everyone",
+        "state": "disabled"
+      },
+      {
+        "key": "allow-agent-management",
+        "title": "Allow Agents to Create/Modify Band Agents",
+        "description": "Allows detected Band agent runtimes to create agents or change agent instructions and runtime templates. Redacted reads remain available while disabled.",
+        "visibility": "everyone",
+        "state": "disabled"
+      },
+      {
+        "key": "linear-work-source",
+        "title": "Linear as a work source",
+        "description": "Shows assigned Linear issues in Connections settings, with a preview and one-click start, and enables the background poller for optional auto-start. With it off, the poller does not run and no new Linear UI is shown; the existing read-only Linear connection is unchanged.",
+        "visibility": "everyone",
+        "state": "disabled"
+      }
+    ]
+  }
+}

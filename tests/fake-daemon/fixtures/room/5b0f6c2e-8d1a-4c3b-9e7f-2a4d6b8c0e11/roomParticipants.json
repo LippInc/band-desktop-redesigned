@@ -1,0 +1,55 @@
+{
+  "participants": [
+    {
+      "id": "3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70",
+      "handle": "sam-rivera",
+      "name": "Sam Rivera",
+      "kind": "User",
+      "role": "owner",
+      "status": "active",
+      "connection_status": null,
+      "connection_observation": {
+        "profile": "default",
+        "account_instance": "fixture-instance",
+        "generation": 1,
+        "revision": 2
+      },
+      "room_service": null,
+      "avatar_url": null
+    },
+    {
+      "id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+      "handle": "sam-rivera/atlas",
+      "name": "Atlas",
+      "kind": "Agent",
+      "role": "member",
+      "status": "inactive",
+      "connection_status": null,
+      "connection_observation": {
+        "profile": "default",
+        "account_instance": "fixture-instance",
+        "generation": 1,
+        "revision": 2
+      },
+      "room_service": null,
+      "avatar_url": null
+    },
+    {
+      "id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+      "handle": "sam-rivera/nova",
+      "name": "Nova",
+      "kind": "Agent",
+      "role": "member",
+      "status": "inactive",
+      "connection_status": null,
+      "connection_observation": {
+        "profile": "default",
+        "account_instance": "fixture-instance",
+        "generation": 1,
+        "revision": 2
+      },
+      "room_service": null,
+      "avatar_url": null
+    }
+  ]
+}

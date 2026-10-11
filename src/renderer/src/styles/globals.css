@@ -1,0 +1,386 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+/*
+ * Jam's tokens: ZCode 3.11.2's measured shell (docs/DESIGN.md), with BAND's green #92ED92 as the main colour; and a
+ * third theme, Jam, from Jam Desktop's own dark theme. Dark's greys are pure neutrals; Light's carry a trace of BAND's
+ * ink #001319 (OKLCH chroma 0.006 at its hue, at most 3 RGB units per channel), the ink Light draws its own lines and
+ * states in. This file is canonical for colours and sizes; DESIGN.md explains it.
+ * Never use a raw colour or a Tailwind palette colour in the renderer: styles/design-rules.test.ts fails on one.
+ */
+
+/* The Jam theme is a dark one: whatever dark: styles, it takes too. */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *, [data-theme='jam'], [data-theme='jam'] *));
+
+:root {
+  color-scheme: light;
+  --ui-font-size: 14px;
+  --app-font-size: 14px;
+  --chat-font-scale: 1;
+
+  /* Surfaces. canvas = the window behind the sidebar; background = the main area and title bar. */
+  --canvas: #eaedee;
+  --background: #f6f9f9;
+  --panel: #ffffff;
+  --card: #ffffff;
+  --strip: #eef1f1;
+  --popover: #ffffff;
+  --input: #ffffff;
+  --secondary: #e3e7e8;
+  --tooltip: #eef1f1;
+  --kbd: #e3e7e8;
+
+  /* Ink. The two quieter inks are the ink at 60% and 40%, so they sit on any surface. */
+  --foreground: #232728;
+  --foreground-subtle: color-mix(in oklab, var(--foreground) 60%, transparent);
+  --foreground-subtlest: color-mix(in oklab, var(--foreground) 40%, transparent);
+  --kbd-foreground: #5a5f60;
+
+  /* Lines and states: BAND's ink at low alpha, so one token reads right on every surface. */
+  --line: rgb(0 19 25 / 0.1);
+  --line-strong: rgb(0 19 25 / 0.15);
+  --hover: rgb(0 19 25 / 0.05);
+  --selected: rgb(0 19 25 / 0.05);
+  --surface: rgb(0 19 25 / 0.03);
+  --surface-hover: rgb(0 19 25 / 0.05);
+
+  /* BAND's colour (band.ai: --color-accent #92ed92, ink #001319, hover = green + 40% white). */
+  --brand: #92ed92;
+  --brand-ink: #001319;
+  --brand-hover: #bef4be;
+  /* Green for text, links and focus on a light surface (BAND's hue at OKLCH L 0.50: 5.4:1 on the background). */
+  --brand-text: #2a752e;
+
+  /* Band's mascot, the mark and Home's: BAND's own artwork and BAND's own colours, read from the mascot in their
+     public wordmark. They are not this app's palette and never follow the theme. */
+  --jam-mascot-top: #77e877;
+  --jam-mascot-bottom: #00ce7c;
+  --jam-mascot-ink: #00171f;
+  --jam-mascot-eye: #36efff;
+
+  /* Chart lines and bars: BAND's green carried round to its ink's blue, so several series read as one family and
+     never as a borrowed palette. Dark and Jam hold the same five steps at their own lightness. */
+  --chart-1: #338d38;
+  --chart-2: #0e8c6d;
+  --chart-3: #198894;
+  --chart-4: #357fc4;
+  --chart-5: #6971dc;
+
+  /* Status. */
+  --success: #1e8a3e;
+  --warning: #e07b00;
+  --destructive: #e03131;
+  --info: #0066dd;
+  --info-surface: #ebf4ff;
+
+  --backdrop: rgb(0 0 0 / 0.6);
+  --shadow-popover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+/*
+ * Dark: pure neutral greys, this app's own ground. The ladder is 18.7 the page, 22.6 the side pane, 23.5 the composer
+ * strip just above it, 27.3 the cards and 31.7 the menu highlight, in OKLCH lightness - about four points between the
+ * four main rungs - under inks at 87.9 and 75.7. Nothing here carries a hue: design-rules.test.ts reads this block and
+ * fails on any token that does, apart from the few that are a colour by right (BAND's green, the mark, the mascot, the
+ * charts, the status colours).
+ */
+[data-theme='dark'] {
+  color-scheme: dark;
+  --canvas: #272727;
+  --background: #131313;
+  --panel: #1c1c1c;
+  --card: #272727;
+  --strip: #1e1e1e;
+  --popover: #272727;
+  --input: #272727;
+  --secondary: #323232;
+  --tooltip: #272727;
+  --kbd: #323232;
+
+  --foreground: #d7d7d7;
+  --foreground-subtle: color-mix(in oklab, var(--foreground) 60%, transparent);
+  --foreground-subtlest: color-mix(in oklab, var(--foreground) 30%, transparent);
+  --kbd-foreground: #b0b0b0;
+
+  --line: rgb(255 255 255 / 0.1);
+  --line-strong: rgb(255 255 255 / 0.15);
+  --hover: rgb(255 255 255 / 0.05);
+  --selected: rgb(255 255 255 / 0.1);
+  --surface: rgb(255 255 255 / 0.05);
+  --surface-hover: rgb(255 255 255 / 0.1);
+
+  --brand: #92ed92;
+  --brand-ink: #001319;
+  --brand-hover: #bef4be;
+  --brand-text: #92ed92;
+
+  --chart-1: #92ed92;
+  --chart-2: #5fd6ad;
+  --chart-3: #46bfc6;
+  --chart-4: #58a6df;
+  --chart-5: #8c93e8;
+  --success: #46bf72;
+  --warning: #ff8a30;
+  --destructive: #ff5c5c;
+  --info: #80beff;
+  --info-surface: #001d3d;
+}
+
+/*
+ * Jam: Jam Desktop 0.4.10's own dark theme (measured from its window, docs/DESIGN.md "The Jam theme"), with its values
+ * moved a little so it reads as Jam's without the stock look: one hue (250) for the surfaces, the selection and the blue
+ * where Jam's run from 243 to 264; the surfaces on an even ladder; cards a step closer to the page; hairline lines at an
+ * alpha of the ink instead of grey rules; the placeholder grey on the ink's hue; the button blue calmer (Jam's is
+ * #2b4d9d). Each value's OKLCH and the Jam colour it comes from are in DESIGN.md.
+ */
+[data-theme='jam'] {
+  color-scheme: dark;
+  --canvas: #11171d;
+  --background: #0c1217;
+  --panel: #0c1217;
+  --card: #191f26;
+  --strip: #12181e;
+  --popover: #1f252c;
+  --input: #191f26;
+  --secondary: #232a31;
+  --tooltip: #1f252c;
+  --kbd: #232a31;
+
+  --foreground: #e6eaef;
+  /* Quieter inks that still reach 4.5:1 on every Jam surface, the blue selection included (theme-contrast.test.ts). */
+  --foreground-subtle: color-mix(in oklab, var(--foreground) 78%, transparent);
+  --foreground-subtlest: color-mix(in oklab, var(--foreground) 58%, transparent);
+  --kbd-foreground: #b6bcc4;
+
+  --line: rgb(214 228 245 / 0.09);
+  --line-strong: rgb(214 228 245 / 0.14);
+  --hover: rgb(214 228 245 / 0.05);
+  --selected: #1b3145;
+  --surface: rgb(214 228 245 / 0.04);
+  --surface-hover: rgb(214 228 245 / 0.08);
+
+  --brand: #35659d;
+  --brand-ink: #f4f7fa;
+  --brand-hover: #3d6ea4;
+  --brand-text: #90bbed;
+
+  --chart-1: #6abd7e;
+  --chart-2: #4fb4a8;
+  --chart-3: #46a0cc;
+  --chart-4: #5f8fd6;
+  --chart-5: #9084d8;
+  --success: #6abd7e;
+  --warning: #e0af4d;
+  --destructive: #f07167;
+  --info: #90bbed;
+  --info-surface: #16283a;
+
+  --backdrop: rgb(4 8 14 / 0.62);
+  --shadow-popover: 0 8px 24px -6px rgb(0 0 0 / 0.5), 0 2px 6px -2px rgb(0 0 0 / 0.4);
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-background: var(--background);
+  --color-panel: var(--panel);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-strip: var(--strip);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--foreground);
+  --color-input: var(--input);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--foreground);
+  --color-tooltip: var(--tooltip);
+  --color-tooltip-foreground: var(--foreground);
+  --color-kbd: var(--kbd);
+  --color-kbd-foreground: var(--kbd-foreground);
+  --color-foreground: var(--foreground);
+  --color-foreground-subtle: var(--foreground-subtle);
+  --color-foreground-subtlest: var(--foreground-subtlest);
+  --color-muted-foreground: var(--foreground-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-border: var(--line);
+  --color-hover: var(--hover);
+  --color-selected: var(--selected);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-muted: var(--hover);
+  --color-accent: var(--secondary);
+  --color-accent-foreground: var(--foreground);
+  --color-primary: var(--brand);
+  --color-primary-foreground: var(--brand-ink);
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-hover: var(--brand-hover);
+  --color-brand-text: var(--brand-text);
+  --color-jam-mascot-ink: var(--jam-mascot-ink);
+  --color-jam-mascot-eye: var(--jam-mascot-eye);
+  --color-ring: var(--brand-text);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-info: var(--info);
+  --color-info-surface: var(--info-surface);
+  --color-backdrop: var(--backdrop);
+
+  --shadow-popover: var(--shadow-popover);
+
+  /* Interface text follows the app font size setting (Settings -> Appearance), as ZCode's does; icons and layout do not. */
+  --text-ui-xs: calc(var(--ui-font-size) - 4px);
+  --text-ui-sm: calc(var(--ui-font-size) - 2px);
+  --text-ui-caption: calc(var(--ui-font-size) - 1px);
+  --text-ui-base: var(--ui-font-size);
+  --text-ui-lg: calc(var(--ui-font-size) + 2px);
+  --text-ui-xl: calc(var(--ui-font-size) + 4px);
+  /* Page titles are fixed at 30px, as ZCode's are. */
+  --text-ui-title: 30px;
+  --text-ui-title--line-height: 36px;
+  --text-ui-title--letter-spacing: -0.025em;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  /* Before the theme is on <html> (the settings are still loading), the window's own colour shows through. */
+  html:not([data-theme]) body {
+    background: transparent;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-size: var(--ui-font-size);
+    overflow: hidden;
+    -webkit-font-smoothing: antialiased;
+    /* Desktop feel: chrome is not selectable text; content that is opts back in with select-text. */
+    user-select: none;
+    cursor: default;
+  }
+
+  * {
+    border-color: var(--line);
+  }
+
+  button,
+  [role='button'],
+  [role='menuitem'],
+  [role='option'],
+  [role='tab'] {
+    cursor: default;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--brand-text);
+    outline-offset: 1px;
+  }
+
+  /*
+    Keyboard focus always shows on a control, just inside it so no container clips it: most controls turn the outline off
+    (outline-none), and this wins over that for the keyboard only. Text fields show their caret instead, menus and the
+    palette their highlight, the resize handles their own tint, and an element focused only to move focus into it
+    (tabindex -1, such as the room drawer) nothing. A control filled with BAND's green takes the ink instead, as the green
+    ring would vanish on it in the dark theme.
+  */
+  :is(
+      a,
+      button,
+      summary,
+      [role='button'],
+      [role='tab'],
+      [role='switch'],
+      [role='checkbox'],
+      [role='radio'],
+      [tabindex]:not([tabindex='-1'])
+    ):not([role^='menuitem'], [role='option'], [role='separator'], input, textarea, select):focus-visible {
+    outline: 2px solid var(--focus-ring, var(--brand-text)) !important;
+    outline-offset: var(--focus-ring-offset, -2px);
+  }
+
+  .bg-primary,
+  [data-slot='switch'][data-checked] {
+    --focus-ring: var(--brand-ink);
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--brand) 45%, transparent);
+  }
+
+  /* Thin scrollbars that show on a line colour, as ZCode's do. */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: content-box;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility drag-region {
+  app-region: drag;
+}
+
+@utility no-drag {
+  app-region: no-drag;
+}
+
+/* Room for the native caption buttons (minimize, maximize, close) on Windows and Linux; ZCode reserves the same. */
+@utility titlebar-safe-right {
+  padding-right: calc(100vw - env(titlebar-area-x, 0px) - env(titlebar-area-width, 100vw));
+}
+
+/*
+ * Jam's Chat font size (Settings, Appearance): "Additionally scales the conversation transcript. The room
+ * list, panels, and composer follow App font size only." Every interface size derives from --ui-font-size,
+ * so redefining it here scales the conversation and nothing outside it.
+ */
+[data-slot='conversation'] {
+  --ui-font-size: calc(var(--app-font-size) * var(--chat-font-scale));
+}
+
+/*
+ * macOS draws the window's own buttons over its top-left corner (src/main/window.ts: trafficLightPosition 18, 17; the
+ * three take about 52 across). What starts there moves aside: a row at the window's left edge starts after them, the
+ * title bar beside the 48-wide rail starts 30 further in, and the rail's toggle drops below them.
+ */
+[data-platform='darwin'] [data-slot='window-start'] {
+  padding-left: 78px;
+}
+[data-platform='darwin'] [data-slot='window-start-after-rail'] {
+  padding-left: 30px;
+}
+/* A drawer's top row ends in Hide rooms, so on macOS the open drawer is as much wider as its row moved in. */
+[data-platform='darwin'] aside[data-drawer][data-open='true'],
+[data-platform='darwin'] aside[data-drawer][data-open='true'] > div {
+  min-width: calc(var(--sidebar-width) + 70px);
+}
+[data-platform='darwin'] [data-slot='rail-top'] {
+  height: 84px;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,3835 @@
+{
+  "report": {
+    "rows": [
+      {
+        "inputTokens": 80,
+        "outputTokens": 29600,
+        "cacheCreationTokens": 184000,
+        "cacheReadTokens": 5160000,
+        "reasoningTokens": 0,
+        "totalCost": 4.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 4.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-08",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 44,
+            "outputTokens": 16280,
+            "cacheCreationTokens": 101200,
+            "cacheReadTokens": 2838000,
+            "reasoningTokens": 0,
+            "totalCost": 2.48,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 2.48,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 2.48
+          },
+          {
+            "inputTokens": 24,
+            "outputTokens": 8880,
+            "cacheCreationTokens": 55200,
+            "cacheReadTokens": 1548000,
+            "reasoningTokens": 0,
+            "totalCost": 1.24,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.24,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 1.24
+          },
+          {
+            "inputTokens": 7,
+            "outputTokens": 2664,
+            "cacheCreationTokens": 16560,
+            "cacheReadTokens": 464400,
+            "reasoningTokens": 0,
+            "totalCost": 0.28,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.28,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.28
+          },
+          {
+            "inputTokens": 3,
+            "outputTokens": 1184,
+            "cacheCreationTokens": 7360,
+            "cacheReadTokens": 206400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 2,
+            "outputTokens": 592,
+            "cacheCreationTokens": 3680,
+            "cacheReadTokens": 103200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 620,
+        "outputTokens": 229400,
+        "cacheCreationTokens": 1426000,
+        "cacheReadTokens": 39990000,
+        "reasoningTokens": 0,
+        "totalCost": 31.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 31.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-09",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 341,
+            "outputTokens": 126170,
+            "cacheCreationTokens": 784300,
+            "cacheReadTokens": 21994500,
+            "reasoningTokens": 0,
+            "totalCost": 19.22,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 19.22,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 19.22
+          },
+          {
+            "inputTokens": 186,
+            "outputTokens": 68820,
+            "cacheCreationTokens": 427800,
+            "cacheReadTokens": 11997000,
+            "reasoningTokens": 0,
+            "totalCost": 9.61,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 9.61,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 9.61
+          },
+          {
+            "inputTokens": 55,
+            "outputTokens": 20646,
+            "cacheCreationTokens": 128340,
+            "cacheReadTokens": 3599100,
+            "reasoningTokens": 0,
+            "totalCost": 2.17,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 2.17,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 2.17
+          },
+          {
+            "inputTokens": 24,
+            "outputTokens": 9176,
+            "cacheCreationTokens": 57040,
+            "cacheReadTokens": 1599600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 14,
+            "outputTokens": 4588,
+            "cacheCreationTokens": 28520,
+            "cacheReadTokens": 799800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 1920,
+        "outputTokens": 710400,
+        "cacheCreationTokens": 4416000,
+        "cacheReadTokens": 123840000,
+        "reasoningTokens": 0,
+        "totalCost": 96.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 96.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-10",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 1056,
+            "outputTokens": 390720,
+            "cacheCreationTokens": 2428800,
+            "cacheReadTokens": 68112000,
+            "reasoningTokens": 0,
+            "totalCost": 59.52,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 59.52,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 59.52
+          },
+          {
+            "inputTokens": 576,
+            "outputTokens": 213120,
+            "cacheCreationTokens": 1324800,
+            "cacheReadTokens": 37152000,
+            "reasoningTokens": 0,
+            "totalCost": 29.76,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 29.76,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 29.76
+          },
+          {
+            "inputTokens": 172,
+            "outputTokens": 63936,
+            "cacheCreationTokens": 397440,
+            "cacheReadTokens": 11145600,
+            "reasoningTokens": 0,
+            "totalCost": 6.72,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 6.72,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 6.72
+          },
+          {
+            "inputTokens": 76,
+            "outputTokens": 28416,
+            "cacheCreationTokens": 176640,
+            "cacheReadTokens": 4953600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 40,
+            "outputTokens": 14208,
+            "cacheCreationTokens": 88320,
+            "cacheReadTokens": 2476800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 40,
+        "outputTokens": 14800,
+        "cacheCreationTokens": 92000,
+        "cacheReadTokens": 2580000,
+        "reasoningTokens": 0,
+        "totalCost": 2.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 2.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-11",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 22,
+            "outputTokens": 8140,
+            "cacheCreationTokens": 50600,
+            "cacheReadTokens": 1419000,
+            "reasoningTokens": 0,
+            "totalCost": 1.24,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.24,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 1.24
+          },
+          {
+            "inputTokens": 12,
+            "outputTokens": 4440,
+            "cacheCreationTokens": 27600,
+            "cacheReadTokens": 774000,
+            "reasoningTokens": 0,
+            "totalCost": 0.62,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.62,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 0.62
+          },
+          {
+            "inputTokens": 3,
+            "outputTokens": 1332,
+            "cacheCreationTokens": 8280,
+            "cacheReadTokens": 232200,
+            "reasoningTokens": 0,
+            "totalCost": 0.14,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.14,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.14
+          },
+          {
+            "inputTokens": 1,
+            "outputTokens": 592,
+            "cacheCreationTokens": 3680,
+            "cacheReadTokens": 103200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 2,
+            "outputTokens": 296,
+            "cacheCreationTokens": 1840,
+            "cacheReadTokens": 51600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 2960,
+        "outputTokens": 1095200,
+        "cacheCreationTokens": 6808000,
+        "cacheReadTokens": 190920000,
+        "reasoningTokens": 0,
+        "totalCost": 148.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 148.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-12",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 1628,
+            "outputTokens": 602360,
+            "cacheCreationTokens": 3744400,
+            "cacheReadTokens": 105006000,
+            "reasoningTokens": 0,
+            "totalCost": 91.76,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 91.76,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 91.76
+          },
+          {
+            "inputTokens": 888,
+            "outputTokens": 328560,
+            "cacheCreationTokens": 2042400,
+            "cacheReadTokens": 57276000,
+            "reasoningTokens": 0,
+            "totalCost": 45.88,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 45.88,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 45.88
+          },
+          {
+            "inputTokens": 266,
+            "outputTokens": 98568,
+            "cacheCreationTokens": 612720,
+            "cacheReadTokens": 17182800,
+            "reasoningTokens": 0,
+            "totalCost": 10.36,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 10.36,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 10.36
+          },
+          {
+            "inputTokens": 118,
+            "outputTokens": 43808,
+            "cacheCreationTokens": 272320,
+            "cacheReadTokens": 7636800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 60,
+            "outputTokens": 21904,
+            "cacheCreationTokens": 136160,
+            "cacheReadTokens": 3818400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 1420,
+        "outputTokens": 525400,
+        "cacheCreationTokens": 3266000,
+        "cacheReadTokens": 91590000,
+        "reasoningTokens": 0,
+        "totalCost": 71.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 71.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-13",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 781,
+            "outputTokens": 288970,
+            "cacheCreationTokens": 1796300,
+            "cacheReadTokens": 50374500,
+            "reasoningTokens": 0,
+            "totalCost": 44.02,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 44.02,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 44.02
+          },
+          {
+            "inputTokens": 426,
+            "outputTokens": 157620,
+            "cacheCreationTokens": 979800,
+            "cacheReadTokens": 27477000,
+            "reasoningTokens": 0,
+            "totalCost": 22.01,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 22.01,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 22.01
+          },
+          {
+            "inputTokens": 127,
+            "outputTokens": 47286,
+            "cacheCreationTokens": 293940,
+            "cacheReadTokens": 8243100,
+            "reasoningTokens": 0,
+            "totalCost": 4.97,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 4.97,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 4.97
+          },
+          {
+            "inputTokens": 56,
+            "outputTokens": 21016,
+            "cacheCreationTokens": 130640,
+            "cacheReadTokens": 3663600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 30,
+            "outputTokens": 10508,
+            "cacheCreationTokens": 65320,
+            "cacheReadTokens": 1831800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 360,
+        "outputTokens": 133200,
+        "cacheCreationTokens": 828000,
+        "cacheReadTokens": 23220000,
+        "reasoningTokens": 0,
+        "totalCost": 18.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 18.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-14",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 198,
+            "outputTokens": 73260,
+            "cacheCreationTokens": 455400,
+            "cacheReadTokens": 12771000,
+            "reasoningTokens": 0,
+            "totalCost": 11.16,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 11.16,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 11.16
+          },
+          {
+            "inputTokens": 108,
+            "outputTokens": 39960,
+            "cacheCreationTokens": 248400,
+            "cacheReadTokens": 6966000,
+            "reasoningTokens": 0,
+            "totalCost": 5.58,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 5.58,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 5.58
+          },
+          {
+            "inputTokens": 32,
+            "outputTokens": 11988,
+            "cacheCreationTokens": 74520,
+            "cacheReadTokens": 2089800,
+            "reasoningTokens": 0,
+            "totalCost": 1.26,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.26,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 1.26
+          },
+          {
+            "inputTokens": 14,
+            "outputTokens": 5328,
+            "cacheCreationTokens": 33120,
+            "cacheReadTokens": 928800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 8,
+            "outputTokens": 2664,
+            "cacheCreationTokens": 16560,
+            "cacheReadTokens": 464400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 480,
+        "outputTokens": 177600,
+        "cacheCreationTokens": 1104000,
+        "cacheReadTokens": 30960000,
+        "reasoningTokens": 0,
+        "totalCost": 24.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 24.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-15",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 264,
+            "outputTokens": 97680,
+            "cacheCreationTokens": 607200,
+            "cacheReadTokens": 17028000,
+            "reasoningTokens": 0,
+            "totalCost": 14.88,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 14.88,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 14.88
+          },
+          {
+            "inputTokens": 144,
+            "outputTokens": 53280,
+            "cacheCreationTokens": 331200,
+            "cacheReadTokens": 9288000,
+            "reasoningTokens": 0,
+            "totalCost": 7.44,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 7.44,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 7.44
+          },
+          {
+            "inputTokens": 43,
+            "outputTokens": 15984,
+            "cacheCreationTokens": 99360,
+            "cacheReadTokens": 2786400,
+            "reasoningTokens": 0,
+            "totalCost": 1.68,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.68,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 1.68
+          },
+          {
+            "inputTokens": 19,
+            "outputTokens": 7104,
+            "cacheCreationTokens": 44160,
+            "cacheReadTokens": 1238400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 10,
+            "outputTokens": 3552,
+            "cacheCreationTokens": 22080,
+            "cacheReadTokens": 619200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 1040,
+        "outputTokens": 384800,
+        "cacheCreationTokens": 2392000,
+        "cacheReadTokens": 67080000,
+        "reasoningTokens": 0,
+        "totalCost": 52.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 52.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-16",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 572,
+            "outputTokens": 211640,
+            "cacheCreationTokens": 1315600,
+            "cacheReadTokens": 36894000,
+            "reasoningTokens": 0,
+            "totalCost": 32.24,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 32.24,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 32.24
+          },
+          {
+            "inputTokens": 312,
+            "outputTokens": 115440,
+            "cacheCreationTokens": 717600,
+            "cacheReadTokens": 20124000,
+            "reasoningTokens": 0,
+            "totalCost": 16.12,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 16.12,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 16.12
+          },
+          {
+            "inputTokens": 93,
+            "outputTokens": 34632,
+            "cacheCreationTokens": 215280,
+            "cacheReadTokens": 6037200,
+            "reasoningTokens": 0,
+            "totalCost": 3.64,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 3.64,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 3.64
+          },
+          {
+            "inputTokens": 41,
+            "outputTokens": 15392,
+            "cacheCreationTokens": 95680,
+            "cacheReadTokens": 2683200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 22,
+            "outputTokens": 7696,
+            "cacheCreationTokens": 47840,
+            "cacheReadTokens": 1341600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 4100,
+        "outputTokens": 1516999,
+        "cacheCreationTokens": 9430000,
+        "cacheReadTokens": 264449999,
+        "reasoningTokens": 0,
+        "totalCost": 205.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 205.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-17",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 2255,
+            "outputTokens": 834349,
+            "cacheCreationTokens": 5186500,
+            "cacheReadTokens": 145447499,
+            "reasoningTokens": 0,
+            "totalCost": 127.1,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 127.1,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 127.1
+          },
+          {
+            "inputTokens": 1230,
+            "outputTokens": 455099,
+            "cacheCreationTokens": 2829000,
+            "cacheReadTokens": 79334999,
+            "reasoningTokens": 0,
+            "totalCost": 63.55,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 63.55,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 63.55
+          },
+          {
+            "inputTokens": 369,
+            "outputTokens": 136529,
+            "cacheCreationTokens": 848700,
+            "cacheReadTokens": 23800499,
+            "reasoningTokens": 0,
+            "totalCost": 14.35,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 14.35,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 14.35
+          },
+          {
+            "inputTokens": 164,
+            "outputTokens": 60679,
+            "cacheCreationTokens": 377200,
+            "cacheReadTokens": 10577999,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 82,
+            "outputTokens": 30343,
+            "cacheCreationTokens": 188600,
+            "cacheReadTokens": 5289003,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 3260,
+        "outputTokens": 1206200,
+        "cacheCreationTokens": 7497999,
+        "cacheReadTokens": 210270000,
+        "reasoningTokens": 0,
+        "totalCost": 163.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 163.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-18",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 1793,
+            "outputTokens": 663410,
+            "cacheCreationTokens": 4123899,
+            "cacheReadTokens": 115648500,
+            "reasoningTokens": 0,
+            "totalCost": 101.06,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 101.06,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 101.06
+          },
+          {
+            "inputTokens": 978,
+            "outputTokens": 361860,
+            "cacheCreationTokens": 2249399,
+            "cacheReadTokens": 63081000,
+            "reasoningTokens": 0,
+            "totalCost": 50.53,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 50.53,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 50.53
+          },
+          {
+            "inputTokens": 293,
+            "outputTokens": 108558,
+            "cacheCreationTokens": 674819,
+            "cacheReadTokens": 18924300,
+            "reasoningTokens": 0,
+            "totalCost": 11.41,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 11.41,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 11.41
+          },
+          {
+            "inputTokens": 130,
+            "outputTokens": 48248,
+            "cacheCreationTokens": 299919,
+            "cacheReadTokens": 8410800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 66,
+            "outputTokens": 24124,
+            "cacheCreationTokens": 149963,
+            "cacheReadTokens": 4205400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 760,
+        "outputTokens": 281200,
+        "cacheCreationTokens": 1748000,
+        "cacheReadTokens": 49020000,
+        "reasoningTokens": 0,
+        "totalCost": 38.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 38.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-19",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 418,
+            "outputTokens": 154660,
+            "cacheCreationTokens": 961400,
+            "cacheReadTokens": 26961000,
+            "reasoningTokens": 0,
+            "totalCost": 23.56,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 23.56,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 23.56
+          },
+          {
+            "inputTokens": 228,
+            "outputTokens": 84360,
+            "cacheCreationTokens": 524400,
+            "cacheReadTokens": 14706000,
+            "reasoningTokens": 0,
+            "totalCost": 11.78,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 11.78,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 11.78
+          },
+          {
+            "inputTokens": 68,
+            "outputTokens": 25308,
+            "cacheCreationTokens": 157320,
+            "cacheReadTokens": 4411800,
+            "reasoningTokens": 0,
+            "totalCost": 2.66,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 2.66,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 2.66
+          },
+          {
+            "inputTokens": 30,
+            "outputTokens": 11248,
+            "cacheCreationTokens": 69920,
+            "cacheReadTokens": 1960800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 16,
+            "outputTokens": 5624,
+            "cacheCreationTokens": 34960,
+            "cacheReadTokens": 980400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 180,
+        "outputTokens": 66600,
+        "cacheCreationTokens": 414000,
+        "cacheReadTokens": 11610000,
+        "reasoningTokens": 0,
+        "totalCost": 9.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 9.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-20",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 99,
+            "outputTokens": 36630,
+            "cacheCreationTokens": 227700,
+            "cacheReadTokens": 6385500,
+            "reasoningTokens": 0,
+            "totalCost": 5.58,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 5.58,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 5.58
+          },
+          {
+            "inputTokens": 54,
+            "outputTokens": 19980,
+            "cacheCreationTokens": 124200,
+            "cacheReadTokens": 3483000,
+            "reasoningTokens": 0,
+            "totalCost": 2.79,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 2.79,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 2.79
+          },
+          {
+            "inputTokens": 16,
+            "outputTokens": 5994,
+            "cacheCreationTokens": 37260,
+            "cacheReadTokens": 1044900,
+            "reasoningTokens": 0,
+            "totalCost": 0.63,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.63,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.63
+          },
+          {
+            "inputTokens": 7,
+            "outputTokens": 2664,
+            "cacheCreationTokens": 16560,
+            "cacheReadTokens": 464400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 4,
+            "outputTokens": 1332,
+            "cacheCreationTokens": 8280,
+            "cacheReadTokens": 232200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 280,
+        "outputTokens": 103600,
+        "cacheCreationTokens": 644000,
+        "cacheReadTokens": 18060000,
+        "reasoningTokens": 0,
+        "totalCost": 14.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 14.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-21",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 154,
+            "outputTokens": 56980,
+            "cacheCreationTokens": 354200,
+            "cacheReadTokens": 9933000,
+            "reasoningTokens": 0,
+            "totalCost": 8.68,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 8.68,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 8.68
+          },
+          {
+            "inputTokens": 84,
+            "outputTokens": 31080,
+            "cacheCreationTokens": 193200,
+            "cacheReadTokens": 5418000,
+            "reasoningTokens": 0,
+            "totalCost": 4.34,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 4.34,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 4.34
+          },
+          {
+            "inputTokens": 25,
+            "outputTokens": 9324,
+            "cacheCreationTokens": 57960,
+            "cacheReadTokens": 1625400,
+            "reasoningTokens": 0,
+            "totalCost": 0.98,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.98,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.98
+          },
+          {
+            "inputTokens": 11,
+            "outputTokens": 4144,
+            "cacheCreationTokens": 25760,
+            "cacheReadTokens": 722400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 6,
+            "outputTokens": 2072,
+            "cacheCreationTokens": 12880,
+            "cacheReadTokens": 361200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 540,
+        "outputTokens": 199800,
+        "cacheCreationTokens": 1242000,
+        "cacheReadTokens": 34830000,
+        "reasoningTokens": 0,
+        "totalCost": 27.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 27.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-22",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 297,
+            "outputTokens": 109890,
+            "cacheCreationTokens": 683100,
+            "cacheReadTokens": 19156500,
+            "reasoningTokens": 0,
+            "totalCost": 16.74,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 16.74,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 16.74
+          },
+          {
+            "inputTokens": 162,
+            "outputTokens": 59940,
+            "cacheCreationTokens": 372600,
+            "cacheReadTokens": 10449000,
+            "reasoningTokens": 0,
+            "totalCost": 8.37,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 8.37,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 8.37
+          },
+          {
+            "inputTokens": 48,
+            "outputTokens": 17982,
+            "cacheCreationTokens": 111780,
+            "cacheReadTokens": 3134700,
+            "reasoningTokens": 0,
+            "totalCost": 1.89,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.89,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 1.89
+          },
+          {
+            "inputTokens": 21,
+            "outputTokens": 7992,
+            "cacheCreationTokens": 49680,
+            "cacheReadTokens": 1393200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 12,
+            "outputTokens": 3996,
+            "cacheCreationTokens": 24840,
+            "cacheReadTokens": 696600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 120,
+        "outputTokens": 44400,
+        "cacheCreationTokens": 276000,
+        "cacheReadTokens": 7740000,
+        "reasoningTokens": 0,
+        "totalCost": 6.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 6.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-23",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 66,
+            "outputTokens": 24420,
+            "cacheCreationTokens": 151800,
+            "cacheReadTokens": 4257000,
+            "reasoningTokens": 0,
+            "totalCost": 3.72,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 3.72,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 3.72
+          },
+          {
+            "inputTokens": 36,
+            "outputTokens": 13320,
+            "cacheCreationTokens": 82800,
+            "cacheReadTokens": 2322000,
+            "reasoningTokens": 0,
+            "totalCost": 1.86,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.86,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 1.86
+          },
+          {
+            "inputTokens": 10,
+            "outputTokens": 3996,
+            "cacheCreationTokens": 24840,
+            "cacheReadTokens": 696600,
+            "reasoningTokens": 0,
+            "totalCost": 0.42,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.42,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.42
+          },
+          {
+            "inputTokens": 4,
+            "outputTokens": 1776,
+            "cacheCreationTokens": 11040,
+            "cacheReadTokens": 309600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 4,
+            "outputTokens": 888,
+            "cacheCreationTokens": 5520,
+            "cacheReadTokens": 154800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 420,
+        "outputTokens": 155400,
+        "cacheCreationTokens": 966000,
+        "cacheReadTokens": 27090000,
+        "reasoningTokens": 0,
+        "totalCost": 21.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 21.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-24",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 231,
+            "outputTokens": 85470,
+            "cacheCreationTokens": 531300,
+            "cacheReadTokens": 14899500,
+            "reasoningTokens": 0,
+            "totalCost": 13.02,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 13.02,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 13.02
+          },
+          {
+            "inputTokens": 126,
+            "outputTokens": 46620,
+            "cacheCreationTokens": 289800,
+            "cacheReadTokens": 8127000,
+            "reasoningTokens": 0,
+            "totalCost": 6.51,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 6.51,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 6.51
+          },
+          {
+            "inputTokens": 37,
+            "outputTokens": 13986,
+            "cacheCreationTokens": 86940,
+            "cacheReadTokens": 2438100,
+            "reasoningTokens": 0,
+            "totalCost": 1.47,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.47,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 1.47
+          },
+          {
+            "inputTokens": 16,
+            "outputTokens": 6216,
+            "cacheCreationTokens": 38640,
+            "cacheReadTokens": 1083600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 10,
+            "outputTokens": 3108,
+            "cacheCreationTokens": 19320,
+            "cacheReadTokens": 541800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 60,
+        "outputTokens": 22200,
+        "cacheCreationTokens": 138000,
+        "cacheReadTokens": 3870000,
+        "reasoningTokens": 0,
+        "totalCost": 3.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 3.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-25",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 33,
+            "outputTokens": 12210,
+            "cacheCreationTokens": 75900,
+            "cacheReadTokens": 2128500,
+            "reasoningTokens": 0,
+            "totalCost": 1.86,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.86,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 1.86
+          },
+          {
+            "inputTokens": 18,
+            "outputTokens": 6660,
+            "cacheCreationTokens": 41400,
+            "cacheReadTokens": 1161000,
+            "reasoningTokens": 0,
+            "totalCost": 0.93,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.93,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 0.93
+          },
+          {
+            "inputTokens": 5,
+            "outputTokens": 1998,
+            "cacheCreationTokens": 12420,
+            "cacheReadTokens": 348300,
+            "reasoningTokens": 0,
+            "totalCost": 0.21,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.21,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.21
+          },
+          {
+            "inputTokens": 2,
+            "outputTokens": 888,
+            "cacheCreationTokens": 5520,
+            "cacheReadTokens": 154800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 2,
+            "outputTokens": 444,
+            "cacheCreationTokens": 2760,
+            "cacheReadTokens": 77400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 660,
+        "outputTokens": 244200,
+        "cacheCreationTokens": 1518000,
+        "cacheReadTokens": 42570000,
+        "reasoningTokens": 0,
+        "totalCost": 33.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 33.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-26",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 363,
+            "outputTokens": 134310,
+            "cacheCreationTokens": 834900,
+            "cacheReadTokens": 23413500,
+            "reasoningTokens": 0,
+            "totalCost": 20.46,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 20.46,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 20.46
+          },
+          {
+            "inputTokens": 198,
+            "outputTokens": 73260,
+            "cacheCreationTokens": 455400,
+            "cacheReadTokens": 12771000,
+            "reasoningTokens": 0,
+            "totalCost": 10.23,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 10.23,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 10.23
+          },
+          {
+            "inputTokens": 59,
+            "outputTokens": 21978,
+            "cacheCreationTokens": 136620,
+            "cacheReadTokens": 3831300,
+            "reasoningTokens": 0,
+            "totalCost": 2.31,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 2.31,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 2.31
+          },
+          {
+            "inputTokens": 26,
+            "outputTokens": 9768,
+            "cacheCreationTokens": 60720,
+            "cacheReadTokens": 1702800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 14,
+            "outputTokens": 4884,
+            "cacheCreationTokens": 30360,
+            "cacheReadTokens": 851400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 220,
+        "outputTokens": 81400,
+        "cacheCreationTokens": 506000,
+        "cacheReadTokens": 14190000,
+        "reasoningTokens": 0,
+        "totalCost": 11.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 11.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-27",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 121,
+            "outputTokens": 44770,
+            "cacheCreationTokens": 278300,
+            "cacheReadTokens": 7804500,
+            "reasoningTokens": 0,
+            "totalCost": 6.82,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 6.82,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 6.82
+          },
+          {
+            "inputTokens": 66,
+            "outputTokens": 24420,
+            "cacheCreationTokens": 151800,
+            "cacheReadTokens": 4257000,
+            "reasoningTokens": 0,
+            "totalCost": 3.41,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 3.41,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 3.41
+          },
+          {
+            "inputTokens": 19,
+            "outputTokens": 7326,
+            "cacheCreationTokens": 45540,
+            "cacheReadTokens": 1277100,
+            "reasoningTokens": 0,
+            "totalCost": 0.77,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.77,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.77
+          },
+          {
+            "inputTokens": 8,
+            "outputTokens": 3256,
+            "cacheCreationTokens": 20240,
+            "cacheReadTokens": 567600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 6,
+            "outputTokens": 1628,
+            "cacheCreationTokens": 10120,
+            "cacheReadTokens": 283800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 880,
+        "outputTokens": 325600,
+        "cacheCreationTokens": 2024000,
+        "cacheReadTokens": 56760000,
+        "reasoningTokens": 0,
+        "totalCost": 44.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 44.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-02-28",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 484,
+            "outputTokens": 179080,
+            "cacheCreationTokens": 1113200,
+            "cacheReadTokens": 31218000,
+            "reasoningTokens": 0,
+            "totalCost": 27.28,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 27.28,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 27.28
+          },
+          {
+            "inputTokens": 264,
+            "outputTokens": 97680,
+            "cacheCreationTokens": 607200,
+            "cacheReadTokens": 17028000,
+            "reasoningTokens": 0,
+            "totalCost": 13.64,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 13.64,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 13.64
+          },
+          {
+            "inputTokens": 79,
+            "outputTokens": 29304,
+            "cacheCreationTokens": 182160,
+            "cacheReadTokens": 5108400,
+            "reasoningTokens": 0,
+            "totalCost": 3.08,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 3.08,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 3.08
+          },
+          {
+            "inputTokens": 35,
+            "outputTokens": 13024,
+            "cacheCreationTokens": 80960,
+            "cacheReadTokens": 2270400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 18,
+            "outputTokens": 6512,
+            "cacheCreationTokens": 40480,
+            "cacheReadTokens": 1135200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 1160,
+        "outputTokens": 429199,
+        "cacheCreationTokens": 2668000,
+        "cacheReadTokens": 74820000,
+        "reasoningTokens": 0,
+        "totalCost": 58.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 58.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-01",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 638,
+            "outputTokens": 236059,
+            "cacheCreationTokens": 1467400,
+            "cacheReadTokens": 41151000,
+            "reasoningTokens": 0,
+            "totalCost": 35.96,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 35.96,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 35.96
+          },
+          {
+            "inputTokens": 348,
+            "outputTokens": 128759,
+            "cacheCreationTokens": 800400,
+            "cacheReadTokens": 22446000,
+            "reasoningTokens": 0,
+            "totalCost": 17.98,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 17.98,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 17.98
+          },
+          {
+            "inputTokens": 104,
+            "outputTokens": 38627,
+            "cacheCreationTokens": 240120,
+            "cacheReadTokens": 6733800,
+            "reasoningTokens": 0,
+            "totalCost": 4.06,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 4.06,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 4.06
+          },
+          {
+            "inputTokens": 46,
+            "outputTokens": 17167,
+            "cacheCreationTokens": 106720,
+            "cacheReadTokens": 2992800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 24,
+            "outputTokens": 8587,
+            "cacheCreationTokens": 53360,
+            "cacheReadTokens": 1496400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 240,
+        "outputTokens": 88800,
+        "cacheCreationTokens": 552000,
+        "cacheReadTokens": 15480000,
+        "reasoningTokens": 0,
+        "totalCost": 12.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 12.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-02",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 132,
+            "outputTokens": 48840,
+            "cacheCreationTokens": 303600,
+            "cacheReadTokens": 8514000,
+            "reasoningTokens": 0,
+            "totalCost": 7.44,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 7.44,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 7.44
+          },
+          {
+            "inputTokens": 72,
+            "outputTokens": 26640,
+            "cacheCreationTokens": 165600,
+            "cacheReadTokens": 4644000,
+            "reasoningTokens": 0,
+            "totalCost": 3.72,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 3.72,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 3.72
+          },
+          {
+            "inputTokens": 21,
+            "outputTokens": 7992,
+            "cacheCreationTokens": 49680,
+            "cacheReadTokens": 1393200,
+            "reasoningTokens": 0,
+            "totalCost": 0.84,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.84,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.84
+          },
+          {
+            "inputTokens": 9,
+            "outputTokens": 3552,
+            "cacheCreationTokens": 22080,
+            "cacheReadTokens": 619200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 6,
+            "outputTokens": 1776,
+            "cacheCreationTokens": 11040,
+            "cacheReadTokens": 309600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 140,
+        "outputTokens": 51800,
+        "cacheCreationTokens": 322000,
+        "cacheReadTokens": 9030000,
+        "reasoningTokens": 0,
+        "totalCost": 7.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 7.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-03",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 77,
+            "outputTokens": 28490,
+            "cacheCreationTokens": 177100,
+            "cacheReadTokens": 4966500,
+            "reasoningTokens": 0,
+            "totalCost": 4.34,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 4.34,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 4.34
+          },
+          {
+            "inputTokens": 42,
+            "outputTokens": 15540,
+            "cacheCreationTokens": 96600,
+            "cacheReadTokens": 2709000,
+            "reasoningTokens": 0,
+            "totalCost": 2.17,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 2.17,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 2.17
+          },
+          {
+            "inputTokens": 12,
+            "outputTokens": 4662,
+            "cacheCreationTokens": 28980,
+            "cacheReadTokens": 812700,
+            "reasoningTokens": 0,
+            "totalCost": 0.49,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.49,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 0.49
+          },
+          {
+            "inputTokens": 5,
+            "outputTokens": 2072,
+            "cacheCreationTokens": 12880,
+            "cacheReadTokens": 361200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 4,
+            "outputTokens": 1036,
+            "cacheCreationTokens": 6440,
+            "cacheReadTokens": 180600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 380,
+        "outputTokens": 140600,
+        "cacheCreationTokens": 874000,
+        "cacheReadTokens": 24510000,
+        "reasoningTokens": 0,
+        "totalCost": 19.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 19.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-04",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 209,
+            "outputTokens": 77330,
+            "cacheCreationTokens": 480700,
+            "cacheReadTokens": 13480500,
+            "reasoningTokens": 0,
+            "totalCost": 11.78,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 11.78,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 11.78
+          },
+          {
+            "inputTokens": 114,
+            "outputTokens": 42180,
+            "cacheCreationTokens": 262200,
+            "cacheReadTokens": 7353000,
+            "reasoningTokens": 0,
+            "totalCost": 5.89,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 5.89,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 5.89
+          },
+          {
+            "inputTokens": 34,
+            "outputTokens": 12654,
+            "cacheCreationTokens": 78660,
+            "cacheReadTokens": 2205900,
+            "reasoningTokens": 0,
+            "totalCost": 1.33,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 1.33,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 1.33
+          },
+          {
+            "inputTokens": 15,
+            "outputTokens": 5624,
+            "cacheCreationTokens": 34960,
+            "cacheReadTokens": 980400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 8,
+            "outputTokens": 2812,
+            "cacheCreationTokens": 17480,
+            "cacheReadTokens": 490200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 1720,
+        "outputTokens": 636400,
+        "cacheCreationTokens": 3956000,
+        "cacheReadTokens": 110940000,
+        "reasoningTokens": 0,
+        "totalCost": 86.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 86.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-05",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 946,
+            "outputTokens": 350020,
+            "cacheCreationTokens": 2175800,
+            "cacheReadTokens": 61017000,
+            "reasoningTokens": 0,
+            "totalCost": 53.32,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 53.32,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 53.32
+          },
+          {
+            "inputTokens": 516,
+            "outputTokens": 190920,
+            "cacheCreationTokens": 1186800,
+            "cacheReadTokens": 33282000,
+            "reasoningTokens": 0,
+            "totalCost": 26.66,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 26.66,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 26.66
+          },
+          {
+            "inputTokens": 154,
+            "outputTokens": 57276,
+            "cacheCreationTokens": 356040,
+            "cacheReadTokens": 9984600,
+            "reasoningTokens": 0,
+            "totalCost": 6.02,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 6.02,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 6.02
+          },
+          {
+            "inputTokens": 68,
+            "outputTokens": 25456,
+            "cacheCreationTokens": 158240,
+            "cacheReadTokens": 4437600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 36,
+            "outputTokens": 12728,
+            "cacheCreationTokens": 79120,
+            "cacheReadTokens": 2218800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 2240,
+        "outputTokens": 828800,
+        "cacheCreationTokens": 5152000,
+        "cacheReadTokens": 144480000,
+        "reasoningTokens": 0,
+        "totalCost": 112.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 112.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-06",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 1232,
+            "outputTokens": 455840,
+            "cacheCreationTokens": 2833600,
+            "cacheReadTokens": 79464000,
+            "reasoningTokens": 0,
+            "totalCost": 69.44,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 69.44,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 69.44
+          },
+          {
+            "inputTokens": 672,
+            "outputTokens": 248640,
+            "cacheCreationTokens": 1545600,
+            "cacheReadTokens": 43344000,
+            "reasoningTokens": 0,
+            "totalCost": 34.72,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 34.72,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 34.72
+          },
+          {
+            "inputTokens": 201,
+            "outputTokens": 74592,
+            "cacheCreationTokens": 463680,
+            "cacheReadTokens": 13003200,
+            "reasoningTokens": 0,
+            "totalCost": 7.84,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 7.84,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 7.84
+          },
+          {
+            "inputTokens": 89,
+            "outputTokens": 33152,
+            "cacheCreationTokens": 206080,
+            "cacheReadTokens": 5779200,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 46,
+            "outputTokens": 16576,
+            "cacheCreationTokens": 103040,
+            "cacheReadTokens": 2889600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 820,
+        "outputTokens": 303400,
+        "cacheCreationTokens": 1886000,
+        "cacheReadTokens": 52890000,
+        "reasoningTokens": 0,
+        "totalCost": 41.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 41.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-07",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 451,
+            "outputTokens": 166870,
+            "cacheCreationTokens": 1037300,
+            "cacheReadTokens": 29089500,
+            "reasoningTokens": 0,
+            "totalCost": 25.42,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 25.42,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 25.42
+          },
+          {
+            "inputTokens": 246,
+            "outputTokens": 91020,
+            "cacheCreationTokens": 565800,
+            "cacheReadTokens": 15867000,
+            "reasoningTokens": 0,
+            "totalCost": 12.71,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 12.71,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 12.71
+          },
+          {
+            "inputTokens": 73,
+            "outputTokens": 27306,
+            "cacheCreationTokens": 169740,
+            "cacheReadTokens": 4760100,
+            "reasoningTokens": 0,
+            "totalCost": 2.87,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 2.87,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 2.87
+          },
+          {
+            "inputTokens": 32,
+            "outputTokens": 12136,
+            "cacheCreationTokens": 75440,
+            "cacheReadTokens": 2115600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 18,
+            "outputTokens": 6068,
+            "cacheCreationTokens": 37720,
+            "cacheReadTokens": 1057800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 1520,
+        "outputTokens": 562400,
+        "cacheCreationTokens": 3496000,
+        "cacheReadTokens": 98040000,
+        "reasoningTokens": 0,
+        "totalCost": 76.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 76.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-08",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 836,
+            "outputTokens": 309320,
+            "cacheCreationTokens": 1922800,
+            "cacheReadTokens": 53922000,
+            "reasoningTokens": 0,
+            "totalCost": 47.12,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 47.12,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 47.12
+          },
+          {
+            "inputTokens": 456,
+            "outputTokens": 168720,
+            "cacheCreationTokens": 1048800,
+            "cacheReadTokens": 29412000,
+            "reasoningTokens": 0,
+            "totalCost": 23.56,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 23.56,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 23.56
+          },
+          {
+            "inputTokens": 136,
+            "outputTokens": 50616,
+            "cacheCreationTokens": 314640,
+            "cacheReadTokens": 8823600,
+            "reasoningTokens": 0,
+            "totalCost": 5.32,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 5.32,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 5.32
+          },
+          {
+            "inputTokens": 60,
+            "outputTokens": 22496,
+            "cacheCreationTokens": 139840,
+            "cacheReadTokens": 3921600,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 32,
+            "outputTokens": 11248,
+            "cacheCreationTokens": 69920,
+            "cacheReadTokens": 1960800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      },
+      {
+        "inputTokens": 2660,
+        "outputTokens": 984200,
+        "cacheCreationTokens": 6118000,
+        "cacheReadTokens": 171570000,
+        "reasoningTokens": 0,
+        "totalCost": 133.0,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 133.0,
+            "missingPricing": false
+          }
+        ],
+        "period": "2026-03-09",
+        "archived": false,
+        "models": [
+          {
+            "inputTokens": 1463,
+            "outputTokens": 541310,
+            "cacheCreationTokens": 3364900,
+            "cacheReadTokens": 94363500,
+            "reasoningTokens": 0,
+            "totalCost": 82.46,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 82.46,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-opus-5",
+            "cost": 82.46
+          },
+          {
+            "inputTokens": 798,
+            "outputTokens": 295260,
+            "cacheCreationTokens": 1835400,
+            "cacheReadTokens": 51471000,
+            "reasoningTokens": 0,
+            "totalCost": 41.23,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 41.23,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-sonnet-5",
+            "cost": 41.23
+          },
+          {
+            "inputTokens": 239,
+            "outputTokens": 88578,
+            "cacheCreationTokens": 550620,
+            "cacheReadTokens": 15441300,
+            "reasoningTokens": 0,
+            "totalCost": 9.31,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 9.31,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "claude-haiku-4-5",
+            "cost": 9.31
+          },
+          {
+            "inputTokens": 106,
+            "outputTokens": 39368,
+            "cacheCreationTokens": 244720,
+            "cacheReadTokens": 6862800,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": false,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": false
+              }
+            ],
+            "provider": "claudecode",
+            "model": "openrouter/mini:free",
+            "cost": 0.0
+          },
+          {
+            "inputTokens": 54,
+            "outputTokens": 19684,
+            "cacheCreationTokens": 122360,
+            "cacheReadTokens": 3431400,
+            "reasoningTokens": 0,
+            "totalCost": 0.0,
+            "missingPricing": true,
+            "pricing": [
+              {
+                "costKind": "estimated_equivalent",
+                "currency": "USD",
+                "source": "usage_import",
+                "amountUsd": 0.0,
+                "missingPricing": true
+              }
+            ],
+            "provider": "claudecode",
+            "model": "local/qwen-coder-32b",
+            "cost": 0.0
+          }
+        ]
+      }
+    ],
+    "blocks": [],
+    "totals": {
+      "inputTokens": 31280,
+      "outputTokens": 11573598,
+      "cacheCreationTokens": 71943999,
+      "cacheReadTokens": 2017559999,
+      "reasoningTokens": 0,
+      "totalCost": 1564.0,
+      "missingPricing": false,
+      "pricing": [
+        {
+          "costKind": "estimated_equivalent",
+          "currency": "USD",
+          "source": "usage_import",
+          "amountUsd": 1564.0,
+          "missingPricing": false
+        }
+      ]
+    }
+  }
+}

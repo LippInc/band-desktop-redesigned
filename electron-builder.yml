@@ -1,0 +1,28 @@
+# Packaging. `pnpm dist:win` builds an unsigned NSIS installer into dist/. Windows is the only packaged target; macOS and
+# Linux run from source. The identity is this app's own: never "Jam" or "Jam Desktop", never Jam's folders, URL protocol
+# or file types (README, "What this app never does"). Signing, auto-update and publishing are absent: the owner's call.
+appId: com.jamredesign.desktop
+productName: Jam Redesign
+copyright: Copyright © 2026 Martin Lipp
+directories:
+  buildResources: build
+  output: dist
+files:
+  - out/**/*
+  - package.json
+  - '!**/*.map'
+asar: true
+npmRebuild: false
+afterPack: scripts/after-pack.cjs
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: build/icon.ico
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
+  shortcutName: Jam Redesign
+  artifactName: Jam-Redesign-${version}-setup-${arch}.${ext}
+publish: null

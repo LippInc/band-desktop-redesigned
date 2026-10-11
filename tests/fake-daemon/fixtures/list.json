@@ -1,0 +1,100 @@
+{
+  "peers": [
+    {
+      "peer": {
+        "scope": "atlas",
+        "profile": "default",
+        "cwd": "/work/atlas",
+        "agent_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+        "agent_name": "Atlas",
+        "handle": "sam-rivera/atlas",
+        "host": "claudecode",
+        "started_at": 1789740000000,
+        "identity_class": "owned",
+        "host_sessions": [
+          {
+            "id": "default",
+            "room": "",
+            "provider": "claudecode",
+            "agent_session_id": "",
+            "provider_session_id": "",
+            "window_pid": null,
+            "runtime_template_id": "",
+            "runtime_host_id": "",
+            "host_pid": 0,
+            "presence": "unknown",
+            "binding": "detached",
+            "last_activity_at": 1789740000000,
+            "last_seen_at": null
+          },
+          {
+            "id": "default-5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+            "room": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+            "provider": "claudecode",
+            "agent_session_id": "3f5a7c9e-1b3d-4f5a-8c7e-9d1b3f5a7c9e",
+            "provider_session_id": "3f5a7c9e-1b3d-4f5a-8c7e-9d1b3f5a7c9e",
+            "window_pid": null,
+            "runtime_template_id": "default",
+            "runtime_host_id": "",
+            "host_pid": 24188,
+            "presence": "live",
+            "binding": "bound",
+            "last_activity_at": 1789763900000,
+            "last_seen_at": 1789763940000
+          },
+          {
+            "id": "default-c7e9a1b3-5d7f-4a2c-9e4b-6d8f0a2c4e61",
+            "room": "c7e9a1b3-5d7f-4a2c-9e4b-6d8f0a2c4e61",
+            "provider": "claudecode",
+            "agent_session_id": "6b8d0f2a-4c6e-4a8c-0e2b-4d6f8a0c2e46",
+            "provider_session_id": "6b8d0f2a-4c6e-4a8c-0e2b-4d6f8a0c2e46",
+            "window_pid": null,
+            "runtime_template_id": "default",
+            "runtime_host_id": "",
+            "host_pid": 24512,
+            "presence": "live",
+            "binding": "bound",
+            "last_activity_at": 1789763880000,
+            "last_seen_at": 1789763930000
+          }
+        ]
+      },
+      "state": "connected",
+      "running": true,
+      "warning": ""
+    },
+    {
+      "peer": {
+        "scope": "nova",
+        "profile": "default",
+        "cwd": "/work/nova",
+        "agent_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+        "agent_name": "Nova",
+        "handle": "sam-rivera/nova",
+        "host": "claudecode",
+        "started_at": 1789650000000,
+        "identity_class": "owned",
+        "host_sessions": [
+          {
+            "id": "default-8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f",
+            "room": "8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f",
+            "provider": "claudecode",
+            "agent_session_id": "0e2b4d6f-8a0c-4e46-8b0d-2f4a6c8e0b24",
+            "provider_session_id": "0e2b4d6f-8a0c-4e46-8b0d-2f4a6c8e0b24",
+            "window_pid": null,
+            "runtime_template_id": "default",
+            "runtime_host_id": "",
+            "host_pid": 0,
+            "presence": "unknown",
+            "binding": "detached",
+            "last_activity_at": 1789660000000,
+            "last_seen_at": null
+          }
+        ]
+      },
+      "state": "disconnected",
+      "running": false,
+      "warning": ""
+    }
+  ]
+}

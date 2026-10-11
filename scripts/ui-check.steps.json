@@ -1,0 +1,3690 @@
+[
+  {
+    "cdp": "Emulation.setEmulatedMedia",
+    "params": {
+      "features": [
+        {
+          "name": "prefers-reduced-motion",
+          "value": "reduce"
+        }
+      ]
+    }
+  },
+  {
+    "wait": 1500
+  },
+  {
+    "eval": "new Promise((resolve, reject) => { const start = Date.now(); const tick = () => { if (document.querySelector('aside[aria-label=Sidebar]')) resolve(innerWidth + 'x' + innerHeight + ' after ' + (Date.now() - start) + ' ms'); else if (Date.now() - start > 15000) reject(new Error('no sidebar after 15 s')); else setTimeout(tick, 100) }; tick() })"
+  },
+  {
+    "eval": "window.jam.daemon.getStatus().then((s) => { if (s.state !== 'connected') throw new Error('not connected to the fake daemon: ' + JSON.stringify(s)); return s })"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent !== 'Assign work') throw new Error('Home is not titled with Jam\\'s Assign work: ' + (h && h.textContent)); return h.textContent })()"
+  },
+  {
+    "eval": "(() => { const s = document.querySelector('main section[aria-labelledby=assign-work]'); const m = s && s.firstElementChild; if (!m || m.tagName.toLowerCase() !== 'svg') throw new Error('Jam\\'s mascot does not sit above Assign work: ' + (m && m.tagName)); const b = m.getBoundingClientRect(); if (Math.round(b.width) !== 56 || Math.round(b.height) !== 56) throw new Error('the mascot is not 56 across, as Jam draws it: ' + b.width + 'x' + b.height); const stop = getComputedStyle(m.querySelector('stop')).stopColor; if (stop !== 'rgb(119, 232, 119)') throw new Error('the mascot does not carry BAND\\'s own green: ' + stop); return 'mascot ' + Math.round(b.width) + ' across' })()"
+  },
+  {
+    "eval": "(() => { const rows = [...document.querySelectorAll('main ul[aria-label=\"Needs attention\"] a')].map((a) => a.getAttribute('aria-label')); const want = ['Checkout flow redesign: Waiting for your approval', 'Checkout flow redesign: An agent asked a question']; if (rows.join('|') !== want.join('|')) throw new Error('Needs attention is not approvals, then questions: ' + rows.join('|')); const group = document.querySelector('main section[aria-label=\"Checkout flow redesign\"] button'); if (!group || group.textContent !== 'Checkout flow redesign (4)') throw new Error('Active work does not group the room\\'s open tasks: ' + (group && group.textContent)); if (!document.querySelector('main ul[aria-label=\"Recent rooms\"]')) throw new Error('no Recent rooms'); return 'Home: ' + rows.length + ' waiting, work by room' })()"
+  },
+  {
+    "eval": "(() => { if (!document.querySelector('nav[aria-label=Network] [role=img][aria-label=\"Discovery on\"]')) throw new Error('no Sonar dot, though the fixture computer is discoverable'); return 'Sonar dot shown' })()"
+  },
+  {
+    "eval": "(() => { const toggles = document.querySelectorAll('aside[aria-label=Sidebar] > div:first-child button[aria-label=\"Toggle sidebar\"]'); if (toggles.length !== 1) throw new Error('the open sidebar should show Jam\\'s Toggle sidebar once: ' + toggles.length); return 'toggle shown' })()"
+  },
+  {
+    "shot": "home-dark"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const stop = getComputedStyle(document.querySelector('main section[aria-labelledby=assign-work] stop')).stopColor; if (stop !== 'rgb(119, 232, 119)') throw new Error('the mascot follows the theme, though it is BAND\\'s logo and keeps their colours: ' + stop); return 'mascot keeps BAND\\'s green in Light' })()"
+  },
+  {
+    "shot": "home-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "click": "main section[aria-labelledby=assign-work] button[aria-haspopup]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const text = document.querySelector(\"[role=menu]\").textContent; const wanted = [\"My agents\", \"Attached · available now\", \"Ready · Band starts it\"]; for (const words of wanted) if (!text.includes(words)) throw new Error(\"the agent control is missing: \" + words); return \"the agent control, with readiness beside each agent\" })()"
+  },
+  {
+    "shot": "home-agent-menu-agents-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const chips = [...document.querySelectorAll(\"main section[aria-labelledby=assign-work] button[aria-pressed]\")]; if (chips.length > 0) { chips[0].click(); return chips.length + \" recent-agent chips, the first chosen\" } const items = [...document.querySelectorAll(\"[role=menuitem]\")]; const agent = items.find((i) => /Attached|Ready|Needs setup/.test(i.textContent)); if (!agent) throw new Error(\"no agent to choose in the control: \" + items.map((i) => i.textContent).join(\"|\")); agent.click(); return \"no recent agent yet, so one was chosen from My agents\" })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const panel = document.querySelector(\"main section[aria-labelledby=assign-work]\"); const text = panel.textContent; if (!/Attached|Ready|Needs setup/.test(text)) throw new Error(\"the composer does not say the readiness of the agent chosen\"); const send = panel.querySelector(\"button[aria-label=\\\"Assign work\\\"]\"); if (!send.disabled) throw new Error(\"Assign work is live with no instruction written\"); return \"an agent chosen, Assign work still off until something is written\" })()"
+  },
+  {
+    "shot": "home-agent-chosen-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/agent-list",
+      {
+        "list": {
+          "rows": [],
+          "remote": "Fresh",
+          "org_name": null
+        }
+      }
+    ]
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/roomWorkSnapshot",
+      {
+        "snapshot": {
+          "boards": [],
+          "lanes": []
+        }
+      }
+    ]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "peer": "human/default",
+        "kind": {
+          "kind": "inbox_snapshot",
+          "profile": "default",
+          "snapshot": {
+            "account_instance": "fixture-instance",
+            "account_generation": 1,
+            "direct_mentions": [],
+            "attention_overflow_count": 0,
+            "attention_truncated_count": 0,
+            "mentions": [],
+            "open_questions_by_task": {},
+            "accepted_question_replies": [],
+            "accepted_question_replies_revision": 0,
+            "pending_permissions": [],
+            "read_ids": [],
+            "done_ids": [],
+            "recovery": {
+              "state": "idle",
+              "detail": "",
+              "completed_rooms": 0,
+              "total_rooms": 0
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "wait": 1500
+  },
+  {
+    "wait": 1500
+  },
+  {
+    "eval": "(() => { const text = document.querySelector('main').textContent; for (const words of ['All clear', 'Nothing is waiting on you', 'No agents yet', 'Create an agent', 'Choose who does the work', 'Recent rooms', 'No rooms yet. Assigning work creates the first one.']) if (!text.includes(words)) throw new Error('Home without agents is missing the words: ' + words); return 'Home without agents, in the official words' })()"
+  },
+  {
+    "shot": "home-noagents-dark"
+  },
+  {
+    "click": "main section[aria-labelledby=assign-work] button[aria-haspopup]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll('[role=menuitem]')].map((i) => i.textContent); if (items.join('|') !== 'Create an agent…') throw new Error('the agent menu is not Jam\\'s for an account without agents: ' + items.join('|')); return items.join(', ') })()"
+  },
+  {
+    "shot": "home-agent-menu-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 300
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/agent-list"]
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/roomWorkSnapshot"]
+  },
+  {
+    "fake": "emitFirst"
+  },
+  {
+    "wait": 1500
+  },
+  {
+    "eval": "(() => { if (document.querySelectorAll('main ul[aria-label=\"Needs attention\"] a').length !== 2 || !document.querySelector('main section[aria-label=\"Checkout flow redesign\"]')) throw new Error('the agents did not come back'); return 'agents back' })()"
+  },
+  {
+    "eval": "(location.hash = '#/rooms', '#/rooms')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Rooms\") throw new Error('expected the page title Rooms, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "shot": "rooms-dark"
+  },
+  {
+    "click": "aside[aria-label=Sidebar] button[aria-label=\"Filter and search rooms\"]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const field = document.querySelector(\"[data-slot=popover-content] input\"); if (!field) throw new Error(\"the room filter did not open\"); if (field.getAttribute(\"placeholder\") !== \"Rooms, participants, id\") throw new Error(\"the filter field is not Jam word for word: \" + field.getAttribute(\"placeholder\")); const panel = field.closest(\"[data-slot=popover-content]\").textContent; for (const words of [\"Show\", \"Owned by me\", \"a member\", \"Owned by my agent\", \"Has my agents\"]) if (!panel.includes(words)) throw new Error(\"the room filter is missing: \" + words); const on = [...document.querySelectorAll(\"[role=checkbox]\")].filter((b) => b.getAttribute(\"aria-checked\") === \"true\"); if (on.length !== 4) throw new Error(\"the filter does not open with four switches on: \" + on.length); return \"the room filter, four switches, all on\" })()"
+  },
+  {
+    "shot": "rooms-filter-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { if (document.querySelector(\"[role=menuitem]\")) return \"the menu is already open\"; const row = document.querySelector(\"aside[aria-label=Sidebar] li[class*=group]\"); if (!row) throw new Error(\"no room row\"); const actions = row.querySelector(\"button[aria-label=\\\"Session actions\\\"]\"); if (!actions) throw new Error(\"no Session actions\"); actions.click(); return \"opened\" })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll('[role=menuitem]')].map((i) => i.textContent.trim()); const want = 'Rename|Pin|Move to folder|New with same participants|Delete room'; if (items.join('|') !== want) throw new Error('Session actions is not Jam’s menu: ' + items.join('|')); const seps = document.querySelectorAll('[role=menu] [role=separator], [role=menu] [data-slot=dropdown-menu-separator]'); if (seps.length !== 2) throw new Error('Jam’s menu has two separators, this one has ' + seps.length); return items.join(', ') })()"
+  },
+  {
+    "shot": "rooms-session-actions-dark"
+  },
+  {
+    "eval": "(() => { if (document.querySelector(\"[role=menuitem]\")) return \"the menu is already open\"; const row = document.querySelector(\"aside[aria-label=Sidebar] li[class*=group]\"); if (!row) throw new Error(\"no room row\"); const actions = row.querySelector(\"button[aria-label=\\\"Session actions\\\"]\"); if (!actions) throw new Error(\"no Session actions\"); actions.click(); return \"opened\" })()"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll(\"[role=menuitem]\")]; if (items.length === 0) throw new Error(\"the Session actions menu did not open\"); const del = items.find((i) => i.textContent.trim() === \"Delete room\"); if (!del) throw new Error(\"no Delete room among: \" + items.map((i) => i.textContent.trim()).join(\"|\")); if (del.getAttribute(\"data-disabled\") !== null || del.getAttribute(\"aria-disabled\") === \"true\") return \"Delete room is off: this account does not own that room\"; del.click(); return \"Delete room opened\" })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const dialog = document.querySelector(\"[role=dialog]\"); if (!dialog) return \"no dialog: the row was not the owner\\u2019s\"; const text = dialog.textContent; if (!text.includes(\"Delete this room?\")) throw new Error(\"the dialog is not the delete one: \" + text.slice(0, 60)); if (!text.includes(\"cannot be undone\")) throw new Error(\"the dialog does not say it cannot be undone\"); const buttons = [...dialog.querySelectorAll(\"button\")].map((b) => b.textContent.trim()); if (!buttons.includes(\"Cancel\")) throw new Error(\"the delete dialog cannot be cancelled\"); return \"the Delete room dialog, with Cancel\" })()"
+  },
+  {
+    "shot": "rooms-delete-dialog-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/agents', '#/agents')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Agents\") throw new Error('expected the page title Agents, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "shot": "agents-dark"
+  },
+  {
+    "click": "main ul li button[aria-label^=\"Open \"]"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const tabs = [...document.querySelectorAll(\"[role=tab]\")].map((t) => t.textContent.trim()); if (tabs.join(\"|\") !== \"Overview|Sessions|Permissions|Runtime|Rooms|Work|Info\") throw new Error(\"the agent detail does not carry the six tabs: \" + tabs.join(\"|\")); return tabs.join(\", \") })()"
+  },
+  {
+    "shot": "agent-overview-dark"
+  },
+  {
+    "eval": "(() => { const t = [...document.querySelectorAll(\"[role=tab]\")].find((x) => x.textContent.trim() === \"Sessions\"); if (!t) throw new Error(\"no Sessions tab\"); t.click(); return \"Sessions\" })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector(\"main\"); const card = main.querySelector(\"section[aria-label=Sessions]\"); if (!card) throw new Error(\"the Sessions tab drew no card\"); if (card.textContent.trim() === \"\") throw new Error(\"the Sessions tab is blank\"); return \"Sessions: \" + card.textContent.slice(0, 40) })()"
+  },
+  {
+    "shot": "agent-sessions-dark"
+  },
+  {
+    "eval": "(() => { const t = [...document.querySelectorAll(\"[role=tab]\")].find((x) => x.textContent.trim() === \"Rooms\"); if (!t) throw new Error(\"no Rooms tab\"); t.click(); return \"Rooms\" })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector(\"main\"); const card = main.querySelector(\"section[aria-label=Rooms]\"); if (!card) throw new Error(\"the Rooms tab drew no card\"); if (card.textContent.trim() === \"\") throw new Error(\"the Rooms tab is blank\"); return \"Rooms: \" + card.textContent.slice(0, 40) })()"
+  },
+  {
+    "shot": "agent-rooms-dark"
+  },
+  {
+    "eval": "(() => { const t = [...document.querySelectorAll(\"[role=tab]\")].find((x) => x.textContent.trim() === \"Work\"); if (!t) throw new Error(\"no Work tab\"); t.click(); return \"Work\" })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector(\"main\"); const card = main.querySelector(\"section[aria-label=Work]\"); if (!card) throw new Error(\"the Work tab drew no card\"); if (card.textContent.trim() === \"\") throw new Error(\"the Work tab is blank\"); return \"Work: \" + card.textContent.slice(0, 40) })()"
+  },
+  {
+    "shot": "agent-work-dark"
+  },
+  {
+    "eval": "(() => { const tab = [...document.querySelectorAll('[role=tab]')].find((t) => t.textContent.trim() === 'Runtime'); tab.click(); return 'Runtime' })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const text = document.querySelector(\"main\").textContent; const wanted = [\"Model\", \"Reasoning effort\", \"Approval policy\", \"Sandbox policy\"]; for (const words of wanted) if (!text.includes(words)) throw new Error(\"the Runtime tab is missing: \" + words); for (const shard of [\".exe\", \"/workspace\", String.fromCharCode(92)]) if (text.includes(shard)) throw new Error(\"the Runtime tab shows a path or a command: \" + shard); return \"the Runtime tab, with no path or command on it\" })()"
+  },
+  {
+    "shot": "agent-runtime-dark"
+  },
+  {
+    "eval": "(() => { const tab = [...document.querySelectorAll('[role=tab]')].find((t) => t.textContent.trim() === 'Info'); tab.click(); return 'Info' })()"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "shot": "agent-info-dark"
+  },
+  {
+    "eval": "(() => { const back = [...document.querySelectorAll('main button')].find((b) => b.textContent.trim() === 'Agents'); if (!back) throw new Error('the agent detail has no way back'); back.click(); return 'back to the list' })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(location.hash = '#/analytics', '#/analytics')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.querySelector('h1')) throw new Error('Analytics carries a page title, which Jam gives it none of'); const tabs = [...main.querySelectorAll('[aria-label=\"Analytics views\"] button')].map((b) => b.textContent); if (tabs.join('|') !== 'Activity|Usage & Cost') throw new Error('not Jam\\'s two tabs: ' + tabs.join('|')); const ranges = [...main.querySelectorAll('[aria-label=Range] button')].map((b) => b.textContent); if (ranges.join('|') !== 'Today|Yesterday|7D|30D|3M|6M|12M') throw new Error('not Jam\\'s ranges: ' + ranges.join('|')); const cells = [...main.querySelectorAll('section[aria-label=Totals] [data-slot=stat]')]; const cards = cells.map((d) => d.children[1].textContent); const want = ['Local Agents','Remote Agents','Chat Rooms','Executions','Activity','You Sent','You Received']; if (cards.join('|') !== want.join('|')) throw new Error('not Jam\\'s seven cards, in order: ' + cards.join('|')); const grid = cells[0].parentElement; const rows = new Map(); for (const cell of cells) { const top = Math.round(cell.offsetTop); rows.set(top, (rows.get(top) ?? 0) + cell.offsetWidth) } for (const [top, width] of rows) if (Math.abs(width - grid.clientWidth) > 2) throw new Error('a row of the strip is short: ' + width + ' of ' + grid.clientWidth + ' at y' + top); const widths = cells.map((cell) => cell.offsetWidth); const one = Math.min(...widths); for (const width of widths) if (Math.abs(width - one) > 2 && Math.abs(width - one * 2) > 2) throw new Error('a cell of the strip is neither one column nor two: ' + width + ' of ' + one); const strip = main.querySelector('section[aria-label=Totals]').textContent; for (const words of ['165','128','37','avg / 5h window pending'])  if (!strip.includes(words)) throw new Error('the strip does not say ' + words + ': ' + strip); const charts = [...main.querySelectorAll('svg[role=img]')].length; if (charts < 4) throw new Error('fewer charts than Activity draws: ' + charts); const fold = [...main.querySelectorAll('button')].find((b) => b.textContent.startsWith('Per-agent summary')); if (!fold) throw new Error('Per-agent summary does not fold, as Jam does'); if (fold.getAttribute('aria-expanded') !== 'true') throw new Error('Per-agent summary does not open to begin with'); if (!/Per-agent summary\\d/.test(fold.textContent)) throw new Error('the fold carries no count: ' + fold.textContent); return 'Activity: ' + cards.length + ' cards, ' + charts + ' charts, fold ' + fold.textContent })()"
+  },
+  {
+    "eval": "(() => { const chart = document.querySelector('svg[aria-label^=\"Messages per type\"]'); const before = new Set([...chart.querySelectorAll('rect')].map((r) => r.getAttribute('class'))); if (!before.has('fill-chart-1')) throw new Error('the first type is not drawn in the first chart colour'); return [...before].sort().join(',') })()"
+  },
+  {
+    "click": "[aria-label=\"Message types shown\"] button:nth-child(1)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const chart = document.querySelector('svg[aria-label^=\"Messages per type\"]'); const after = new Set([...chart.querySelectorAll('rect')].map((r) => r.getAttribute('class'))); if (after.has('fill-chart-1'))  throw new Error('a hidden series handed its colour on, so the names under the chart no longer match it'); if (!after.has('fill-chart-5')) throw new Error('the last type lost its own colour: ' + [...after].join(',')); return 'colours stay with their names: ' + [...after].sort().join(',') })()"
+  },
+  {
+    "click": "[aria-label=\"Message types shown\"] button:nth-child(1)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "analytics-dark"
+  },
+  {
+    "click": "[aria-label=\"Analytics views\"] button:nth-child(2)"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const text = main.textContent; for (const words of ['Local coding-agent usage on this machine',  'Catalog estimate only \\u2014 not a provider invoice or subscription charge.',  'Estimated equivalent per day','Estimated equivalent per model','Full session cost'])  if (!text.includes(words)) throw new Error('Usage & Cost does not say ' + words); const windows = [...main.querySelectorAll('[aria-label=\"Usage window\"] button')].map((b) => b.textContent); if (windows.join('|') !== '7d|30d|90d') throw new Error('not Jam\\'s usage windows: ' + windows.join('|')); const reprice = [...main.querySelectorAll('button')].find((b) => b.textContent === 'Reprice estimates'); if (!reprice || !reprice.disabled) throw new Error('Reprice estimates is a write and must be shown turned off'); const strip = main.querySelector('section[aria-label=Totals]').textContent; if (!strip.includes('$1,564') || !strip.includes('Estimated equivalent')) throw new Error('the totals are wrong: ' + strip); const models = [...main.querySelectorAll('table')][0].textContent; if (!models.includes('Unpriced')) throw new Error('an unpriced model is given an amount instead of being explained'); return 'Usage: ' + windows.join(',') })()"
+  },
+  {
+    "shot": "analytics-usage-dark"
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('table[aria-label=\"Full session cost\"] tbody button'); if (!b) throw new Error('no agent row to fold open'); if (b.disabled) throw new Error('the agent row has no sessions under it to fold open'); b.scrollIntoView({ block: 'center' }); return 'scrolled to ' + b.textContent })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "click": "table[aria-label=\"Full session cost\"] tbody button"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const rows = [...document.querySelectorAll('table[aria-label=\"Full session cost\"] tbody tr')]; const opened = rows.filter((r) => r.className.includes('bg-surface')).length; if (opened === 0) throw new Error('the agent row did not fold open onto its sessions'); const total = rows.at(-1).textContent; if (!total.startsWith('Total')) throw new Error('no total under the sessions: ' + total); const named = [...document.querySelectorAll('table[aria-label=\"Full session cost\"] tbody tr')].find((r) => (r.title || '').startsWith('Usage not linked')); if (!named) throw new Error('the unattributed row does not carry Jam words as its own name'); if (document.querySelector('main').textContent.includes('Usage not linked to a Band agent.'))  throw new Error('those words are written on screen, where Jam keeps them as the row name'); return opened + ' sessions under the agent' })()"
+  },
+  {
+    "shot": "analytics-usage-open-dark"
+  },
+  {
+    "click": "[aria-label=\"Analytics views\"] button:nth-child(1)"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/usageReport",
+      {
+        "renamed_report": {}
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/analytics', 'analytics, with a usage report of an unknown shape')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "click": "[aria-label=\"Analytics views\"] button:nth-child(2)"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const words = 'Band answered with usage & cost in a form this app does not know yet.'; if (!main.textContent.includes(words)) throw new Error('a usage report of an unknown shape does not say so: ' + main.textContent.slice(0, 160)); if (main.textContent.includes('Band could not read usage & cost')) throw new Error('a usage report of an unknown shape is called a failed read'); for (const title of ['Estimated equivalent per day', 'Estimated equivalent per model']) { const part = [...main.querySelectorAll('section')].find((s) => s.querySelector('h2')?.textContent.trim() === title); if (!part) throw new Error(title + ' is gone'); if (!part.textContent.includes('Unavailable') || !part.textContent.includes(words)) throw new Error(title + ' does not say why it is empty: ' + part.textContent.slice(0, 160)); } if (main.querySelector('section[aria-label=\"Totals\"]')) throw new Error('totals are drawn from a report that could not be read'); if (!main.querySelector('table[aria-label=\"Full session cost\"]')) throw new Error('the half that answered went with the one that did not'); return 'Usage & Cost: the report is of an unknown shape and its parts say so, no totals are drawn, and the session costs still show' })()"
+  },
+  {
+    "shot": "analytics-usage-report-changed-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/usageReport"]
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/usageSessions",
+      {
+        "renamed_sessions": {}
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/analytics', 'analytics, with session costs of an unknown shape')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "click": "[aria-label=\"Analytics views\"] button:nth-child(2)"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const words = 'Band answered with full session cost in a form this app does not know yet.'; const costs = [...main.querySelectorAll('section')].find((s) => s.querySelector('h2')?.textContent.trim() === 'Full session cost'); if (!costs) throw new Error('the Full session cost section is gone'); if (!costs.textContent.includes('Unavailable') || !costs.textContent.includes(words)) throw new Error('session costs of an unknown shape do not say why: ' + costs.textContent.slice(0, 160)); if (main.textContent.includes('Band could not read full session cost')) throw new Error('session costs of an unknown shape are called a failed read'); if (!main.querySelector('section[aria-label=\"Totals\"]')) throw new Error('the half that answered went with the one that did not'); return 'Usage & Cost: the session costs are of an unknown shape and say so, and the report still shows' })()"
+  },
+  {
+    "shot": "analytics-usage-sessions-changed-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/usageSessions"]
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/dashboard",
+      {
+        "renamed_snapshot": {}
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/analytics', 'analytics, with an activity answer of an unknown shape')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "click": "[aria-label=\"Analytics views\"] button:nth-child(1)"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (!main.textContent.includes('Band answered with activity in a form this app does not know yet.')) throw new Error('an activity answer of an unknown shape does not say so: ' + main.textContent.slice(0, 160)); if (!main.querySelector('[aria-label=\"Analytics views\"]')) throw new Error('the tabs went with the answer'); if (main.querySelector('section[aria-label=\"Totals\"]')) throw new Error('totals are drawn from an answer that could not be read'); return 'Activity: an answer of an unknown shape says so, no totals are drawn, and the tabs stay' })()"
+  },
+  {
+    "shot": "analytics-activity-changed-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/dashboard"]
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/agent-list",
+      {
+        "renamed_list": {}
+      }
+    ]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "type": "experiments.changed"
+      }
+    ]
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(location.hash = '#/agents', 'agents, with an agent list of an unknown shape')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (!main.textContent.includes('Agents are unavailable right now.')) throw new Error('the card lost its title'); if (!main.textContent.includes('Band answered with agents in a form this app does not know yet.')) throw new Error('an agent list of an unknown shape does not say so: ' + main.textContent.slice(0, 160)); if (main.querySelector('section[aria-label=\"Band Hosted\"], [aria-label=\"Band Hosted\"]')) throw new Error('agents are listed from an answer that could not be read'); return 'Agents: a list of an unknown shape says so, in the words every screen uses' })()"
+  },
+  {
+    "shot": "agents-changed-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/agent-list"]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "type": "experiments.changed"
+      }
+    ]
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.textContent.includes('in a form this app does not know')) throw new Error('the agents did not come back with the answer'); if (!main.textContent.includes('Atlas')) throw new Error('the agents are not listed again: ' + main.textContent.slice(0, 160)); return 'the agents are back once the answer is' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/rooms",
+      {
+        "renamed_rooms": {}
+      }
+    ]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "type": "experiments.changed"
+      }
+    ]
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(location.hash = '#/rooms', 'the room list, with a room list of an unknown shape')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (!main.textContent.includes('Rooms are unavailable right now.')) throw new Error('the room list page does not say the rooms are unavailable'); if (!main.textContent.includes('Band answered with rooms in a form this app does not know yet.')) throw new Error('the room list page does not say why: ' + main.textContent.slice(0, 160)); const side = document.querySelector('aside[aria-label=Sidebar]'); if (!side.textContent.includes('Rooms are unavailable')) throw new Error('the sidebar does not say the rooms are unavailable'); return 'Rooms: a list of an unknown shape says so, with why' })()"
+  },
+  {
+    "shot": "rooms-changed-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/rooms"]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "type": "experiments.changed"
+      }
+    ]
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const side = document.querySelector('aside[aria-label=Sidebar]'); if (side.textContent.includes('Rooms are unavailable')) throw new Error('the rooms did not come back with the answer'); if (!side.textContent.includes('Checkout flow')) throw new Error('the rooms are not listed again: ' + side.textContent.slice(0, 160)); return 'the rooms are back once the answer is' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/listExperiments",
+      {
+        "renamed_snapshot": {}
+      }
+    ]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "type": "experiments.changed"
+      }
+    ]
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(location.hash = '#/settings/experiments', 'Experiments, with an answer of an unknown shape')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const h = main.querySelector('h1'); if (!h || h.textContent.trim() !== 'Experiments') throw new Error('the Experiments page did not open'); if (!main.textContent.includes('Experiments are unavailable right now. Band answered with experiments in a form this app does not know yet.')) throw new Error('an experiments answer of an unknown shape does not say why: ' + main.textContent.slice(0, 160)); if (main.querySelector('[role=switch]')) throw new Error('switches are drawn from an answer that could not be read'); return 'Experiments: an answer of an unknown shape says so, with why' })()"
+  },
+  {
+    "shot": "settings-experiments-changed-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/listExperiments"]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "type": "experiments.changed"
+      }
+    ]
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.textContent.includes('Experiments are unavailable')) throw new Error('the experiments did not come back with the answer'); if (main.querySelectorAll('[role=switch]').length < 2) throw new Error('the experiments are not listed again: ' + main.textContent.slice(0, 160)); return 'the experiments are back once the answer is' })()"
+  },
+  {
+    "eval": "(location.hash = '#/contacts', '#/contacts')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const h = main.querySelector('h1'); if (!h || h.textContent.trim() !== 'Contacts') throw new Error('expected the page title Contacts, found ' + (h && h.textContent)); const line = main.querySelector('[data-slot=page-description]'); if (!line || !line.textContent.startsWith('Manage the people and agents')) throw new Error('Contacts does not carry the line Jam writes under its title: ' + (line && line.textContent)); const scope = main.querySelector('[aria-label=\"Filter by scope\"]'); if (!scope) throw new Error(\"no Filter by scope, which Jam puts at the head of the page\"); if (!scope.textContent.trim().startsWith('Everyone')) throw new Error('the scope filter does not start on Everyone: ' + scope.textContent); const search = main.querySelector('input[type=search]'); if (!search || search.placeholder !== 'Search name or @handle…') throw new Error(\"not Jam's search placeholder: \" + (search && search.placeholder)); const field = (words) => [...main.querySelectorAll('input')].find((i) => i.placeholder === words); for (const words of ['@handle or owner/agent…', 'Optional message…']) { const input = field(words); if (!input) throw new Error('no field placed ' + words); if (input.disabled) throw new Error('Jam leaves this field live, and it is off here: ' + words) } const sender = main.querySelector('[aria-label=\"Send the request as\"]'); if (!sender) throw new Error(\"no Send the request as, which Jam puts in its request row\"); if (sender.disabled) throw new Error('Jam leaves its sender chooser live, and it is off here'); if (!sender.textContent.startsWith('as ')) throw new Error('the sender chooser does not say who it sends as: ' + sender.textContent); const send = [...main.querySelectorAll('button')].find((b) => b.textContent.trim() === 'Send request'); if (!send) throw new Error('no Send request'); if (!send.disabled) throw new Error('Send request is live, and this app cannot send one'); const heading = [...main.querySelectorAll('h2')].map((x) => x.textContent).join('|'); if (heading !== 'Connections (0)') throw new Error(\"not Jam's heading with its count: \" + heading); const head = [...main.querySelectorAll('table[aria-label=Connections] thead th')].map((c) => c.textContent); if (head.join('|') !== 'Name|Actions') throw new Error(\"not Jam's two columns: \" + head.join('|')); const body = main.querySelector('table[aria-label=Connections] tbody').textContent.trim(); if (body !== 'No contacts yet. Send a request by handle above.') throw new Error(\"not Jam's words for an account with no contacts: \" + body); return heading + ', only Send request off' })()"
+  },
+  {
+    "shot": "contacts-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/contactsOverview",
+      {
+        "overview": {
+          "scopes": [
+            {
+              "scope": "",
+              "label": "You",
+              "snapshot": {
+                "contacts": [
+                  {
+                    "display_name": "Robin Vale",
+                    "handle": "robin-vale"
+                  },
+                  {
+                    "display_name": "Kit Marlow",
+                    "handle": "kit-marlow"
+                  },
+                  {
+                    "opaque_to_this_app": 1
+                  }
+                ],
+                "received": [{}],
+                "sent": [],
+                "contacts_truncated": false,
+                "received_truncated": false,
+                "sent_truncated": false
+              },
+              "error": ""
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/contacts', 'contacts again')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const heading = main.querySelector('h2').textContent; if (heading !== 'Connections (3)') throw new Error('the heading does not count what the answer holds: ' + heading); const rows = [...main.querySelectorAll('table[aria-label=Connections] tbody tr')].map((r) => r.children[0].textContent.trim()); if (rows.length !== 2) throw new Error('not the two contacts it can name: ' + rows.length); if (!rows[0].startsWith('Robin Vale')) throw new Error('the first contact is not named by the answer: ' + rows[0]); if (!main.textContent.includes('counted above but not shown')) throw new Error('a contact it cannot name is not counted: ' + main.textContent.slice(0, 300)); if (!main.textContent.includes('1 request waiting')) throw new Error('the waiting request is not counted'); return rows.length + ' named, 1 counted' })()"
+  },
+  {
+    "shot": "contacts-with-dark"
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, 'kit'); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed kit' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const rows = [...main.querySelectorAll('table[aria-label=Connections] tbody tr')].map((r) => r.children[0].textContent.trim()); if (rows.length !== 1 || !rows[0].startsWith('Kit Marlow')) throw new Error('the search did not narrow to one: ' + rows.join('|')); if (main.querySelector('h2').textContent !== 'Connections (3)') throw new Error('a search changed how many the answer holds, which it must not'); return 'searched to ' + rows[0] })()"
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, 'nobody at all'); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed a miss' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const body = main.querySelector('table[aria-label=Connections] tbody').textContent.trim(); if (body !== 'No contact of this account matches that.') throw new Error('a search that matches nothing does not say so: ' + body); if (main.querySelector('h2').textContent !== 'Connections (3)') throw new Error('a search that matches nothing changed the count'); return 'no match says so' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/contactsOverview",
+      {
+        "overview": {
+          "scopes": [
+            {
+              "scope": "",
+              "label": "You",
+              "snapshot": {
+                "contacts": [
+                  {
+                    "display_name": "Robin Vale",
+                    "handle": "robin-vale"
+                  }
+                ],
+                "received": [],
+                "sent": [],
+                "contacts_truncated": false,
+                "received_truncated": false,
+                "sent_truncated": false
+              },
+              "error": ""
+            },
+            {
+              "scope": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "label": "Atlas",
+              "snapshot": {
+                "contacts": [
+                  {
+                    "display_name": "Kit Marlow"
+                  }
+                ],
+                "received": [{}],
+                "sent": [],
+                "contacts_truncated": false,
+                "received_truncated": false,
+                "sent_truncated": false
+              },
+              "error": "peer not found"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/contacts', 'contacts again')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (!main.textContent.includes('nothing of theirs is listed or counted')) throw new Error('a scope the daemon could not read is not named: ' + main.textContent.slice(0, 300)); if (main.querySelector('h2').textContent !== 'Connections (1)') throw new Error('a scope that could not be read is counted anyway: ' + main.querySelector('h2').textContent); const rows = [...main.querySelectorAll('table[aria-label=Connections] tbody tr')]; if (rows.length !== 1 || !rows[0].textContent.includes('Robin Vale')) throw new Error('the scope that could be read did not list its own: ' + rows.map((r) => r.textContent).join('|')); if (main.textContent.includes('No contacts yet')) throw new Error('a scope that could not be read is reported as having no contacts'); return 'a failed scope is named, not counted' })()"
+  },
+  {
+    "shot": "contacts-failed-scope-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/contactsOverview"]
+  },
+  {
+    "eval": "(location.hash = '#/sonar', '#/sonar')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const h = main.querySelector('h1'); if (!h || h.textContent.trim() !== 'Sonar') throw new Error('expected the page title Sonar, found ' + (h && h.textContent)); if (main.querySelector('[data-slot=page-description]')) throw new Error('Sonar carries a line under its title, which Jam gives it none of'); const invite = [...main.querySelectorAll('button')].find((b) => b.textContent.includes('Invite by email')); if (!invite) throw new Error(\"no Invite by email, which Jam puts beside the title\"); if (!invite.disabled) throw new Error('Invite by email is live, and this app cannot send one'); const dot = main.querySelector('[role=switch][aria-label=Discoverable]'); if (!dot) throw new Error('no Discoverable switch'); if (dot.getAttribute('aria-checked') !== 'true' && !dot.hasAttribute('data-checked')) throw new Error('the Discoverable switch does not show the fixture computer as discoverable'); if (!dot.disabled && !dot.hasAttribute('data-disabled') && dot.getAttribute('aria-disabled') !== 'true') throw new Error('the Discoverable switch is live, and this app never writes the daemon setting: ' + dot.outerHTML.slice(0, 200)); const tabs = [...main.querySelectorAll('[aria-label=\"Sonar views\"] button')].map((b) => b.textContent.trim()); if (tabs.join('|') !== 'People 3|Teams 0') throw new Error(\"not Jam's two tabs with their counts: \" + tabs.join('|')); const search = main.querySelector('input[type=search]'); if (!search || search.placeholder !== 'Search the directory…') throw new Error(\"not Jam's search placeholder: \" + (search && search.placeholder)); const filters = [...main.querySelectorAll('[aria-label=\"Filter people\"] button')]; if (filters.map((b) => b.textContent).join('|') !== 'All|My org|Nearby|Online') throw new Error(\"not Jam's four filters, in order: \" + filters.map((b) => b.textContent).join('|')); if (filters[0].getAttribute('aria-pressed') !== 'true') throw new Error('Sonar does not start on All, where Jam starts it'); if (!filters[1].disabled) throw new Error('My org is offered, and the answer says nothing this app can filter on'); if (!main.textContent.includes('Online first')) throw new Error(\"Jam's order is not named on the page\"); const rows = [...main.querySelectorAll('ul[aria-label=People] > li')].map((li) => li.textContent.trim()); if (rows.length !== 3) throw new Error('not the three people of the fixture: ' + rows.length); if (!rows[0].startsWith('SRSam Rivera')) throw new Error('the first person is not the one seen most recently online: ' + rows[0]); if (!rows[0].includes('@sam-rivera · 2 agents')) throw new Error(\"a person's line does not name their handle and agents: \" + rows[0]); if (!rows[1].includes('No agents advertised')) throw new Error(\"Jam's words for a person advertising none are missing: \" + rows[1]); if (!rows[2].startsWith('RVRobin Vale')) throw new Error('the person Jam reports offline is not last: ' + rows[2]); if (!rows[0].endsWith('lan') || rows[1].endsWith('lan')) throw new Error('the origins the daemon reported are not on the rows: ' + rows.join('|')); const pill = main.querySelector('ul[aria-label=People] > li span.uppercase'); if (!pill || pill.textContent !== 'lan') throw new Error(\"an origin is not printed in the daemon's own word: \" + (pill && pill.textContent)); return rows.length + ' people, online first' })()"
+  },
+  {
+    "shot": "sonar-dark"
+  },
+  {
+    "click": "main [aria-label='Filter people'] button:nth-child(3)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const names = () => [...main.querySelectorAll('ul[aria-label=People] [data-slot=person-name]')].map((n) => n.textContent.trim()); const got = names().join('|'); if (got !== 'Sam Rivera|Robin Vale') throw new Error('Nearby is not the people found on this network: ' + got); return 'Nearby: ' + got })()"
+  },
+  {
+    "click": "main [aria-label='Filter people'] button:nth-child(4)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const names = () => [...main.querySelectorAll('ul[aria-label=People] [data-slot=person-name]')].map((n) => n.textContent.trim()); const got = names().join('|'); if (got !== 'Sam Rivera|Kit Marlow') throw new Error('Online is not the people the daemon reports online: ' + got); return 'Online: ' + got })()"
+  },
+  {
+    "click": "main [aria-label='Filter people'] button:nth-child(1)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "click": "main ul[aria-label=People] > li:nth-child(1) button"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const list = main.querySelector('ul[aria-label=\"Sam Rivera\\u2019s agents\"]') || main.querySelector(\"ul[aria-label^='Sam Rivera']\"); if (!list) throw new Error('the person did not fold open onto their agents'); const lines = [...list.querySelectorAll('[data-slot=advertised-agent]')].map((li) => li.textContent.replace(/\\s+/g, ' ').trim()); if (!list.textContent.includes('shared team')) throw new Error(\"the fold does not say what the guide lists: shared-team membership\"); if (lines.length !== 2) throw new Error('not the two agents the answer gives: ' + lines.length); if (!lines[0].includes('Atlas') || !lines[0].includes('connected') || !lines[0].includes('working')) throw new Error(\"an agent's own words are missing: \" + lines[0]); if (!lines[0].includes('2 pending') || !lines[0].includes('1 in progress') || !lines[0].includes('4 done')) throw new Error('the task counts the daemon gave are not shown: ' + lines[0]); if (!lines[0].includes('$1.82')) throw new Error('the cost the person shares is not shown: ' + lines[0]); return lines.length + ' agents shown' })()"
+  },
+  {
+    "shot": "sonar-person-dark"
+  },
+  {
+    "click": "main ul[aria-label=People] > li:nth-child(1) button"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/listDiscovered",
+      {
+        "snapshot": {
+          "discoverable": false,
+          "multicast": "ok",
+          "users": []
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/sonar', 'sonar again')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (!main.textContent.includes('Discovery is off')) throw new Error('a computer that is not discoverable does not say so: ' + main.textContent.slice(0, 300)); const dot = main.querySelector('[role=switch][aria-label=Discoverable]'); if (dot.getAttribute('aria-checked') === 'true' || dot.hasAttribute('data-checked')) throw new Error('the switch still reads discoverable'); return 'discovery off says so' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/listDiscovered"]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/sonar', 'sonar again')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, \"atlas\"); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"atlas\" })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const names = [...main.querySelectorAll('ul[aria-label=People] [data-slot=person-name]')].map((n) => n.textContent.trim()); if (names.join('|') !== 'Sam Rivera') throw new Error('the search did not narrow to the person advertising that agent: ' + names.join('|')); return 'searched to ' + names.join('|') })()"
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, \"nobody at all\"); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"nobody at all\" })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.querySelectorAll('ul[aria-label=People] > li').length !== 0) throw new Error('a search that matches nobody still listed someone'); if (!main.textContent.includes('No one here matches that.')) throw new Error('a search that matches nobody does not say so: ' + main.textContent.slice(0, 300)); return 'no match says so' })()"
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, \"\"); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"\" })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/documentation', '#/documentation')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const h = main.querySelector('h1'); if (!h) throw new Error('the guide has no title of its own on the page'); if (h.textContent.trim() === 'Documentation') throw new Error(\"the page shows its section's name, where Jam opens on the guide's own title\"); const contents = main.querySelector('nav[aria-label=\"Guide contents\"]'); if (!contents) throw new Error('no list of the guide, which Jam puts beside it'); const search = contents.querySelector('input[type=search]'); if (!search || search.placeholder !== 'Search documentation…') throw new Error(\"not Jam's search placeholder: \" + (search && search.placeholder)); const parts = [...contents.querySelectorAll(':scope > ul > li > button')].map((b) => b.textContent.trim()); if (parts.length < 3) throw new Error(\"the guide's parts are not listed: \" + parts.join('|')); const nested = contents.querySelectorAll('ul ul button').length; if (nested < 3) throw new Error('the pages within a part are not listed under it: ' + nested); if (parts.some((one) => one.includes('fenced block'))) throw new Error('a heading inside a fenced block was taken for one of the guide'); const article = main.querySelector('article'); if (!article) throw new Error('the guide itself is not on the page'); if (article.querySelectorAll('[data-guide-id]').length < 4) throw new Error('the guide was not split into its own sections'); return 'the guide: ' + parts.length + ' parts, ' + nested + ' pages' })()"
+  },
+  {
+    "shot": "documentation-dark"
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const target = main.querySelector('article [data-guide-id=\"sonar\"]'); if (!target) throw new Error('the guide has no Sonar section to jump to'); window.__jumpFrom = Math.round(target.getBoundingClientRect().top); if (window.__jumpFrom < 400) throw new Error('the target is already at the top, so a jump would prove nothing: ' + window.__jumpFrom); return 'Sonar is ' + window.__jumpFrom + 'px down' })()"
+  },
+  {
+    "click": "main [data-guide-jump=sonar]"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const target = main.querySelector('article [data-guide-id=\"sonar\"]'); const now = Math.round(target.getBoundingClientRect().top); if (now >= window.__jumpFrom) throw new Error('the page did not move: ' + window.__jumpFrom + ' -> ' + now); const scroller = [...document.querySelectorAll('main, main *')].find((e) => e.scrollHeight > e.clientHeight + 4); const atEnd = scroller ? scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 4 : false; if (now > 120 && !atEnd) throw new Error('the jump did not bring the section as near the top as the page allows: ' + now); const marked = main.querySelector('nav[aria-label=\"Guide contents\"] [aria-current=true]'); if (!marked) throw new Error('nothing in the list is marked as the one jumped to'); if (marked.textContent.trim() !== 'Sonar') throw new Error('the wrong entry is marked: ' + marked.textContent); return 'jumped ' + window.__jumpFrom + ' -> ' + now })()"
+  },
+  {
+    "eval": "(() => { const scroller = [...document.querySelectorAll('main, main *')].find((e) => e.scrollHeight > e.clientHeight + 4); scroller.scrollTop = 0; return 'back to the top of the guide' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const article = main.querySelector('article'); if (main.querySelector('nav[aria-label=\"Guide contents\"] [aria-current=true]')) throw new Error('something is marked at the top of the guide, where the title has no entry of its own'); const anchor = article.querySelector('button[data-anchor]'); if (!anchor) throw new Error('no link within the guide is a control that jumps, as Jam draws one'); if (anchor.getAttribute('data-anchor') !== 'sonar' || anchor.textContent.trim() !== 'Sonar') throw new Error(\"the link does not carry the guide's own words: \" + anchor.textContent); const all = article.querySelectorAll('button[data-anchor]').length; if (all !== 1) throw new Error('a link that points out of the guide was drawn as one that jumps: ' + all); const opened = [...article.querySelectorAll('a[href$=\\\".md\\\"], a[href^=\\\"#\\\"]')].map((a) => a.getAttribute('href')); if (opened.length !== 0) throw new Error('a link out of the guide was made openable: ' + opened.join('|')); for (const words of ['the advanced reference', 'a page this guide does not have']) { if (!article.textContent.includes(words)) throw new Error('a link this app cannot follow lost its words: ' + words); } anchor.setAttribute('data-uicheck', 'target'); anchor.scrollIntoView({ block: 'center' }); window.__anchorFrom = Math.round(article.querySelector('[data-guide-id=\"sonar\"]').getBoundingClientRect().top); if (window.__anchorFrom < 300) throw new Error('the section the link points at is already at the top, so the jump would prove nothing: ' + window.__anchorFrom); return 'one link within the guide, ' + window.__anchorFrom + 'px from its section' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const now = Math.round(main.querySelector('article [data-guide-id=\"sonar\"]').getBoundingClientRect().top); if (now >= window.__anchorFrom) throw new Error('the link did not jump: ' + window.__anchorFrom + ' -> ' + now); if (now > 120) throw new Error('the link did not bring its section to the top: ' + now); const marked = main.querySelector('nav[aria-label=\"Guide contents\"] [aria-current=true]'); if (!marked || marked.textContent.trim() !== 'Sonar') throw new Error('the list does not mark where the link landed: ' + (marked && marked.textContent)); document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'the link jumped ' + window.__anchorFrom + ' -> ' + now })()"
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const scroller = [...document.querySelectorAll('main, main *')].find((e) => e.scrollHeight > e.clientHeight + 4); const target = main.querySelector('article [data-guide-id=\"rooms\"]'); const was = scroller.scrollTop; scroller.scrollTop += Math.round(target.getBoundingClientRect().top - scroller.getBoundingClientRect().top) - 8; if (scroller.scrollTop === was) throw new Error('the page did not scroll to Rooms'); return 'scrolled by hand to Rooms' })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const marked = main.querySelector('nav[aria-label=\"Guide contents\"] [aria-current=true]'); if (!marked) throw new Error('nothing is marked: the list does not follow the reading position'); if (marked.textContent.trim() !== \"Rooms\") throw new Error('the list marks ' + marked.textContent.trim() + ', where the reading position is Rooms'); return \"the list followed the reading position to Rooms\" })()"
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const scroller = [...document.querySelectorAll('main, main *')].find((e) => e.scrollHeight > e.clientHeight + 4); const target = main.querySelector('article [data-guide-id=\"copy-a-handle\"]'); const was = scroller.scrollTop; scroller.scrollTop += Math.round(target.getBoundingClientRect().top - scroller.getBoundingClientRect().top) - 8; if (scroller.scrollTop === was) throw new Error('the page did not scroll to the last page of the guide'); return 'scrolled by hand to the last page of the guide' })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const marked = main.querySelector('nav[aria-label=\"Guide contents\"] [aria-current=true]'); if (!marked) throw new Error('nothing is marked: the list does not follow the reading position'); if (marked.textContent.trim() !== \"Copy a handle\") throw new Error('the list marks ' + marked.textContent.trim() + ', where the reading position is Copy a handle'); return \"the last page of the guide can be reached and is marked\" })()"
+  },
+  {
+    "eval": "(() => { const scroller = [...document.querySelectorAll('main, main *')].find((e) => e.scrollHeight > e.clientHeight + 4); scroller.scrollTop = 0; return 'back to the top of the guide' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main nav input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, \"handle\"); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"handle\" })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const hits = [...main.querySelectorAll('ul[aria-label=\"Search results\"] button')]; if (hits.length === 0) throw new Error('the search found nothing in a guide that says the word'); if (!hits.some((b) => b.textContent.toLowerCase().includes('handle'))) throw new Error('the search did not find the heading whose words match: ' + hits.map((b) => b.textContent).join('|')); if (main.querySelector('nav[aria-label=\"Guide contents\"] ul[data-slot=guide-list]')?.getAttribute('aria-label') !== 'Search results') throw new Error('the contents are still shown while a search is on'); return hits.length + ' hits' })()"
+  },
+  {
+    "shot": "documentation-search-dark"
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main nav input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, \"h\"); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"h\" })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const hits = [...main.querySelectorAll('ul[aria-label=\"Search results\"] button')]; if (hits.length !== 0) throw new Error('a single letter searched the guide, where Jam waits for two'); if (!main.querySelector('nav[aria-label=\"Guide contents\"] > ul > li > button')) throw new Error('the contents are not back while fewer than two characters are typed'); return 'one character searches nothing' })()"
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main nav input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, \"nothing at all like this\"); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"nothing at all like this\" })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.querySelectorAll('ul[aria-label=\"Search results\"] button').length !== 0) throw new Error('a search that matches nothing still found something'); if (!main.textContent.includes('Nothing in the guide matches that.')) throw new Error('a search that matches nothing does not say so'); return 'no match says so' })()"
+  },
+  {
+    "eval": "(() => { const input = document.querySelector('main nav input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(input, \"\"); input.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"\" })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/ping",
+      {
+        "version": "0.4.14",
+        "wire": 30,
+        "executable": "/nowhere/jamd"
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/documentation', 'documentation again')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.querySelector('article')) throw new Error('a guide was drawn where there is none'); if (!main.textContent.includes('The Band user guide is not here.')) throw new Error('no guide does not say so: ' + main.textContent.slice(0, 300)); if (!main.textContent.includes('No user guide sits beside the Band daemon')) throw new Error('the reason there is no guide is not given'); return 'no guide says so' })()"
+  },
+  {
+    "shot": "documentation-none-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/ping"]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/analytics', '#/analytics')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const strip = document.querySelector('main section[aria-label=Totals]'); if (!strip || !strip.textContent.includes('Local Agents')) throw new Error('no Analytics strip in Light: ' + (strip && strip.textContent)); return 'Analytics in Light' })()"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "analytics-light"
+  },
+  {
+    "eval": "(location.hash = '#/agents', '#/agents')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Agents\") throw new Error('expected the page title Agents, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "eval": "(() => { const cards = document.querySelectorAll('main section[aria-label=\"Band Hosted\"] li'); if (cards.length !== 2) throw new Error('Band Hosted does not list the two agents: ' + cards.length); if (!cards[0].textContent.includes('Claude Code') || !cards[0].textContent.includes('1/2 sessions')) throw new Error('an agent card lacks its provider or sessions: ' + cards[0].textContent); if (!cards[0].querySelector('[role=img][aria-label=Connected]')) throw new Error('a working agent carries no mark that it is connected, as a Jam card does'); if (!cards[0].querySelector('[role=img][aria-label^=\"Can read and write this machine\"]')) throw new Error('an agent on this computer carries no file-access icon, as a Jam card does'); if (!document.querySelector('main button[aria-label=\"New agent\"]')) throw new Error('no New agent'); return cards.length + ' agents' })()"
+  },
+  {
+    "shot": "agents-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const rows = [...document.querySelectorAll('aside[aria-label=Sidebar] nav a')].map((a) => a.textContent); if (rows.some((t) => t.startsWith('Inbox') || t.startsWith('Sessions'))) throw new Error('Inbox or Sessions shown while their experiments are off: ' + rows.join('|')); return 'both hidden' })()"
+  },
+  {
+    "fake": "setExperiment",
+    "args": ["inbox-section", "enabled"]
+  },
+  {
+    "fake": "setExperiment",
+    "args": ["sessions-section", "enabled"]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "type": "experiments.changed"
+      }
+    ]
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const at = (nav) => [...document.querySelectorAll('nav[aria-label=\"' + nav + '\"] a')].map((a) => a.textContent); const more = at('More sections'); const advanced = at('Advanced'); if (!more.some((t) => t.startsWith('Inbox'))) throw new Error('Inbox is not at the foot of the sidebar, where Jam puts it: ' + more.join('|')); if (!advanced.some((t) => t.startsWith('Sessions'))) throw new Error('Sessions is not in the Advanced group, where Jam puts it: ' + advanced.join('|')); if (at('Primary').some((t) => t.startsWith('Inbox') || t.startsWith('Sessions'))) throw new Error('Inbox or Sessions sits among the daily rows'); return 'both where Jam puts them' })()"
+  },
+  {
+    "eval": "(location.hash = '#/inbox', '#/inbox')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== 'Inbox') throw new Error('expected the page title Inbox, found ' + (h && h.textContent)); const rows = [...document.querySelectorAll('main ul[aria-label=Inbox] li button:not([aria-label])')]; if (rows.length !== 3) throw new Error('Inbox does not list the three items waiting in the fixtures: ' + rows.length); const kinds = rows.map((r) => r.textContent); if (!kinds[0].includes('Permission: Write')) throw new Error('the permission request is not the first row: ' + kinds[0]); if (!kinds[1].includes('Which payment provider')) throw new Error('the question is not the second row: ' + kinds[1]); if (kinds[2].includes('@')) throw new Error('a row carries a mention, which a Jam row drops: ' + kinds[2]); for (const row of rows) if (!/\\b(am|pm)\\b/.test(row.textContent) && !row.textContent.includes('Which payment provider')) throw new Error('a row carries no time: ' + row.textContent); const side = [...document.querySelectorAll('nav[aria-label=\"More sections\"] a')].find((a) => a.textContent.startsWith('Inbox')); if (!side || !side.textContent.includes('3')) throw new Error('Inbox does not carry what waits beside its name: ' + (side && side.textContent)); const detail = document.querySelector('main article[aria-label=\"Inbox item\"]'); if (!detail) throw new Error('no item is open beside the list'); if (!detail.textContent.includes('Permission requested by')) throw new Error('the open item is not the first row: ' + detail.textContent.slice(0, 120)); if ([...detail.querySelectorAll('button')].some((b) => b.textContent.includes('Dismiss'))) throw new Error('a permission request carries the quiet Dismiss, which Jam keeps for a routine mention'); return rows.length + ' waiting' })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const detail = document.querySelector('main article[aria-label=\"Inbox item\"]'); const history = detail && detail.querySelector('section[aria-label=\"Conversation history\"]'); if (!history) throw new Error('the item has no room context'); const log = history.querySelector('[role=log][aria-label=Conversation]'); if (!log || !log.textContent.includes('Starting on the confirmation screen.')) throw new Error('the room context does not show the conversation of its room'); const box = detail.querySelector('textarea[aria-label=Message]'); if (!box || box.getAttribute('placeholder') !== 'Reply...') throw new Error('the room context has no Reply... composer'); const scroller = history.querySelector('[data-slot=room-scroll]'); const gap = scroller.scrollHeight - scroller.clientHeight - scroller.scrollTop; if (gap > 24) throw new Error('the history did not open at its newest message: ' + gap + ' px short'); return 'room context: the conversation at its newest, and Reply...' })()"
+  },
+  {
+    "shot": "inbox-dark"
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('main section[aria-label=\"Conversation history\"] [data-event=tool_call] button[aria-expanded]'); if (!b) throw new Error('no tool row with View full JSON in the history'); if (b.textContent.trim() !== 'View full JSON') throw new Error('a tool call row offers ' + b.textContent); b.scrollIntoView({ block: 'center' }); b.setAttribute('data-uicheck', 'target'); return 'marked' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const row = document.querySelector('main section[aria-label=\"Conversation history\"] [data-event=tool_call] button[aria-expanded=true]'); if (!row) throw new Error('View full JSON did not open'); const pre = row.closest('[data-event]').querySelector('pre[data-full=json]'); if (!pre || !pre.textContent.includes('\"name\"')) throw new Error('the whole call is not under the row'); return 'tool call open: ' + pre.textContent.length + ' characters' })()"
+  },
+  {
+    "shot": "inbox-tool-full-dark"
+  },
+  {
+    "eval": "(() => { document.querySelector('main section[aria-label=\"Conversation history\"] [data-event=tool_call] button[aria-expanded=true]').click(); return 'closed' })()"
+  },
+  {
+    "wait": 200
+  },
+  {
+    "click": "main ul[aria-label=Inbox] li:nth-child(2) button"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const detail = document.querySelector('main article[aria-label=\"Inbox item\"]'); if (!detail.textContent.includes('Asked by')) throw new Error('a question that did not arrive as a mention does not say who asked it'); const answer = [...detail.querySelectorAll('button')].find((b) => b.textContent.startsWith('Answer')); if (!answer) throw new Error('a question waiting on the person offers no Answer, as Jam does'); if (![...detail.querySelectorAll('button')].some((b) => b.textContent.includes('View in room'))) throw new Error('no View in room'); return 'question open' })()"
+  },
+  {
+    "shot": "inbox-question-dark"
+  },
+  {
+    "eval": "(() => { const rows = [...document.querySelectorAll(\"ul[aria-label=Inbox] li button\")]; if (rows.length === 0) throw new Error(\"the inbox list is empty\"); for (const row of rows) { row.click(); const dismiss = [...document.querySelectorAll(\"button\")].find((b) => b.textContent.trim() === \"Dismiss\"); if (dismiss) { if (dismiss.disabled) throw new Error(\"Dismiss is shown turned off\"); return \"a mention carries Jam\\u2019s Dismiss, live\" } } return \"no mention in this inbox to dismiss\" })()"
+  },
+  {
+    "shot": "inbox-dismiss-dark"
+  },
+  {
+    "eval": "(() => { const list = document.querySelector('main ul[aria-label=Inbox]'); if (!list) throw new Error('no inbox list'); const named = [...list.querySelectorAll('button[aria-label]')]; if (named.length !== 1) throw new Error('the list carries ' + named.length + ' named controls; the X on the mention row should be the only one'); const label = named[0].getAttribute('aria-label'); if (!label.startsWith('Dismiss mention from ')) throw new Error('the X is not named as Jam names its own control: ' + label); const row = named[0].closest('li'); const at = [...list.children].indexOf(row); if (at !== 2) throw new Error('the X is not on the third row, the mention: row ' + at); if (!row.textContent.includes('I read the current steps')) throw new Error('the X is not on the row of the mention: ' + row.textContent.slice(0, 80)); if (getComputedStyle(named[0]).opacity !== '0') throw new Error('the X shows before its row is hovered, where the guide shows it on hover'); return 'the mention row carries the X, named as Jam names it, hidden until hover' })()"
+  },
+  {
+    "hover": "main ul[aria-label=Inbox] li:nth-child(3)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "shot": "inbox-row-x-dark"
+  },
+  {
+    "eval": "(location.hash = '#/sessions', '#/sessions')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const h = main.querySelector('h1'); if (!h || h.textContent.trim() !== 'Sessions') throw new Error('expected the page title Sessions, found ' + (h && h.textContent)); const line = main.querySelector('[data-slot=page-description]'); if (!line || !line.textContent.startsWith('Current host sessions')) throw new Error('Sessions does not carry the line Jam writes under its title: ' + (line && line.textContent)); const head = [...main.querySelectorAll('table[aria-label=Sessions] thead th')].map((c) => c.textContent); const want = ['Agent','Room','PID','Process','Binding','Band']; if (head.join('|') !== want.join('|')) throw new Error(\"not Jam's columns, in order: \" + head.join('|')); const rows = [...main.querySelectorAll('table[aria-label=Sessions] tbody tr')].map((r) => [...r.children].map((c) => c.textContent.trim()).join('|')); if (rows.length !== 3) throw new Error('the running host does not show its three sessions: ' + rows.length); if (rows[0] !== 'Atlas|Parked template|\\u2014|unknown|detached|connected') throw new Error(\"the parked template's row is not Jam's: \" + rows[0]); if (rows[1] !== 'Atlas|Checkout flow redesign|24188|live|bound|connected') throw new Error(\"a live session's row is not Jam's: \" + rows[1]); if (main.textContent.includes('Nova')) throw new Error('a stopped host is listed while Show stopped is off'); const toggle = main.querySelector('[role=switch]'); if (!toggle || toggle.getAttribute('aria-label') !== 'Show stopped sessions') throw new Error(\"no Show stopped switch, which Jam puts over its table: \" + (toggle && toggle.outerHTML)); if (toggle.getAttribute('aria-checked') === 'true' || toggle.hasAttribute('data-checked')) throw new Error('Show stopped starts on, where Jam starts it off'); return rows.length + ' sessions, stopped hidden' })()"
+  },
+  {
+    "shot": "sessions-dark"
+  },
+  {
+    "click": "main [role=switch]"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const rows = [...main.querySelectorAll('table[aria-label=Sessions] tbody tr')].map((r) => [...r.children].map((c) => c.textContent.trim()).join('|')); if (rows.length !== 4) throw new Error('Show stopped did not bring the stopped host in: ' + rows.length); if (rows[3] !== 'Nova|Release notes for 2.4|\\u2014|unknown|detached|disconnected') throw new Error(\"the stopped host's row is not what the daemon said: \" + rows[3]); return rows.length + ' sessions, stopped shown' })()"
+  },
+  {
+    "shot": "sessions-stopped-dark"
+  },
+  {
+    "click": "main [role=switch]"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const rows = [...main.querySelectorAll('table[aria-label=Sessions] tbody tr')]; const cls = (row, n) => row.children[n].firstElementChild.className; const parked = rows[0], live = rows[1]; if (!cls(live, 3).includes('bg-primary')) throw new Error('a live process is not tinted: ' + cls(live, 3)); if (cls(parked, 3).includes('bg-primary')) throw new Error('a process that is not live is tinted: ' + cls(parked, 3)); if (cls(live, 4).includes('bg-primary')) throw new Error('a binding is tinted, where Jam tints only the process'); const dot = (row) => row.children[5].firstElementChild.firstElementChild.className; if (!dot(live).includes('bg-primary')) throw new Error('a connected peer has no green mark: ' + dot(live)); const room = (row) => row.children[1].className; if (!room(parked).includes('font-mono')) throw new Error(\"Jam's words for a parked template are not in mono\"); if (room(live).includes('font-mono')) throw new Error(\"a room's own name is in mono, where Jam sets it as the agent's\"); return 'the live process and the connected mark carry the colour, the parked room the mono' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/list",
+      {
+        "peers": []
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/sessions', 'sessions again')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const head = [...main.querySelectorAll('table[aria-label=Sessions] thead th')].map((c) => c.textContent); if (head.length !== 6) throw new Error('the empty table lost its columns: ' + head.join('|')); const rows = [...main.querySelectorAll('table[aria-label=Sessions] tbody tr')]; if (rows.length !== 1) throw new Error('an empty answer did not leave one row: ' + rows.length); const cell = rows[0].children[0]; if (cell.textContent.trim() !== 'No active sessions yet') throw new Error(\"not Jam's words for an empty table: \" + cell.textContent); if (Number(cell.getAttribute('colspan')) !== head.length) throw new Error('the empty row does not span the table: ' + cell.getAttribute('colspan')); return 'empty: ' + cell.textContent })()"
+  },
+  {
+    "shot": "sessions-empty-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/list",
+      {
+        "peers": [
+          {
+            "renamed_peer": {}
+          },
+          {
+            "renamed_peer": {}
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/sessions', 'sessions again')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.querySelector('table[aria-label=Sessions]')) throw new Error('an answer that no longer fits its shape still drew a table'); if (!main.textContent.includes('in a form this app does not know')) throw new Error('an answer that changed shape does not say so: ' + main.textContent.slice(0, 200)); if (main.textContent.includes('No active sessions yet')) throw new Error('an answer that changed shape is reported as no sessions at all'); return 'changed answer reported as changed' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/list"]
+  },
+  {
+    "eval": "(location.hash = '#/settings/account', '#/settings/account')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Account\") throw new Error('expected the page title Account, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "shot": "settings-account-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/general', '#/settings/general')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"General\") throw new Error('expected the page title General, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "shot": "settings-general-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/appearance', '#/settings/appearance')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Appearance\") throw new Error('expected the page title Appearance, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "eval": "(location.hash = '#/settings/runtime', '#/settings/runtime')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (!main.textContent.includes('Agent defaults')) throw new Error(\"no Agent defaults, which Jam heads its Runtime page with\"); if (!main.textContent.includes('Leave a field empty to use its built-in value')) throw new Error(\"not Jam's line over its agent defaults\"); const rows = [...main.querySelectorAll('[class*=border-t], .border-line')].length; const labels = [...main.querySelectorAll('main div')].map((d) => d.textContent); for (const words of ['Compaction budget (input tokens)', 'Human approval wait', 'Overall question timeout (seconds)', 'Stop idle agents after (seconds)', 'Room activity feed', 'Room owners can approve permission asks', 'Resume thread on wake']) if (!main.textContent.includes(words)) throw new Error(\"no row for \" + words); if (!main.textContent.includes('Built-in — wait indefinitely')) throw new Error(\"an unset field does not read as Jam's built-in\"); if (!main.textContent.includes('built-in default (on)')) throw new Error(\"an unset switch does not read as Jam's built-in\"); if (main.textContent.includes('Runtime defaults arrive')) throw new Error('the Runtime page is still a placeholder'); return 'Runtime: seven defaults, all built-in' })()"
+  },
+  {
+    "shot": "settings-runtime-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/integrations', '#/settings/integrations')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); for (const words of ['Claude Code', 'GitHub Copilot', 'Codex', 'Connect Claude Code sessions to Band rooms.', 'Connect GitHub Copilot CLI or VS Code sessions to Band rooms.']) if (!main.textContent.includes(words)) throw new Error('Integrations does not say ' + words); if (main.querySelector('[role=switch]')) throw new Error('Integrations draws a switch, and this app cannot read whether one is enabled'); if (main.textContent.includes('arrive with the Settings screen')) throw new Error('the Integrations page is still a placeholder'); return 'Integrations: three tools, no state invented' })()"
+  },
+  {
+    "shot": "settings-integrations-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/appearance', '#/settings/appearance')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const trigger = main.querySelector('[aria-label=\"Chat font size\"]'); if (!trigger) throw new Error(\"no Chat font size, which Jam puts under App font size\"); if (trigger.textContent.trim().replace(/\\u25bc|\\u2304/g, '').trim() !== 'Default') throw new Error('Chat font size does not start on Default: ' + trigger.textContent); if (!main.textContent.includes('Additionally scales the conversation transcript')) throw new Error(\"not Jam's line under Chat font size\"); if (!main.textContent.includes('text, including the conversation and composer')) throw new Error(\"not this app's line under App font size\"); const scale = getComputedStyle(document.documentElement).getPropertyValue('--chat-font-scale').trim(); if (scale !== '1') throw new Error('the conversation is not at the app size to begin with: ' + scale); return 'Chat font size: Default' })()"
+  },
+  {
+    "shot": "settings-appearance-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/notifications', '#/settings/notifications')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Notifications\") throw new Error('expected the page title Notifications, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "shot": "settings-notifications-dark"
+  },
+  {
+    "eval": "(() => { const rows = [...document.querySelectorAll(\"main [role=switch]\")]; if (rows.length !== 2) throw new Error(\"Notifications does not carry its two switches: \" + rows.length); if (rows[0].getAttribute(\"aria-checked\") !== \"true\") throw new Error(\"the first switch did not start on\"); return \"two switches, the first on\" })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/notificationPreferences",
+      {
+        "preferences": {
+          "version": 1,
+          "direct_mentions": false,
+          "human_requests": true,
+          "task_updates": "completed_only"
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(() => { document.querySelectorAll(\"main [role=switch]\")[0].click(); return \"pressed\" })()"
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const one = document.querySelectorAll(\"main [role=switch]\")[0]; if (one.getAttribute(\"aria-checked\") !== \"false\") throw new Error(\"the switch did not take the setting Band answered with\"); return \"the switch shows what Jam holds\" })()"
+  },
+  {
+    "shot": "settings-notifications-set-dark"
+  },
+  {
+    "fake": "removeRoute",
+    "args": ["/v1/setNotificationPreferences"]
+  },
+  {
+    "eval": "(() => { document.querySelectorAll(\"main [role=switch]\")[1].click(); return \"pressed with the route gone\" })()"
+  },
+  {
+    "wait": 1400
+  },
+  {
+    "eval": "(() => { const two = document.querySelectorAll(\"main [role=switch]\")[1]; if (two.getAttribute(\"aria-checked\") !== \"true\") throw new Error(\"the switch kept a setting Jam refused: it reads \" + two.getAttribute(\"aria-checked\")); if (!document.querySelector(\"main\").textContent.includes(\"Band did not take that\")) throw new Error(\"nothing said that Jam refused it\"); return \"a refused switch goes back, and says so\" })()"
+  },
+  {
+    "shot": "settings-notifications-refused-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/setNotificationPreferences"]
+  },
+  {
+    "eval": "(location.hash = '#/settings/general', '#/settings/general')"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/settings/notifications', '#/settings/notifications')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(location.hash = '#/settings/logs', '#/settings/logs')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Logs\") throw new Error('expected the page title Logs, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "shot": "settings-logs-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/experiments', '#/settings/experiments')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Experiments\") throw new Error('expected the page title Experiments, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "eval": "(() => { if (!document.querySelector('nav[aria-label=Settings]')) throw new Error('the sidebar did not switch to settings navigation'); const on = [...document.querySelectorAll('main [role=switch]')].filter((s) => s.getAttribute('aria-checked') === 'true' || s.hasAttribute('data-checked')).length; if (on < 2) throw new Error('the Inbox and Sessions experiments are not shown on: ' + on); return on + ' experiments on' })()"
+  },
+  {
+    "shot": "settings-experiments-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/learn-more', '#/settings/learn-more')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Learn more\") throw new Error('expected the page title Learn more, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "shot": "settings-learn-more-dark"
+  },
+  {
+    "eval": "(location.hash = '#/settings/general', '#/settings/general')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "settings-general-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/settings/appearance', '#/settings/appearance')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'jam' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { if (document.documentElement.dataset.theme !== 'jam') throw new Error('the Jam theme is not on'); const bg = getComputedStyle(document.body).backgroundColor; if (bg !== 'rgb(12, 18, 23)') throw new Error('the page is not the Jam theme\\'s: ' + bg); const t = document.querySelector('main [aria-label=Theme]'); if (!t || !t.textContent.includes('Band')) throw new Error('the theme select does not say Jam'); return 'jam on' })()"
+  },
+  {
+    "shot": "settings-appearance-jam"
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== \"Assign work\") throw new Error('expected the page title Assign work, found ' + (h && h.textContent)); return 'title ' + h.textContent })()"
+  },
+  {
+    "eval": "(() => { const here = document.querySelector('aside nav[aria-label=Primary] a[aria-current=page]'); const sel = here && getComputedStyle(here).backgroundColor; if (sel !== 'rgb(27, 49, 69)') throw new Error('the page shown is not on Jam\\'s blue selection: ' + sel); const mark = document.querySelector('aside [data-slot=mark] svg stop'); const green = mark && getComputedStyle(mark).stopColor; if (green !== 'rgb(119, 232, 119)') throw new Error('the mark lost BAND\\'s green: ' + green); return 'blue, selection, green mark' })()"
+  },
+  {
+    "shot": "home-jam"
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const t = document.querySelector('header h1'); if (!t || t.textContent !== 'Checkout flow redesign') throw new Error('no room title: ' + (t && t.textContent)); const row = document.querySelector('[aria-label=Rooms] a[aria-current=page]'); const sel = row && getComputedStyle(row).backgroundColor; if (sel !== 'rgb(27, 49, 69)') throw new Error('the open room is not on Jam\\'s blue selection: ' + sel); const review = [...document.querySelectorAll('main [aria-label=\"Permission requests\"] button')].find((b) => b.textContent === 'Review'); const blue = review && getComputedStyle(review).backgroundColor; if (blue !== 'rgb(53, 101, 157)') throw new Error('Review is not in the Jam blue: ' + blue); return 'room, selected, blue Review' })()"
+  },
+  {
+    "shot": "room-chat-jam"
+  },
+  {
+    "eval": "window.jam.settings.update({ sidebarOpen: false }).then(() => 'folded')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const s = document.querySelector('aside[aria-label=Sidebar]'); if (s.getBoundingClientRect().width !== 48 || !s.querySelector('[data-slot=rail] nav[aria-label=Sections]')) throw new Error('no rail'); return 'rail' })()"
+  },
+  {
+    "shot": "rail-jam"
+  },
+  {
+    "eval": "window.jam.settings.update({ sidebarOpen: true }).then(() => 'open')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "key": "k",
+    "code": "KeyK",
+    "vk": 75,
+    "modifiers": 2
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); if (!d || !d.querySelector('input')) throw new Error('the command palette is not open'); if ([...d.querySelectorAll('[cmdk-item]')].some((i) => i.textContent.startsWith('Search'))) throw new Error('the palette lists itself'); return 'palette open' })()"
+  },
+  {
+    "shot": "palette-dark"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "palette-light"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "click": "button[aria-label='App menu']"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll('[role=menuitem]')].map((i) => i.textContent); if (items.length < 5) throw new Error('the app menu is not open: ' + items.join('|')); return items.join(', ') })()"
+  },
+  {
+    "shot": "app-menu-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 300
+  },
+  {
+    "hover": "header button[aria-label='Expand side pane']"
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const t = document.querySelector('[data-slot=tooltip-content]'); if (!t) throw new Error('no tooltip on the title bar button'); return t.textContent })()"
+  },
+  {
+    "shot": "tooltip-dark"
+  },
+  {
+    "cdp": "Input.dispatchMouseEvent",
+    "params": {
+      "type": "mouseMoved",
+      "x": 700,
+      "y": 600
+    }
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "window.jam.settings.update({ sidebarOpen: false }).then(() => 'collapsed')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const s = document.querySelector('aside[aria-label=Sidebar]'); const w = s.getBoundingClientRect().width; if (w !== 48) throw new Error('the sidebar did not fold to Jam\\'s 48 rail: ' + w); const rail = s.querySelector('[data-slot=rail]'); if (!rail || !rail.querySelector('button[aria-label=\"Toggle sidebar\"]') || rail.querySelectorAll('nav[aria-label=Sections] a, nav[aria-label=Sections] button').length < 9) throw new Error('the rail lacks its toggle or its sections'); if (document.querySelector('header button[aria-label=\"Toggle sidebar\"]') || !document.querySelector('header button[aria-label=\"Go back\"]')) throw new Error('beside the rail the title bar should hold history, not a second toggle'); return 'rail' })()"
+  },
+  {
+    "shot": "sidebar-collapsed-dark"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "sidebar-collapsed-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "eval": "window.jam.settings.update({ sidebarOpen: true, sidePaneOpen: true }).then(() => 'pane')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const p = document.querySelector('aside[aria-label=\"Side pane\"]'); if (!p || p.getBoundingClientRect().width < 300) throw new Error('side pane not open'); return 'side pane ' + p.getBoundingClientRect().width })()"
+  },
+  {
+    "shot": "side-pane-dark"
+  },
+  {
+    "eval": "window.jam.settings.update({ sidePaneOpen: false }).then(() => 'closed')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const links = [...document.querySelectorAll('[aria-label=Rooms] a[href*=\"/rooms/\"]')]; const rows = links.map((a) => a.querySelector('[data-slot=room-title]').textContent); const want = ['New Session', 'Checkout flow redesign', 'Release notes for 2.4', 'Flaky test triage']; if (rows.join('|') !== want.join('|')) throw new Error('the Rooms are not the fixture rooms, newest first: ' + rows.join('|')); const checkout = links[rows.indexOf('Checkout flow redesign')]; const avatars = checkout.querySelector('[role=img]'); if (!avatars || avatars.getAttribute('aria-label') !== 'Sam Rivera, Atlas, Nova') throw new Error('a room row carries no avatars of its people, as a Jam row does: ' + (avatars && avatars.getAttribute('aria-label'))); if (avatars.children.length !== 3) throw new Error('the row shows ' + avatars.children.length + ' avatars, not one per participant'); const time = checkout.lastElementChild.textContent; if (!/\\d/.test(time)) throw new Error('a room row carries no time: ' + time); return rows.join(', ') + ' · ' + time })()"
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11')"
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const t = document.querySelector('header h1'); if (!t || t.textContent !== 'Checkout flow redesign') throw new Error('no room title in the title bar: ' + (t && t.textContent)); const plan = document.querySelector('main section[aria-label=Plan]'); if (!plan || !plan.textContent.includes('Checkout plan')) throw new Error('no plan card'); const log = document.querySelector('main [role=log][aria-label=Conversation]'); if (!log || !log.textContent.includes('Starting on the confirmation screen.')) throw new Error('no conversation'); if (log.querySelector('[data-event=tool_call]')) throw new Error('tool calls shown, which Jam\\'s default filter hides'); if (!log.querySelector('[data-question=open]')) throw new Error('no open question card'); const banner = document.querySelector('main [aria-label=\"Permission requests\"]'); if (!banner || !banner.textContent.includes('sam-rivera/nova wants to change files')) throw new Error('no permission banner in Jam\\'s words'); const tabs = [...document.querySelectorAll('main [role=tablist][aria-label=\"Room views\"] [role=tab]')].map((t) => t.textContent); if (tabs.join('|') !== 'Work|Chat') throw new Error('the room views are not in Jam\\'s order: ' + tabs.join('|')); if (document.querySelector('main textarea[aria-label=Message]').placeholder !== 'Tag an agent and describe the task…') throw new Error('the composer is not in Jam\\'s words'); if (!document.querySelector('main [role=status][aria-label=\"Waiting for permission, 2 agents\"]')) throw new Error('no working strip'); const people = document.querySelector('header button[aria-label=\"Show participants\"]'); if (!people || people.textContent !== '3') throw new Error('the header has no participants button with the count of people in the room: ' + (people && people.textContent)); if (!document.querySelector('header button[aria-label=\"Show the plan & diagram\"]')) throw new Error('the header has no plan button, as a Jam header has'); if (!document.querySelector('header button[aria-label=\"Room actions\"]')) throw new Error('the header has no Room actions'); return 'room with agents' })()"
+  },
+  {
+    "shot": "room-chat-dark"
+  },
+  {
+    "eval": "(() => { const strip = [...document.querySelectorAll(\"button[aria-label]\")].find((b) => /the working agents/.test(b.getAttribute(\"aria-label\"))); if (!strip) throw new Error(\"no working strip, though this room has agents working\"); strip.click(); return \"the strip opened\" })()"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const list = document.querySelector(\"ul[aria-label=\\\"Working agents\\\"]\"); if (!list) throw new Error(\"the strip did not open its list\"); const rows = [...list.querySelectorAll(\"li\")]; if (rows.length === 0) throw new Error(\"the list opened with nothing in it\"); const ok = rows.filter((li) => /Stop|Runs elsewhere/.test(li.textContent)); if (ok.length !== rows.length) throw new Error(\"a working agent offers neither Stop nor a reason\"); return rows.length + \" working agent(s), each with Stop or a reason\" })()"
+  },
+  {
+    "shot": "room-working-stop-dark"
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": [
+      "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "/v1/roomMessageSnapshot",
+      {
+        "snapshot": {
+          "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+          "account_instance": "fixture-instance",
+          "last_included_mutation_sequence": 16,
+          "messages": [
+            {
+              "id": "6d000001-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "Kicking off the checkout redesign here. The plan is in the side pane.",
+              "message_type": "text",
+              "sender_id": "3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70",
+              "sender_name": "Sam Rivera",
+              "sender_type": "User",
+              "inserted_at": "2026-09-18T16:02:11.000000Z",
+              "updated_at": "2026-09-18T16:02:11.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000002-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "Atlas joined the conversation",
+              "message_type": "participant",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:30:02.000000Z",
+              "updated_at": "2026-09-19T09:30:02.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": "participant_added",
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000003-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "Nova joined the conversation",
+              "message_type": "participant",
+              "sender_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+              "sender_name": "Nova",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:30:05.000000Z",
+              "updated_at": "2026-09-19T09:30:05.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": "participant_added",
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000004-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "@[[7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21]] Please draft the summary step of the checkout, and ask me anything that blocks you. @[[9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13]] take the order confirmation screen.",
+              "message_type": "text",
+              "sender_id": "3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70",
+              "sender_name": "Sam Rivera",
+              "sender_type": "User",
+              "inserted_at": "2026-09-19T09:31:40.000000Z",
+              "updated_at": "2026-09-19T09:31:40.000000Z",
+              "mention_names": {
+                "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21": "Atlas",
+                "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13": "Nova"
+              },
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000005-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "ready",
+              "message_type": "task",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:31:41.000000Z",
+              "updated_at": "2026-09-19T09:31:41.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000006-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "{\"event\":\"turn_started\"}",
+              "message_type": "task",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:31:42.000000Z",
+              "updated_at": "2026-09-19T09:31:42.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000007-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "{\"args\":{\"file_path\":\"src/checkout/steps.ts\"},\"name\":\"Read\",\"tool_call_id\":\"toolu_a1\"}",
+              "message_type": "tool_call",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:31:45.000000Z",
+              "updated_at": "2026-09-19T09:31:45.000000Z",
+              "mention_names": {},
+              "tool_name": "Read",
+              "tool_call_id": "toolu_a1",
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000008-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "{\"is_error\":false,\"name\":\"Read\",\"output\":\"1\\texport const steps = [\\n2\\t  \\\"cart\\\",\",\"tool_call_id\":\"toolu_a1\"}",
+              "message_type": "tool_result",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:31:46.000000Z",
+              "updated_at": "2026-09-19T09:31:46.000000Z",
+              "mention_names": {},
+              "tool_name": "Read",
+              "tool_call_id": "toolu_a1",
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000009-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "@[[3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70]] I read the current steps. The summary lists the order, the delivery and the **payment**, so I need the provider before I lay it out.",
+              "message_type": "text",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:32:10.000000Z",
+              "updated_at": "2026-09-19T09:32:10.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000010-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "{\"args\":{\"questions\":[{\"header\":\"Provider\",\"multiSelect\":false,\"options\":[{\"description\":\"Card payments first\",\"label\":\"Stripe\"},{\"description\":\"Local methods first\",\"label\":\"Adyen\"}],\"question\":\"Which payment provider should the checkout use first?\"}]},\"name\":\"AskUserQuestion\",\"tool_call_id\":\"toolu_a2\"}",
+              "message_type": "tool_call",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:32:12.000000Z",
+              "updated_at": "2026-09-19T09:32:12.000000Z",
+              "mention_names": {},
+              "tool_name": "AskUserQuestion",
+              "tool_call_id": "toolu_a2",
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000011-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "@[[3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70]] ❓ **I need input to continue.**\n\n- Which payment provider should the checkout use first?  _(options: Stripe / Adyen)_\n\n_Reply in this room — the first response resumes my turn._\n\nReply with `Answer 7F3A21C9: <answer>`.\n⁣jam-hitl-question⁣2e4c6a8f-1b3d-4f5a-8c7e-9a1b3d5f7c02",
+              "message_type": "text",
+              "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+              "sender_name": "Atlas",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:32:13.000000Z",
+              "updated_at": "2026-09-19T09:32:13.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000012-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "{\"event\":\"turn_started\"}",
+              "message_type": "task",
+              "sender_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+              "sender_name": "Nova",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:33:02.000000Z",
+              "updated_at": "2026-09-19T09:33:02.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000013-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "Starting on the confirmation screen.",
+              "message_type": "text",
+              "sender_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+              "sender_name": "Nova",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:33:08.000000Z",
+              "updated_at": "2026-09-19T09:33:08.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000014-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "{\"args\":{\"content\":\"export function Confirmation() {}\\n\",\"file_path\":\"/work/nova/src/checkout/confirmation.tsx\"},\"name\":\"Write\",\"tool_call_id\":\"toolu_n1\"}",
+              "message_type": "tool_call",
+              "sender_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+              "sender_name": "Nova",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:33:20.000000Z",
+              "updated_at": "2026-09-19T09:33:20.000000Z",
+              "mention_names": {},
+              "tool_name": "Write",
+              "tool_call_id": "toolu_n1",
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000015-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "{\"args\":{\"action\":\"Write\",\"description\":\"Claude Code Write: {\\\"content\\\":\\\"export function Confirmation() {}\\\\n\\\",\\\"file_path\\\":\\\"/work/nova/src/checkout/confirmation.tsx\\\"}\"},\"name\":\"permission_request\",\"tool_call_id\":\"claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1\"}",
+              "message_type": "tool_call",
+              "sender_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+              "sender_name": "Nova",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:33:21.000000Z",
+              "updated_at": "2026-09-19T09:33:21.000000Z",
+              "mention_names": {},
+              "tool_name": "permission_request",
+              "tool_call_id": "claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1",
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            },
+            {
+              "id": "6d000016-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "content": "🔐 Permission needed: @[[3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70]] Claude Code Write: {\"content\":\"export function Confirmation() {}\\n\",\"file_path\":\"/work/nova/src/checkout/confirmation.tsx\"}\nReply MENTIONING ME with: approve claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1   or   deny claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1\n(id: claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1 — waits until explicitly decided)",
+              "message_type": "text",
+              "sender_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+              "sender_name": "Nova",
+              "sender_type": "Agent",
+              "inserted_at": "2026-09-19T09:33:22.000000Z",
+              "updated_at": "2026-09-19T09:33:22.000000Z",
+              "mention_names": {},
+              "tool_name": null,
+              "tool_call_id": null,
+              "thought_stream_id": null,
+              "system_event": null,
+              "system_subject": null,
+              "connectivity_account_instance": null,
+              "connectivity_profile": null,
+              "attachments": []
+            }
+          ],
+          "next_cursor": null,
+          "has_more": false,
+          "recovery": {
+            "state": "idle",
+            "detail": "",
+            "completed_rooms": 0,
+            "total_rooms": 0
+          }
+        }
+      }
+    ]
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', 'the room again')"
+  },
+  {
+    "wait": 1500
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const said = main.querySelectorAll('[data-slot=conversation] article[data-sender]').length; if (said === 0) throw new Error('the conversation is not on screen'); if (main.querySelector('[data-slot=earlier]')) throw new Error('the room offers to read earlier messages the daemon says are not there'); return said + ' messages, and nothing older to read' })()"
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": ["5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11", "/v1/roomMessageSnapshot"]
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', 'the room once more')"
+  },
+  {
+    "wait": 1500
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const said = [...main.querySelectorAll('[data-slot=conversation] article[data-sender]')]; window.__saidBefore = said.length; if (said.length < 5) throw new Error('the conversation is not on screen: ' + said.length); if (!said[0].textContent.includes(\"Kicking off the checkout redesign here\")) throw new Error(\"the conversation does not open on the snapshot's first message: \" + said[0].textContent.slice(0, 60)); if (main.textContent.includes(\"Opening this room for the checkout work\")) throw new Error('the messages from before the snapshot are on screen before they were asked for'); const control = main.querySelector('[data-slot=earlier] button'); if (!control) throw new Error('nothing offers the messages from before the snapshot, which the daemon says are there'); if (control.textContent.trim() !== 'Show earlier messages') throw new Error('not the words the control carries: ' + control.textContent); control.setAttribute('data-uicheck', 'target'); control.scrollIntoView({ block: 'center' }); return window.__saidBefore + ' messages, and the earlier ones offered' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const said = [...main.querySelectorAll('[data-slot=conversation] article[data-sender]')]; if (said.length !== window.__saidBefore + 5) throw new Error('not the five messages the daemon had from before the snapshot: ' + window.__saidBefore + ' -> ' + said.length); if (!said[0].textContent.includes(\"Opening this room for the checkout work\")) throw new Error('the earlier messages are not in front of the conversation: ' + said[0].textContent.slice(0, 60)); if (!main.textContent.includes(\"Kicking off the checkout redesign here\")) throw new Error(\"the snapshot's own messages went away with the reading\"); if (main.querySelector('[data-slot=earlier]')) throw new Error('the control is still offered after the conversation was read to its beginning'); document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return window.__saidBefore + ' -> ' + said.length + ' messages' })()"
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const control = main.querySelector('button[aria-label=\"Find in conversation\"]'); if (!control) throw new Error(\"the room's header has no Find in conversation, which Jam puts before Event type\"); if (main.querySelector('[data-slot=find]')) throw new Error('the find field is open before it was asked for'); const filters = main.querySelector('button[aria-label=\"Event type\"], main button'); control.setAttribute('data-uicheck', 'target'); return 'Find in conversation offered' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const field = main.querySelector('[data-slot=find] input'); if (!field) throw new Error('the control did not open the field'); if (document.activeElement !== field) throw new Error('the field did not take the caret'); if (main.querySelector('[data-slot=find-count]')) throw new Error('something is counted before anything is typed'); document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'the field is open and has the caret' })()"
+  },
+  {
+    "eval": "(() => { const field = document.querySelector('main [data-slot=find] input'); if (!field) throw new Error('no field to find in the conversation'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(field, \"checkout\"); field.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"checkout\" })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const count = main.querySelector('[data-slot=find-count]'); if (!count) throw new Error('the matches are not counted'); window.__found = count.textContent.trim(); if (!/^1 of [2-9]/.test(window.__found)) throw new Error('not the first of several matches: ' + window.__found); const list = document.querySelector('[data-slot=find-results]'); if (!list) throw new Error('the matches are not listed, as Jam lists them'); const rows = [...list.querySelectorAll('button[data-find-result]')]; if (rows.length !== Number(window.__found.split(' of ')[1])) throw new Error('the list does not hold every match: ' + rows.length + ' of ' + window.__found); const first = rows[0]; if (first.getAttribute('aria-current') !== 'true') throw new Error('the newest match is not the one chosen'); if (!first.textContent.toLowerCase().includes('checkout')) throw new Error('a result does not show the part that matched: ' + first.textContent.slice(0, 60)); if (!/(Sam Rivera|Atlas|Nova)/.test(first.textContent)) throw new Error('a result does not say who sent it: ' + first.textContent.slice(0, 60)); if (!/\\d/.test(first.textContent)) throw new Error('a result does not say when: ' + first.textContent.slice(0, 60)); if (main.querySelector('[data-find=current]')) throw new Error('the conversation was moved before a match was chosen'); const box = first.getBoundingClientRect(); if (box.height < 8 || box.width < 8) throw new Error('a result is drawn with no size: ' + JSON.stringify(box)); const hit = document.elementFromPoint(box.left + box.width / 2, box.top + box.height / 2); if (!hit || !list.contains(hit)) throw new Error('the list is drawn where nothing can see it: the point at its first result belongs to ' + (hit ? hit.tagName + '.' + String(hit.className).slice(0, 40) : 'nothing')); window.__first = first.textContent.slice(0, 40); return window.__found + ', listed' })()"
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('main button[aria-label=\"Next match\"]'); if (!b) throw new Error('no way to the next match'); b.setAttribute('data-uicheck', 'target'); return 'next' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const count = main.querySelector('[data-slot=find-count]').textContent.trim(); if (count === window.__found) throw new Error('the count did not move: ' + count); if (!count.startsWith('2 of ')) throw new Error('not the second match: ' + count); const chosen = document.querySelector('[data-slot=find-results] [aria-current=true]'); if (!chosen) throw new Error('nothing in the list is chosen after stepping'); if (chosen.textContent.slice(0, 40) === window.__first) throw new Error('the same result is still chosen'); return count })()"
+  },
+  {
+    "eval": "(() => { document.querySelector('main [data-slot=find] input').focus(); return 'the caret is in the field' })()"
+  },
+  {
+    "key": "ArrowDown",
+    "vk": 40
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const count = main.querySelector('[data-slot=find-count]').textContent.trim(); if (!count.startsWith('3 of ')) throw new Error('the arrow key did not walk the matches: ' + count); return 'the arrow key walked to ' + count })()"
+  },
+  {
+    "key": "ArrowUp",
+    "vk": 38
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const count = main.querySelector('[data-slot=find-count]').textContent.trim(); if (!count.startsWith('2 of ')) throw new Error('the arrow key did not walk back: ' + count); return 'and back to ' + count })()"
+  },
+  {
+    "eval": "(() => { document.querySelector('main [data-slot=find] input').focus(); return 'the caret is in the field' })()"
+  },
+  {
+    "key": "Enter",
+    "vk": 13
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const marked = main.querySelectorAll('[data-find=current]'); if (marked.length !== 1) throw new Error('Enter did not take the person to the match: ' + marked.length); if (!marked[0].textContent.toLowerCase().includes('checkout')) throw new Error('the marked message does not say the words: ' + marked[0].textContent.slice(0, 60)); if (!document.querySelector('[data-slot=find-results]')) throw new Error('the list went away when the match was reached'); const marks = marked[0].querySelectorAll('mark'); if (marks.length === 0) throw new Error('the words are not marked where they are said, as Jam marks them'); if (!marks[0].textContent.toLowerCase().includes('checkout')) throw new Error('something other than the words was marked: ' + marks[0].textContent.slice(0, 40)); if (document.querySelectorAll('[data-slot=conversation] mark').length !== marks.length) throw new Error('the words are marked in a message the search did not take the person to'); return 'Enter went to the match' })()"
+  },
+  {
+    "shot": "room-find-dark"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'cleared' })()"
+  },
+  {
+    "eval": "(() => { const field = document.querySelector('main [data-slot=find] input'); if (!field) throw new Error('no field to find in the conversation'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(field, \"nothing like this at all\"); field.dispatchEvent(new Event('input', { bubbles: true })); return 'typed ' + \"nothing like this at all\" })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); const count = main.querySelector('[data-slot=find-count]'); if (!count || count.textContent.trim() !== 'No matches') throw new Error('a search that matches nothing does not say so: ' + (count && count.textContent)); if (main.querySelector('[data-find=current]')) throw new Error('a message is marked for words that are not there'); return 'no matches says so' })()"
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('main button[aria-label=\"Next match\"]'); if (!b) throw new Error('no Next match to put the focus on'); b.focus(); if (document.activeElement !== b) throw new Error('the button did not take the focus'); return 'the focus is on a button of the find, not its field' })()"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.querySelector('[data-slot=find]')) throw new Error('Escape did not close the find field'); if (!main.querySelector('button[aria-label=\"Find in conversation\"]')) throw new Error('the control did not come back'); if (main.querySelector('[data-find=current]')) throw new Error('a message is still marked after the find closed'); return 'closed, and the control is back' })()"
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('main button[aria-label=\"Find in conversation\"]'); b.setAttribute('data-uicheck', 'target'); return 'opening it again' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { if (!document.querySelector('main [data-slot=find] input')) throw new Error('the field did not open again'); document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'open again' })()"
+  },
+  {
+    "eval": "(location.hash = '#/', 'home')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', 'the room again')"
+  },
+  {
+    "wait": 1500
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main'); if (main.querySelector('[data-slot=find]')) throw new Error('the find field followed the person out of the room and back'); if (!main.querySelector('button[aria-label=\"Find in conversation\"]')) throw new Error('the control is not in the room'); return 'a room opens on its conversation, not on a search' })()"
+  },
+  {
+    "shot": "room-earlier-dark"
+  },
+  {
+    "eval": "(() => { const scroller = document.querySelector('[data-slot=room-scroll]'); if (scroller) scroller.scrollTop = scroller.scrollHeight; return 'back to the end' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main button, main [role=tab]\")].find((x) => x.textContent.trim() === \"Event type\"); if (!b) throw new Error('no button Event type'); b.setAttribute('data-uicheck', 'target'); return 'found Event type' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll('[role=menuitemcheckbox]')].map((i) => i.textContent); if (items.length !== 8 || !items[4].startsWith('Tasks') || !items[5].startsWith('Tool calls')) throw new Error('the Event type menu is not Jam\\'s: ' + items.join('|')); return items.join(', ') })()"
+  },
+  {
+    "shot": "room-eventtype-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main button, main [role=tab]\")].find((x) => x.textContent.trim() === \"Sender\"); if (!b) throw new Error('no button Sender'); b.setAttribute('data-uicheck', 'target'); return 'found Sender' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll('[role=menuitemcheckbox]')].map((i) => i.textContent); if (items.length !== 4 || items[0] !== 'Select all' || !items[1].startsWith('Sam Rivera') || !items[3].startsWith('Nova')) throw new Error('the Sender menu is not Jam\\'s: ' + items.join('|')); return items.join(', ') })()"
+  },
+  {
+    "shot": "room-sender-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main [data-question=open] button, main [data-question=open] [role=tab]\")].find((x) => x.textContent.trim() === \"Answer\\u2026\"); if (!b) throw new Error('no button Answer…'); b.setAttribute('data-uicheck', 'target'); return 'found Answer…' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); if (!d || !d.textContent.includes('Answer Atlas') || !d.textContent.includes('Which payment provider') || !d.querySelector('[role=group][aria-label=Answers] button')) throw new Error('no answer dialog in Jam\\'s words'); return 'answer dialog' })()"
+  },
+  {
+    "shot": "room-answer-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main [aria-label=\\\"Permission requests\\\"] button, main [aria-label=\\\"Permission requests\\\"] [role=tab]\")].find((x) => x.textContent.trim() === \"Review\"); if (!b) throw new Error('no button Review'); b.setAttribute('data-uicheck', 'target'); return 'found Review' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); if (!d || !d.querySelector('[aria-label=\"Full operation\"]') || ![...d.querySelectorAll('button')].some((b) => b.textContent === 'Deny always')) throw new Error('no review dialog in Jam\\'s words'); return 'review dialog' })()"
+  },
+  {
+    "shot": "room-review-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main button, main [role=tab]\")].find((x) => x.textContent.trim() === \"Mention\"); if (!b) throw new Error('no button Mention'); b.setAttribute('data-uicheck', 'target'); return 'found Mention' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll('[role=menuitem]')].map((i) => i.textContent); if (items.length !== 2 || !items[0].endsWith('Atlas') || !items[1].endsWith('Nova')) throw new Error('the mention picker does not list the room\\'s agents: ' + items.join('|')); return items.join(', ') })()"
+  },
+  {
+    "shot": "room-mention-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "room-chat-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const scroller = document.querySelector('main [data-slot=room-scroll]'); if (!scroller || scroller.scrollTop === 0) throw new Error('the conversation did not open at its end'); const banner = document.querySelector('main [aria-label=\"Permission requests\"]').getBoundingClientRect(); const tab = document.querySelector('main [role=tablist][aria-label=\"Room views\"]').getBoundingClientRect(); if (banner.top < 0 || tab.top < 0 || tab.bottom > innerHeight) throw new Error('the banner or the views scrolled away with the conversation'); if (getComputedStyle(document.querySelector('main')).overflowY !== 'hidden') throw new Error('the page area scrolls beside the room\\'s own scroller'); const log = document.querySelector('main [role=log]').getBoundingClientRect(); const card = document.querySelector('main textarea[aria-label=Message]').parentElement.getBoundingClientRect(); if (Math.abs(log.left - banner.left) > 0.5 || Math.abs(card.left - banner.left) > 0.5 || Math.abs(card.right - banner.right) > 0.5) throw new Error('the header, the conversation and the composer are not in one column: ' + [banner.left, log.left, card.left, banner.right, card.right].join(' ')); document.querySelector('main section[aria-label=Plan]').scrollIntoView({ block: 'center' }); return 'pinned; plan card in view' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "click": "main section[aria-label=Plan] > div:last-child button"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const pane = document.querySelector('aside[aria-label=\"Side pane\"]'); if (!pane || pane.getBoundingClientRect().width < 300) throw new Error('View full plan did not open the side pane'); const plan = pane.querySelector('article[aria-label=Plan]'); if (!plan || !plan.querySelector('h2') || plan.querySelector('h2').textContent !== 'Checkout plan' || !plan.querySelector('table')) throw new Error('the full plan is not shown with its table'); if (plan.querySelector('img, script, iframe')) throw new Error('the plan rendered raw HTML'); return 'full plan shown' })()"
+  },
+  {
+    "shot": "room-plan-dark"
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('main section[aria-label=Plan] header button[aria-label=\"Plan actions\"]'); if (!b) throw new Error('the plan card of a room with a plan offers no Plan actions'); if ([...document.querySelectorAll('main section[aria-label=Plan] header button')].some((x) => x.textContent.trim() === 'Choose file…')) throw new Error('the plan card of a room with a plan still offers Choose file…'); return 'plan actions control' })()"
+  },
+  {
+    "click": "main section[aria-label=Plan] header button[aria-label=\"Plan actions\"]"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const menu = document.querySelector('[role=menu]'); if (!menu) throw new Error('Plan actions opened no menu'); const items = [...menu.querySelectorAll('[role=menuitem]')]; const named = (t) => items.find((x) => x.textContent.trim() === t); const replace = named('Replace with another file…'); const remove = named('Remove from this room'); if (!replace || replace.hasAttribute('data-disabled')) throw new Error('Replace with another file… is missing or turned off'); if (!remove || !remove.hasAttribute('data-disabled')) throw new Error('Remove from this room is missing or not turned off'); if (named('Refresh')) throw new Error('a snapshot plan offers Refresh'); if (!menu.textContent.includes('Or attach from the terminal')) throw new Error('the terminal lines are missing'); const pre = menu.querySelector('pre[data-commands]'); const room = '5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11'; if (!pre || !pre.textContent.includes('band plan diagram ' + room + ' < arch.json') || !pre.textContent.includes('band plan set ' + room + ' ./plan.md')) throw new Error('the terminal lines do not name this room: ' + (pre && pre.textContent)); if (!items.some((x) => x.getAttribute('aria-label') === 'Copy command')) throw new Error('no Copy command'); return 'plan actions: ' + items.length + ' items' })()"
+  },
+  {
+    "shot": "room-plan-actions-dark"
+  },
+  {
+    "eval": "(() => { const item = [...document.querySelectorAll('[role=menu] [role=menuitem]')].find((x) => x.textContent.trim() === 'Replace with another file…'); if (!item) throw new Error('no Replace with another file…'); item.setAttribute('data-uicheck', 'target'); return 'marked' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); if (!d || !d.textContent.includes(\"Replace this room's plan?\")) throw new Error('replacing a plan does not ask first'); return 'asked before the picker' })()"
+  },
+  {
+    "shot": "room-plan-replace-dark"
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll('[role=dialog] button')].find((x) => x.textContent.trim() === 'Cancel'); if (!b) throw new Error('no Cancel in the ask'); b.setAttribute('data-uicheck', 'target'); return 'marked' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { if (document.querySelector('[role=dialog]')) throw new Error('the ask did not close on Cancel'); return 'cancelled' })()"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "room-plan-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "click": "aside[aria-label='Side pane'] [data-panel=participants]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const pane = document.querySelector('aside[aria-label=\"Side pane\"]'); if (pane.getBoundingClientRect().width < 300) throw new Error('the side pane is not open'); const list = pane.querySelector('ul[aria-label=Participants]'); if (!list || !list.textContent.includes('Sam Rivera') || !list.querySelector('[aria-label=Owner]')) throw new Error('the participants are not the fixture owner with the crown: ' + (list && list.textContent)); const h = [...pane.querySelectorAll('h3')].find((e) => /^Users \\(\\d+\\)$/.test(e.textContent)); if (!h) throw new Error('no Users (n) heading, as Jam groups people'); const agents = pane.querySelector('ul[aria-label=Agents]'); if (!agents || agents.querySelectorAll('li').length !== 2 || agents.querySelectorAll('[aria-label=Online]').length !== 2 || agents.querySelectorAll('[aria-label=\"1 waiting on you\"]').length !== 2) throw new Error('the agents are not Jam\\'s Agents group, online, each with what waits on the person'); const nova = agents.querySelector('li[aria-label=Nova]').textContent; if (!nova.includes('Write') || nova.includes('permission_request')) throw new Error('Nova does not show the tool its request asks for, as Jam does: ' + nova); return h.textContent + ', 2 agents' })()"
+  },
+  {
+    "shot": "room-participants-dark"
+  },
+  {
+    "eval": "(() => { const rows = [...document.querySelectorAll(\"ul[aria-label=Participants] li\")]; if (rows.length === 0) throw new Error(\"no participant row\"); const menus = rows.map((r) => r.querySelector(\"button[aria-label^=\\\"Actions for \\\"]\")); const owner = rows.find((r) => r.querySelector(\"[aria-label=Owner]\")); if (owner && owner.querySelector(\"button[aria-label^=\\\"Actions for \\\"]\")) throw new Error(\"the room owner is offered Remove, which Band refuses\"); const one = menus.find(Boolean); if (!one) return \"no participant here may be removed\"; one.click(); return \"a participant menu\" })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll(\"[role=menuitem]\")].map((i) => i.textContent.trim()); if (items.length && items.join(\"|\") !== \"Remove\") throw new Error(\"the participant menu is not just Remove: \" + items.join(\"|\")); return items.join(\", \") || \"no menu open\" })()"
+  },
+  {
+    "shot": "room-participant-menu-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const cards = [...document.querySelectorAll('ul[aria-label=Agents] li')]; if (cards.length === 0) throw new Error('no agent card'); const menu = cards[0].querySelector('button[aria-label^=\"Actions for \"]'); if (!menu) throw new Error(\"an agent's card offers no menu, so Jam's Remove is not on it\"); menu.click(); return 'an agent menu on ' + cards[0].getAttribute('aria-label') })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const items = [...document.querySelectorAll('[role=menuitem]')].map((i) => i.textContent.trim()); if (items.join('|') !== 'Remove') throw new Error(\"an agent's menu is not Jam's Remove alone: \" + items.join('|')); return items.join(', ') })()"
+  },
+  {
+    "shot": "room-agent-menu-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 300
+  },
+  {
+    "click": "aside[aria-label='Side pane'] [data-panel=files]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { if (document.querySelector('aside[aria-label=\"Side pane\"]').getBoundingClientRect().width < 300) throw new Error('the side pane is not open'); const list = document.querySelector('aside[aria-label=\"Side pane\"] ul[aria-label=Files]'); if (!list || !list.textContent.includes('checkout-plan.md') || !list.textContent.includes('cart-wireframe.png')) throw new Error('the files are not the fixture files: ' + (list && list.textContent)); if (list.textContent.includes('Local only')) throw new Error('a file carries a mark Jam does not put on one'); const line = list.querySelector('li').textContent; if (!/^checkout-plan\\.mdfrom You · .+ · 602 B$/.test(line)) throw new Error('the line under a file is not the line Jam writes (who shared it, its age, its size): ' + line); return list.textContent })()"
+  },
+  {
+    "shot": "room-files-dark"
+  },
+  {
+    "eval": "(() => { const row = document.querySelector(\"ul[aria-label=Files] li\"); if (!row) throw new Error(\"no file row in the panel\"); const labels = [...row.querySelectorAll(\"button[aria-label]\")].map((b) => b.getAttribute(\"aria-label\").split(\" \")[0]); for (const one of [\"Open\", \"Verify\", \"Save\", \"Reveal\", \"Delete\"]) if (!labels.includes(one)) throw new Error(\"a file row is missing its \" + one + \": \" + labels.join(\"|\")); return \"a file row, with the five actions\" })()"
+  },
+  {
+    "shot": "room-file-actions-dark"
+  },
+  {
+    "eval": "(() => { const row = document.querySelector(\"ul[aria-label=Files] li\"); if (!row) throw new Error(\"no file row\"); const del = [...row.querySelectorAll(\"button[aria-label]\")].find((b) => b.getAttribute(\"aria-label\").startsWith(\"Delete \")); if (!del) return \"no Delete: this room holds no file of its own\"; del.click(); return \"Delete pressed\" })()"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const dialog = document.querySelector(\"[role=dialog]\"); if (!dialog) return \"no dialog: nothing to delete here\"; const text = dialog.textContent; if (!text.includes(\"Delete this file?\")) throw new Error(\"the dialog is not the delete one\"); if (!text.includes(\"cannot be undone\")) throw new Error(\"the dialog does not say it cannot be undone\"); const buttons = [...dialog.querySelectorAll(\"button\")].map((b) => b.textContent.trim()); if (!buttons.includes(\"Cancel\")) throw new Error(\"the delete dialog cannot be cancelled\"); return \"the Delete file dialog, with Cancel\" })()"
+  },
+  {
+    "shot": "room-file-delete-dialog-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": [
+      "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "/v1/roomFileList",
+      {
+        "page": {
+          "files": [
+            {
+              "id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+              "local_artifact_id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+              "name": "checkout-plan.md",
+              "mime": "text/markdown",
+              "bytes": 602,
+              "sha256": "c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0",
+              "path": "D:\\jam-data\\cfg\\artifacts\\c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0\\checkout-plan.md",
+              "has_thumb": false,
+              "uploader_id": "",
+              "uploader_type": "Local",
+              "uploader_name": null,
+              "created_at": 1789764012486,
+              "expires_at": null,
+              "local_only": true
+            },
+            {
+              "id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+              "local_artifact_id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+              "name": "cart-wireframe.png",
+              "mime": "image/png",
+              "bytes": 48213,
+              "sha256": "7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c",
+              "path": "D:\\jam-data\\cfg\\artifacts\\7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c\\cart-wireframe.png",
+              "has_thumb": false,
+              "uploader_id": "",
+              "uploader_type": "Local",
+              "uploader_name": null,
+              "created_at": 1789677612482,
+              "expires_at": null,
+              "local_only": true
+            }
+          ],
+          "next_cursor": "cursor-page-2",
+          "has_more": true,
+          "limit": 0,
+          "status": "local_complete"
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "click": "aside[aria-label='Side pane'] [data-panel=files]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const names = [...document.querySelectorAll(\"ul[aria-label=Files] li\")].length; const more = [...document.querySelectorAll(\"aside button\")].find((b) => b.textContent.trim() === \"Load more files\"); if (!more) throw new Error(\"no Load more files, though the page says there is more\"); const tab = [...document.querySelectorAll(\"[data-panel=files]\")][0]; if (tab && !tab.textContent.includes(\"+\")) throw new Error(\"the Files tab count does not end with a plus\"); return names + \" files listed, with Load more files\" })()"
+  },
+  {
+    "shot": "room-files-more-dark"
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": [
+      "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "/v1/roomFileList",
+      {
+        "page": {
+          "files": [
+            {
+              "id": "art-000000000000000000000009",
+              "local_artifact_id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+              "name": "older-notes.md",
+              "mime": "text/markdown",
+              "bytes": 602,
+              "sha256": "c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0",
+              "path": "D:\\jam-data\\cfg\\artifacts\\c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0\\checkout-plan.md",
+              "has_thumb": false,
+              "uploader_id": "",
+              "uploader_type": "Local",
+              "uploader_name": null,
+              "created_at": 1789764012486,
+              "expires_at": null,
+              "local_only": true
+            }
+          ],
+          "next_cursor": null,
+          "has_more": false,
+          "limit": 0,
+          "status": "local_complete"
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(() => { const more = [...document.querySelectorAll(\"aside button\")].find((b) => b.textContent.trim() === \"Load more files\"); more.click(); return \"Load more files pressed\" })()"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const names = [...document.querySelectorAll(\"ul[aria-label=Files] li\")].map((li) => li.textContent.split(\" \")[0]); if (names.length !== 3) throw new Error(\"the next page was not added to the ones listed: \" + names.length); if (!names.some((n) => n.includes(\"older-notes\"))) throw new Error(\"the next page is not in the list\"); const more = [...document.querySelectorAll(\"aside button\")].find((b) => b.textContent.trim() === \"Load more files\"); if (more) throw new Error(\"Load more files is still offered on the last page\"); return names.length + \" files, the last page added and the control gone\" })()"
+  },
+  {
+    "shot": "room-files-loaded-dark"
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": [
+      "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "/v1/roomFileList",
+      {
+        "page": {
+          "files": [
+            {
+              "id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+              "local_artifact_id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+              "name": "checkout-plan.md",
+              "mime": "text/markdown",
+              "bytes": 602,
+              "sha256": "c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0",
+              "path": "D:\\jam-data\\cfg\\artifacts\\c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0\\checkout-plan.md",
+              "has_thumb": false,
+              "uploader_id": "",
+              "uploader_type": "Local",
+              "uploader_name": null,
+              "created_at": 1789764012486,
+              "expires_at": null,
+              "local_only": true
+            },
+            {
+              "id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+              "local_artifact_id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+              "name": "cart-wireframe.png",
+              "mime": "image/png",
+              "bytes": 48213,
+              "sha256": "7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c",
+              "path": "D:\\jam-data\\cfg\\artifacts\\7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c\\cart-wireframe.png",
+              "has_thumb": false,
+              "uploader_id": "",
+              "uploader_type": "Local",
+              "uploader_name": null,
+              "created_at": 1789677612482,
+              "expires_at": null,
+              "local_only": true
+            }
+          ],
+          "next_cursor": "cursor-page-2",
+          "has_more": true,
+          "limit": 0,
+          "status": "local_complete"
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', 'back in the room')"
+  },
+  {
+    "wait": 1600
+  },
+  {
+    "eval": "(() => { const rows = [...document.querySelectorAll(\"ul[aria-label=Files] li\")]; if (rows.length !== 3) throw new Error(\"a room re-read dropped the pages Load more had added: \" + rows.length); const names = rows.map((li) => li.textContent); if (!names.some((n) => n.includes(\"older-notes\"))) throw new Error(\"the later page is gone after a re-read\"); if (new Set(names).size !== names.length) throw new Error(\"a re-read listed a file twice\"); return \"the pages read after the first survive a room re-read, each file once\" })()"
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": ["5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11", "/v1/roomFileList"]
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": [
+      "8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f",
+      "/v1/roomFileList",
+      {
+        "page": {
+          "files": [
+            {
+              "id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+              "local_artifact_id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+              "name": "checkout-plan.md",
+              "mime": "text/markdown",
+              "bytes": 602,
+              "sha256": "c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0",
+              "path": "D:\\jam-data\\cfg\\artifacts\\c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0\\checkout-plan.md",
+              "has_thumb": false,
+              "uploader_id": "",
+              "uploader_type": "Local",
+              "uploader_name": null,
+              "created_at": 1789764012486,
+              "expires_at": null,
+              "local_only": true
+            },
+            {
+              "id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+              "local_artifact_id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+              "name": "cart-wireframe.png",
+              "mime": "image/png",
+              "bytes": 48213,
+              "sha256": "7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c",
+              "path": "D:\\jam-data\\cfg\\artifacts\\7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c\\cart-wireframe.png",
+              "has_thumb": false,
+              "uploader_id": "",
+              "uploader_type": "Local",
+              "uploader_name": null,
+              "created_at": 1789677612482,
+              "expires_at": null,
+              "local_only": true
+            }
+          ],
+          "next_cursor": null,
+          "has_more": true,
+          "limit": 0,
+          "status": "local_complete"
+        }
+      }
+    ]
+  },
+  {
+    "eval": "(location.hash = '#/rooms/8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f', 'a room with more files and no cursor')"
+  },
+  {
+    "wait": 1600
+  },
+  {
+    "click": "aside[aria-label='Side pane'] [data-panel=files]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const aside = document.querySelector('aside[aria-label=\"Side pane\"]'); if (!aside) throw new Error('the side pane is not open'); const rows = aside.querySelectorAll('ul[aria-label=Files] li').length; if (rows !== 2) throw new Error('the first page is not listed: ' + rows); if ([...aside.querySelectorAll('button')].some((b) => b.textContent.trim() === 'Load more files')) throw new Error('Load more files is offered with no page to ask for'); if (!aside.textContent.includes('This room has more files than are listed here.')) throw new Error('the room does not say it has more files than are listed'); return 'more files and no cursor: the note, not the button' })()"
+  },
+  {
+    "shot": "room-files-more-no-cursor-dark"
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": ["8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f", "/v1/roomFileList"]
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', 'back in the checkout room')"
+  },
+  {
+    "wait": 1600
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('header button[aria-label=\"Show the plan & diagram\"]'); if (!b) throw new Error('no plan button in the header'); if (b.querySelector('[aria-label=\"The plan changed\"]')) throw new Error('the plan is marked as changed before it has changed'); return 'plan unmarked' })()"
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": [
+      "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "/v1/getRoomPlan",
+      {
+        "plan": {
+          "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+          "source": {
+            "raw": "D:/plans/checkout-plan.md",
+            "canonical": "D:\\plans\\checkout-plan.md",
+            "label": "Checkout plan",
+            "attachment_id": "9d8c7b6a-5f4e-4d3c-8b2a-1f0e9d8c7b6a",
+            "kind": "markdown",
+            "event_profile": "default",
+            "snapshot": true
+          },
+          "cache": {
+            "body": "# Checkout plan\n\nThe plan changed while the person was reading the room.\n",
+            "content_type": "markdown",
+            "fetched_at": 1789764012482,
+            "bytes": 602
+          },
+          "last_error": "",
+          "live_source_state": "snapshot",
+          "watch_error": "",
+          "overlay": {
+            "states": {},
+            "focus": ""
+          },
+          "updated_at": 1789764012482,
+          "doc_rev": 2
+        }
+      }
+    ]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "peer": "human/default",
+        "kind": {
+          "kind": "room_directory_snapshot",
+          "rooms": []
+        }
+      }
+    ]
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('header button[aria-label=\"Show the plan & diagram\"]'); if (!b || !b.querySelector('[role=img][aria-label=\"The plan changed\"]')) throw new Error('a plan that changed while the person was in the room carries no mark, as Jam marks one'); return 'plan marked' })()"
+  },
+  {
+    "shot": "room-plan-changed-dark"
+  },
+  {
+    "click": "header button[aria-label='Show the plan & diagram']"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('header button[aria-label=\"Hide the plan & diagram\"]'); if (!b) throw new Error('showing the plan did not turn the header button into the Hide the plan & diagram of Jam'); if (b.querySelector('[aria-label=\"The plan changed\"]')) throw new Error('showing the plan left its mark on'); const pane = document.querySelector('aside[aria-label=\"Side pane\"] article[aria-label=Plan]'); if (!pane) throw new Error('the plan panel did not open'); return 'plan shown, mark gone' })()"
+  },
+  {
+    "click": "header button[aria-label='Hide the plan & diagram']"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "fake": "setRoomAnswer",
+    "args": ["5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11", "/v1/getRoomPlan"]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "peer": "human/default",
+        "kind": {
+          "kind": "room_directory_snapshot",
+          "rooms": []
+        }
+      }
+    ]
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "window.jam.settings.update({ sidePaneOpen: true }).then(() => 'pane back')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "click": "main [role=tablist][aria-label='Room views'] [role=tab]:first-child"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const views = [...document.querySelectorAll('main [role=tablist][aria-label=\"Work views\"] [role=tab]')]; if (views.map((v) => v.textContent).join('|') !== 'Tasks|Status|Agents|Shared') throw new Error('the Work views are not Jam\\'s: ' + views.map((v) => v.textContent).join('|')); if (views[1].getAttribute('aria-selected') !== 'true') throw new Error('Work does not open on Status, as Jam does'); const table = document.querySelector('main [role=table][aria-label=\"Tasks by status\"]'); if (!table || table.querySelectorAll('[role=row]').length !== 3 || !table.textContent.includes('Permission: Write') || !table.textContent.includes('Draft the summary step')) throw new Error('the Status board is not the two agents\\' lanes'); return 'work on Status' })()"
+  },
+  {
+    "shot": "room-work-dark"
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main [role=tablist][aria-label=\\\"Work views\\\"] button, main [role=tablist][aria-label=\\\"Work views\\\"] [role=tab]\")].find((x) => x.textContent.trim() === \"Tasks\"); if (!b) throw new Error('no button Tasks'); b.setAttribute('data-uicheck', 'target'); return 'found Tasks' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const on = document.querySelector('main [role=tablist][aria-label=\"Work views\"] [aria-selected=true]'); if (!on || on.textContent !== 'Tasks') throw new Error('the Tasks view is not shown'); if (!(document.querySelector('main').textContent.includes('Draft the summary step'))) throw new Error('the Tasks view lacks its work'); return 'Tasks shown' })()"
+  },
+  {
+    "shot": "room-work-tasks-dark"
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main [role=tablist][aria-label=\\\"Work views\\\"] button, main [role=tablist][aria-label=\\\"Work views\\\"] [role=tab]\")].find((x) => x.textContent.trim() === \"Agents\"); if (!b) throw new Error('no button Agents'); b.setAttribute('data-uicheck', 'target'); return 'found Agents' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const on = document.querySelector('main [role=tablist][aria-label=\"Work views\"] [aria-selected=true]'); if (!on || on.textContent !== 'Agents') throw new Error('the Agents view is not shown'); if (!(!!document.querySelector('main [role=progressbar][aria-label=\"Atlas: 1 of 3 tasks done\"]'))) throw new Error('the Agents view lacks its work'); return 'Agents shown' })()"
+  },
+  {
+    "shot": "room-work-agents-dark"
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main [role=tablist][aria-label=\\\"Work views\\\"] button, main [role=tablist][aria-label=\\\"Work views\\\"] [role=tab]\")].find((x) => x.textContent.trim() === \"Shared\"); if (!b) throw new Error('no button Shared'); b.setAttribute('data-uicheck', 'target'); return 'found Shared' })()"
+  },
+  {
+    "click": "[data-uicheck=target]"
+  },
+  {
+    "eval": "(() => { document.querySelector('[data-uicheck=target]')?.removeAttribute('data-uicheck'); return 'clicked' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const on = document.querySelector('main [role=tablist][aria-label=\"Work views\"] [aria-selected=true]'); if (!on || on.textContent !== 'Shared') throw new Error('the Shared view is not shown'); if (!((document.querySelector('main [aria-label=Todo]')?.textContent ?? '').includes('Review the new checkout flow'))) throw new Error('the Shared view lacks its work'); return 'Shared shown' })()"
+  },
+  {
+    "shot": "room-work-shared-dark"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "room-work-shared-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(location.hash = '#/rooms/8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f', '#/rooms/8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f')"
+  },
+  {
+    "wait": 800
+  },
+  {
+    "eval": "(() => { const text = document.querySelector('main').textContent; if (!text.includes('No agents in this chat') || !text.includes('Add an agent to get started.')) throw new Error('the empty conversation is not in Jam\\'s words'); const box = document.querySelector('main textarea[aria-label=Message]'); if (!box.disabled || box.placeholder !== 'Add an agent to get started') throw new Error('the composer is on, or does not say why it is off'); return 'no agents here' })()"
+  },
+  {
+    "click": "aside[aria-label='Side pane'] [data-panel=plan]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const card = document.querySelector('main section[aria-label=Plan]'); if (!card || !card.textContent.includes('No plan yet.')) throw new Error('a room without a plan does not keep its card'); const pane = document.querySelector('aside[aria-label=\"Side pane\"]'); if (!pane || !pane.textContent.includes('No plan yet')) throw new Error('the plan panel does not say there is no plan'); if (!pane.textContent.includes('Choose file…')) throw new Error('the plan panel offers no way to set one'); return 'no plan, in both places' })()"
+  },
+  {
+    "shot": "room-no-plan-dark"
+  },
+  {
+    "eval": "window.jam.settings.update({ sidePaneOpen: false }).then(() => 'closed')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "cdp": "Emulation.setDeviceMetricsOverride",
+    "params": {
+      "width": 700,
+      "height": 820,
+      "deviceScaleFactor": 0,
+      "mobile": false
+    }
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const s = document.querySelector('aside[aria-label=Sidebar]'); if (s.dataset.drawer !== 'true' || s.dataset.open !== 'false') throw new Error('a narrow window does not lay the sidebar over the page as a closed drawer'); if (!document.querySelector('header button[aria-label=\"Toggle sidebar\"]')) throw new Error('no Toggle sidebar in the title bar'); return 'narrow' })()"
+  },
+  {
+    "shot": "narrow-room-dark"
+  },
+  {
+    "key": "b",
+    "code": "KeyB",
+    "vk": 66,
+    "modifiers": 2
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const s = document.querySelector('aside[aria-label=Sidebar]'); if (s.dataset.open !== 'true') throw new Error('Ctrl+B did not open the drawer'); if (![...s.querySelectorAll('button')].some((b) => b.textContent === 'Hide rooms')) throw new Error('the drawer has no Hide rooms'); if (!document.querySelector('section[aria-label=Main]').inert) throw new Error('the page behind the drawer is in reach'); if (document.activeElement !== s) throw new Error('the drawer did not take focus'); return 'drawer open' })()"
+  },
+  {
+    "shot": "narrow-drawer-dark"
+  },
+  {
+    "eval": "(() => { const link = [...document.querySelectorAll('aside[aria-label=Sidebar] a')].find((a) => a.textContent.startsWith('Release notes')); if (!link) throw new Error('no Release notes room in the drawer'); link.click(); return 'chosen' })()"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { if (document.querySelector('aside[aria-label=Sidebar]').dataset.open !== 'true') throw new Error('choosing a room closed the drawer'); const title = document.querySelector('header h1'); if (!title || !title.textContent.startsWith('Release notes')) throw new Error('the chosen room is not behind the drawer'); return 'room behind the drawer' })()"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "narrow-drawer-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { if (document.querySelector('aside[aria-label=Sidebar]').dataset.open !== 'false') throw new Error('Escape did not close the drawer'); return 'drawer closed' })()"
+  },
+  {
+    "cdp": "Emulation.clearDeviceMetricsOverride",
+    "params": {}
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(location.hash = '#/rooms/00000000-0000-4000-8000-000000000009', '#/rooms/00000000-0000-4000-8000-000000000009')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const text = document.querySelector('main').textContent; if (!text.includes('This room is not in your list.')) throw new Error('an unknown room does not say it is not in the list'); if (document.querySelector('header h1')) throw new Error('an unknown room has a title'); return 'not in the list' })()"
+  },
+  {
+    "shot": "room-missing-dark"
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "fake": "pause"
+  },
+  {
+    "eval": "window.jam.daemon.reconnect().then((s) => s.state)"
+  },
+  {
+    "wait": 800
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('[role=alert][aria-label=\"Band connection\"]'); if (!b || !b.textContent.includes('running')) throw new Error('no offline banner'); return b.textContent })()"
+  },
+  {
+    "shot": "offline-dark"
+  },
+  {
+    "eval": "(location.hash = '#/analytics', '#/analytics')"
+  },
+  {
+    "wait": 800
+  },
+  {
+    "eval": "(() => { const main = document.querySelector('main').textContent; if (!main.includes('Activity will show when Band is running again.'))  throw new Error('Analytics does not say why it is empty while Jam is away: ' + main.slice(0, 200)); if (main.includes('Not tracked yet'))  throw new Error('Analytics claims Jam has tracked nothing, while it is only out of reach'); return 'Analytics says why it is empty' })()"
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'light' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "shot": "offline-light"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "fake": "resume"
+  },
+  {
+    "eval": "window.jam.daemon.reconnect().then((s) => { if (s.state !== 'connected') throw new Error('did not reconnect: ' + s.state); return s.state })"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { if (document.querySelector('[role=alert][aria-label=\"Band connection\"]')) throw new Error('the offline banner stayed after reconnecting'); return 'banner gone' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/ping",
+      {
+        "version": "0.5.0",
+        "wire": 25
+      }
+    ]
+  },
+  {
+    "eval": "window.jam.daemon.reconnect().then((s) => s.wire)"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('[aria-label=\"Band connection\"]'); if (!b || !b.textContent.includes('protocol 25')) throw new Error('no notice for the other wire version'); return b.textContent })()"
+  },
+  {
+    "shot": "wire-mismatch-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/ping"]
+  },
+  {
+    "eval": "window.jam.daemon.reconnect().then((s) => { if (s.state !== 'connected') throw new Error('did not reconnect: ' + s.state); return s.wire })"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { if (document.querySelector('[aria-label=\"Band connection\"]')) throw new Error('the notice for the other wire version stayed after the daemon answered with this one again'); return 'notice gone' })()"
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/roomOrg",
+      {
+        "org": {
+          "folders": [
+            {
+              "id": "f-1",
+              "name": "Shipping"
+            }
+          ],
+          "assignments": {
+            "8c2d4e6f-1a3b-4c5d-8e9f-0a1b2c3d4e5f": "f-1"
+          },
+          "pinned": ["5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11"],
+          "collapsed": [],
+          "archived": {}
+        }
+      }
+    ]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "peer": "human/default",
+        "kind": {
+          "kind": "room_directory_snapshot",
+          "rooms": []
+        }
+      }
+    ]
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const side = document.querySelector('aside[aria-label=Sidebar]'); const first = side.querySelector('li'); if (!first || !first.textContent.includes('Pinned')) throw new Error('the pinned room is not the first row: ' + (first && first.textContent)); const folder = [...side.querySelectorAll('button')].find((b) => b.textContent.includes('Shipping')); if (!folder) throw new Error('no folder row named Shipping'); if (folder.getAttribute('aria-expanded') !== 'true') throw new Error('a new folder should start open'); return first.textContent.slice(0, 40) + ' | ' + folder.textContent })()"
+  },
+  {
+    "shot": "rooms-organised-dark"
+  },
+  {
+    "click": "aside[aria-label=Sidebar] button[data-folder]"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const side = document.querySelector('aside[aria-label=Sidebar]'); const folder = [...side.querySelectorAll('button')].find((b) => b.textContent.includes('Shipping')); if (!folder) throw new Error('the folder row is gone'); if (folder.getAttribute('aria-expanded') !== 'false') throw new Error('the folder did not fold shut'); if (side.textContent.includes('Release notes for 2.4')) throw new Error('a folded folder still lists its rooms'); return 'folded' })()"
+  },
+  {
+    "shot": "rooms-folder-folded-dark"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/roomOrg", null]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "peer": "human/default",
+        "kind": {
+          "kind": "room_directory_snapshot",
+          "rooms": []
+        }
+      }
+    ]
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "fake": "setAnswer",
+    "args": [
+      "/v1/roomOrg",
+      {
+        "org": {
+          "folders": [],
+          "assignments": {},
+          "pinned": [],
+          "collapsed": [],
+          "archived": {
+            "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11": 1758400000
+          }
+        }
+      }
+    ]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "peer": "human/default",
+        "kind": {
+          "kind": "room_directory_snapshot",
+          "rooms": []
+        }
+      }
+    ]
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const list = document.querySelector('main ul[aria-label=\"Recent rooms\"]'); if (list && list.textContent.includes('Checkout flow redesign')) throw new Error('an archived room is still listed on Home'); const show = [...document.querySelectorAll('main button')].find((b) => b.textContent.startsWith('Show archived')); if (!show) throw new Error('no Show archived control'); if (!show.textContent.includes('(1)')) throw new Error('Show archived does not count what it would bring back: ' + show.textContent); return show.textContent })()"
+  },
+  {
+    "shot": "home-archived-hidden-dark"
+  },
+  {
+    "click": "main section:has(> div > h2) button"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const show = [...document.querySelectorAll('main button')].find((b) => b.textContent.includes('archived')); return show ? show.textContent : 'no control' })()"
+  },
+  {
+    "fake": "setAnswer",
+    "args": ["/v1/roomOrg", null]
+  },
+  {
+    "fake": "emit",
+    "args": [
+      {
+        "peer": "human/default",
+        "kind": {
+          "kind": "room_directory_snapshot",
+          "rooms": []
+        }
+      }
+    ]
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(location.hash = '#/agents', '#/agents')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "click": "main button[aria-label=Where]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const pop = document.querySelector('[role=dialog], [data-slot=popover-content]') || document.body; const text = pop.textContent; for (const want of ['This machine', 'Elsewhere']) { if (!text.includes(want)) throw new Error('the Where filter does not offer ' + want + ': ' + text) } const boxes = pop.querySelectorAll('[data-slot=checkbox]'); if (boxes.length !== 2) throw new Error('Where should offer two values as check boxes, found ' + boxes.length); if (!/Elsewhere\\s*0/.test(text.replace(/\\s+/g, ' '))) throw new Error('a value that would leave nothing must still show its 0: ' + text); return text.slice(0, 80) })()"
+  },
+  {
+    "shot": "agents-filter-where-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "click": "main button[aria-label=Runtime]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const pop = document.querySelector('[role=dialog], [data-slot=popover-content]') || document.body; const text = pop.textContent.replace(/\\s+/g, ' '); for (const want of ['Headless', 'Terminal attached', 'Nothing attached']) { if (!text.includes(want)) throw new Error('the Runtime filter does not offer ' + want + ': ' + text) } return text.slice(0, 90) })()"
+  },
+  {
+    "shot": "agents-filter-runtime-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/', '#/')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', 'the room, for Add participants')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const open = () => { const p = document.querySelector('aside[aria-label=\"Side pane\"]'); return p ? p.getBoundingClientRect().width : 0 }; if (open() >= 300) return 'already open'; const b = document.querySelector('header button[aria-label=\"Show participants\"]'); if (!b) throw new Error('no Show participants control in the room header'); b.click(); return 'opened' })()"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "click": "aside[aria-label='Side pane'] [data-panel=participants]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('aside[aria-label=\"Side pane\"] button[aria-label=\"Add participants\"]'); if (!b) throw new Error('no Add participants control in the panel header'); return 'there' })()"
+  },
+  {
+    "click": "aside[aria-label='Side pane'] button[aria-label=\"Add participants\"]"
+  },
+  {
+    "wait": 600
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); if (!d) throw new Error('the picker did not open'); const text = d.textContent; for (const want of ['Add participants', 'Agents', 'People', 'Type a name, a handle or an email to search.']) { if (!text.includes(want)) throw new Error('the picker is missing ' + want + ': ' + text) } const add = [...d.querySelectorAll('button')].find((b) => b.textContent.trim() === 'Add participants' && !b.hasAttribute('aria-label')); if (!add || !add.disabled) throw new Error('Add participants should be off until one is chosen'); return 'opened' })()"
+  },
+  {
+    "shot": "room-add-participants-dark"
+  },
+  {
+    "eval": "(() => { const f = document.querySelector('[role=dialog] input[type=search]'); const set = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, 'value').set; set.call(f, 'be'); f.dispatchEvent(new Event('input', { bubbles: true })); return 'typed' })()"
+  },
+  {
+    "wait": 1200
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); const boxes = [...d.querySelectorAll('[data-slot=checkbox]')]; if (boxes.length !== 3) throw new Error('the fixture answers three identities, the picker shows ' + boxes.length); const text = d.textContent; for (const want of ['Beacon', 'Lantern', 'Tideline']) { if (!text.includes(want)) throw new Error('the picker does not list ' + want) } if (!text.includes('Band had more matches than it sent')) throw new Error('the picker does not say the answer was cut short'); return boxes.length + ' offered' })()"
+  },
+  {
+    "shot": "room-add-participants-found-dark"
+  },
+  {
+    "click": "[role=dialog] [data-slot=checkbox]"
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); const add = [...d.querySelectorAll('button')].find((b) => b.textContent.trim() === 'Add participants' && !b.hasAttribute('aria-label')); if (!add || add.disabled) throw new Error('Add participants is still off after choosing one'); return 'on' })()"
+  },
+  {
+    "shot": "room-add-participants-chosen-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(location.hash = '#/', 'home again')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(location.hash = '#/agents', 'agents, for the Permissions tab')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "click": "main ul li button[aria-label^=\"Open \"]"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const t = [...document.querySelectorAll('[role=tab]')].find((x) => x.textContent.trim() === 'Permissions'); if (!t) throw new Error('no Permissions tab'); t.click(); return 'Permissions' })()"
+  },
+  {
+    "wait": 1300
+  },
+  {
+    "eval": "(() => { const text = document.querySelector('main').textContent; for (const want of ['Write the migration checklist', 'Run the import script', 'Update the release notes', 'Allowed once', 'Denied', 'Waiting']) { if (!text.includes(want)) throw new Error('the Permissions tab is missing ' + want + ': ' + text.slice(0, 200)) } const newest = text.indexOf('Update the release notes'); const oldest = text.indexOf('Write the migration checklist'); if (newest === -1 || oldest === -1 || newest > oldest) throw new Error('the newest permission is not listed first'); return 'listed newest first' })()"
+  },
+  {
+    "shot": "agent-permissions-dark"
+  },
+  {
+    "eval": "(location.hash = '#/', 'home again')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const field = document.querySelector('main textarea[aria-label=\"Describe the work\"]'); const target = field?.parentElement; if (!target) throw new Error('Home has no composer drop target'); const transfer = new DataTransfer(); transfer.items.add(new File(['# Assignment notes\\n'], 'brief.md', { type: 'text/markdown' })); target.dispatchEvent(new DragEvent('drop', { bubbles: true, cancelable: true, dataTransfer: transfer })); return 'dropped brief.md on Home' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const strip = document.querySelector('main [aria-label=\"Attached files\"]'); if (!strip || !strip.textContent.includes('brief.md')) throw new Error('Home did not stage the dropped file'); const remove = strip.querySelector('button[aria-label=\"Remove brief.md\"]'); if (!remove) throw new Error('Home staged file cannot be removed'); return 'Home staged brief.md' })()"
+  },
+  {
+    "shot": "home-attachment-dark"
+  },
+  {
+    "eval": "(location.hash = '#/rooms/5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11', 'room for attachment')"
+  },
+  {
+    "wait": 900
+  },
+  {
+    "eval": "(() => { const field = document.querySelector('main textarea[aria-label=Message]'); const target = field?.parentElement; if (!target) throw new Error('the room has no composer drop target'); const transfer = new DataTransfer(); transfer.items.add(new File(['# Checkout notes\\n'], 'notes.md', { type: 'text/markdown' })); target.dispatchEvent(new DragEvent('drop', { bubbles: true, cancelable: true, dataTransfer: transfer })); return 'dropped notes.md in the room' })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const strip = document.querySelector('main [aria-label=\"Attached files\"]'); if (!strip || !strip.textContent.includes('notes.md')) throw new Error('the room did not stage the dropped file'); const remove = strip.querySelector('button[aria-label=\"Remove notes.md\"]'); if (!remove) throw new Error('the room staged file cannot be removed'); return 'room staged notes.md' })()"
+  },
+  {
+    "eval": "(() => { const buttons = [...document.querySelectorAll('main button')].filter((b) => ['Mention', 'Attach files'].includes(b.getAttribute('aria-label') || b.textContent.trim())); const names = buttons.map((b) => b.getAttribute('aria-label') || b.textContent.trim()); if (names.join('|') !== 'Mention|Attach files') throw new Error('the room composer does not offer Mention then Attach files: ' + names.join('|')); if (buttons[1].disabled) throw new Error('Attach files is turned off'); return 'Mention, then Attach files' })()"
+  },
+  {
+    "shot": "room-attachment-dark"
+  },
+  {
+    "eval": "(location.hash = '#/', 'home again')"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const b = document.querySelector('main button[aria-label=\"Remove brief.md\"]'); if (!b) throw new Error('Home lost its staged file while a room was open'); b.click(); return 'brief.md kept, then removed' })()"
+  },
+  {
+    "wait": 300
+  },
+  {
+    "eval": "(() => { const field = document.querySelector('main textarea[aria-label=\"Describe the work\"]'); const target = field?.parentElement; if (!target) throw new Error('Home has no composer drop target for the refusal'); const transfer = new DataTransfer(); for (let n = 1; n <= 11; n += 1) transfer.items.add(new File(['note ' + n], 'note-' + n + '.md', { type: 'text/markdown' })); target.dispatchEvent(new DragEvent('drop', { bubbles: true, cancelable: true, dataTransfer: transfer })); return 'dropped eleven files on Home' })()"
+  },
+  {
+    "wait": 800
+  },
+  {
+    "eval": "(() => { const field = document.querySelector('main textarea[aria-label=\"Describe the work\"]'); const strip = document.querySelector('main [aria-label=\"Attached files\"]'); if (!strip) throw new Error('Home has no staged files'); const rows = strip.querySelectorAll('button[aria-label^=\"Remove note-\"]'); if (rows.length !== 10) throw new Error('Home staged ' + rows.length + ' files instead of ten'); const status = field && document.getElementById(field.getAttribute('aria-describedby')); const refusal = 'The attachment limit is ten files per message.'; if (!status || status.getAttribute('role') !== 'status' || status.textContent.trim() !== refusal) throw new Error('Home did not say the attachment limit in its status line: ' + (status && status.textContent)); return 'ten staged, eleventh refused' })()"
+  },
+  {
+    "shot": "home-attachment-refusal-dark"
+  },
+  {
+    "eval": "window.jam.settings.update({ theme: 'dark' }).then(() => document.documentElement.dataset.theme)"
+  },
+  {
+    "eval": "(location.hash = '#/teams', '#/teams')"
+  },
+  {
+    "wait": 700
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== 'Teams') throw new Error('expected the page title Teams, found ' + (h && h.textContent)); const cards = [...document.querySelectorAll('main ul[aria-label=Teams] > li')]; if (cards.length !== 2) throw new Error('expected the two fixture teams, found ' + cards.length); for (const words of ['Checkout crew', 'Atlas, Nova', 'On your roster']) if (!cards[0].textContent.includes(words)) throw new Error('the first card lacks ' + words); if (!cards[1].textContent.includes('1 of 2 on your roster')) throw new Error('the Library team does not count the agent the list does not hold'); const buttons = [...document.querySelectorAll('main header button')].map((b) => b.textContent.trim() + (b.disabled ? ' (off)' : '')); if (buttons.join('|') !== 'Browse Library (off)|New team') throw new Error('the header buttons are ' + buttons.join('|')); return 'teams ' + cards.length })()"
+  },
+  {
+    "shot": "teams-dark"
+  },
+  {
+    "click": "main ul[aria-label=Teams] li button[aria-label=\"Open Checkout crew\"]"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const h = document.querySelector('main h1'); if (!h || h.textContent.trim() !== 'Checkout crew') throw new Error('the team did not open: ' + (h && h.textContent)); const members = [...document.querySelectorAll('main ul[aria-label=Members] > li')]; if (members.length !== 2 || !members.every((m) => m.textContent.includes('On roster'))) throw new Error('expected Atlas and Nova on the roster, found ' + members.map((m) => m.textContent).join(' / ')); if (!document.querySelector('main').textContent.includes('Atlas drafts each step')) throw new Error('the team guidelines are not shown'); if (!members.every((m) => m.querySelector('button[aria-label=\"Copy handle\"]'))) throw new Error('a member has no Copy handle beside its handle'); return 'members ' + members.length })()"
+  },
+  {
+    "shot": "team-detail-dark"
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main header button\")].find((x) => x.textContent.trim() === \"Edit team\"); if (!b) throw new Error(\"no Edit team button\"); b.click(); return \"pressed Edit team\" })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); if (!d) throw new Error('Edit team did not open'); if (!d.textContent.includes('Edit team')) throw new Error('the dialog is not Edit team'); const name = d.querySelector('input:not([type=checkbox])'); if (!name || name.value !== 'Checkout crew') throw new Error('the name is not the team\\'s: ' + (name && name.value)); const on = d.querySelectorAll('[role=group][aria-label=Agents] [data-slot=checkbox][data-checked]').length; if (on !== 2) throw new Error('expected both agents chosen, found ' + on); return 'edit form' })()"
+  },
+  {
+    "shot": "team-edit-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main header button\")].find((x) => x.textContent.trim() === \"Teams\"); if (!b) throw new Error(\"no Teams button\"); b.click(); return \"pressed Teams\" })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const b = [...document.querySelectorAll(\"main header button\")].find((x) => x.textContent.trim() === \"New team\"); if (!b) throw new Error(\"no New team button\"); b.click(); return \"pressed New team\" })()"
+  },
+  {
+    "wait": 500
+  },
+  {
+    "eval": "(() => { const d = document.querySelector('[role=dialog]'); if (!d || !d.textContent.includes('New team')) throw new Error('New team did not open'); const create = [...d.querySelectorAll('button')].find((b) => b.textContent.trim() === 'Create team'); if (!create || !create.disabled) throw new Error('Create team is not held back on an empty form'); const agents = d.querySelectorAll('[role=group][aria-label=Agents] li').length; if (agents !== 2) throw new Error('expected the two fixture agents to choose from, found ' + agents); return 'new form' })()"
+  },
+  {
+    "shot": "team-new-dark"
+  },
+  {
+    "key": "Escape",
+    "vk": 27
+  },
+  {
+    "wait": 400
+  }
+]

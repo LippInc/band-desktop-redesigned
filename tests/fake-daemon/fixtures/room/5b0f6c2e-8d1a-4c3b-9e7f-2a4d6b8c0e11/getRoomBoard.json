@@ -1,0 +1,36 @@
+{
+  "board": {
+    "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+    "tasks": [
+      {
+        "uid": "#1",
+        "subject": "Review the new checkout flow",
+        "detail": "Walk through every step once the summary is in.",
+        "component_refs_declared": true,
+        "overall": "pending",
+        "assignments": [],
+        "created_by": {
+          "kind": "agent",
+          "id": "default/atlas",
+          "name": "Atlas",
+          "handle": "sam-rivera/atlas"
+        },
+        "created_at": 1789810315000,
+        "updated_at": 1789810315000,
+        "started_at": 0,
+        "completed_at": 0,
+        "history": [
+          {
+            "ts": 1789810315000,
+            "field": "",
+            "from": "",
+            "to": "pending",
+            "by": "Atlas",
+            "by_handle": "sam-rivera/atlas"
+          }
+        ]
+      }
+    ],
+    "next_seq": 1
+  }
+}

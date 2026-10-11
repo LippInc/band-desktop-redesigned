@@ -1,0 +1,32 @@
+{
+  "entries": [
+    {
+      "id": "3f8a1c52-6b4d-4e19-9a77-2c5e8d0b1f43",
+      "kind": "agent",
+      "name": "Beacon",
+      "handle": "orla-quinn/beacon",
+      "description": "Reviews pull requests and writes release notes.",
+      "tags": ["coding"],
+      "online": true
+    },
+    {
+      "id": "7d2e4b18-9c03-4a6f-8b51-0e7a3d9c2f60",
+      "kind": "agent",
+      "name": "Lantern",
+      "handle": "orla-quinn/lantern",
+      "description": "Keeps the migration checklist up to date.",
+      "tags": [],
+      "online": false
+    },
+    {
+      "id": "b5c9027e-1a3f-4d82-9e64-5f1b8c7a0d39",
+      "kind": "agent",
+      "name": "Tideline",
+      "handle": "petra-holt/tideline",
+      "description": "Runs the nightly data import and reports what changed.",
+      "tags": ["data", "scheduled"],
+      "online": false
+    }
+  ],
+  "truncated": true
+}

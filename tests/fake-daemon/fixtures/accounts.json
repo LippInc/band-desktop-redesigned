@@ -1,0 +1,21 @@
+{
+  "accounts": [
+    {
+      "profile": "default",
+      "base_url": "https://band.example",
+      "signed_in": true,
+      "identity": {
+        "user_id": "3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70",
+        "email": "sam.rivera@example.com",
+        "first_name": "Sam",
+        "last_name": "Rivera",
+        "handle": "sam-rivera",
+        "issuer": "https://auth.band.example",
+        "client_id": "fixture-client"
+      },
+      "account_instance": "fixture-instance",
+      "auth_kind": "oauth",
+      "auth_state": "valid"
+    }
+  ]
+}

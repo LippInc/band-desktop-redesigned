@@ -1,0 +1,45 @@
+{
+  "overview": {
+    "scopes": [
+      {
+        "scope": "",
+        "label": "You",
+        "snapshot": {
+          "contacts": [],
+          "received": [],
+          "sent": [],
+          "contacts_truncated": false,
+          "received_truncated": false,
+          "sent_truncated": false
+        },
+        "error": ""
+      },
+      {
+        "scope": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+        "label": "Atlas",
+        "snapshot": {
+          "contacts": [],
+          "received": [],
+          "sent": [],
+          "contacts_truncated": false,
+          "received_truncated": false,
+          "sent_truncated": false
+        },
+        "error": ""
+      },
+      {
+        "scope": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+        "label": "Nova",
+        "snapshot": {
+          "contacts": [],
+          "received": [],
+          "sent": [],
+          "contacts_truncated": false,
+          "received_truncated": false,
+          "sent_truncated": false
+        },
+        "error": ""
+      }
+    ]
+  }
+}

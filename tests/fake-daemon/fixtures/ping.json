@@ -1,0 +1,13 @@
+{
+  "version": "0.4.14",
+  "executable": "/opt/jam/jamd",
+  "update": {
+    "current": "0.4.14",
+    "latest": "0.4.14",
+    "state": "current",
+    "channel": "stable",
+    "upgrade_hint": null,
+    "checked_at": 1789740000
+  },
+  "wire": 30
+}

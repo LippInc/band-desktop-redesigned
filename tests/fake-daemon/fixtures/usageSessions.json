@@ -1,0 +1,207 @@
+{
+  "report": {
+    "sessions": [
+      {
+        "inputTokens": 54,
+        "outputTokens": 2483,
+        "cacheCreationTokens": 98360,
+        "cacheReadTokens": 1155393,
+        "reasoningTokens": 0,
+        "totalCost": 12.84,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 12.84,
+            "missingPricing": false
+          }
+        ],
+        "sessionId": "11111111-1111-4111-8111-111111111111",
+        "provider": "claudecode",
+        "lastActivity": "2026-03-09T14:58:02.875Z",
+        "attribution": {
+          "agentId": "00000000-0000-4000-8000-0000000000a1",
+          "peerName": "workshop/atlas",
+          "chatId": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11"
+        }
+      },
+      {
+        "inputTokens": 31,
+        "outputTokens": 1902,
+        "cacheCreationTokens": 64180,
+        "cacheReadTokens": 812004,
+        "reasoningTokens": 0,
+        "totalCost": 6.41,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 6.41,
+            "missingPricing": false
+          }
+        ],
+        "sessionId": "22222222-2222-4222-8222-222222222222",
+        "provider": "claudecode",
+        "lastActivity": "2026-03-09T11:20:44.100Z",
+        "attribution": {
+          "agentId": "00000000-0000-4000-8000-0000000000a2",
+          "peerName": "workshop/nova",
+          "chatId": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11"
+        }
+      },
+      {
+        "inputTokens": 1600721,
+        "outputTokens": 36844265,
+        "cacheCreationTokens": 184091656,
+        "cacheReadTokens": 5181377812,
+        "reasoningTokens": 0,
+        "totalCost": 492.25,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 492.25,
+            "missingPricing": false
+          }
+        ],
+        "sessionId": "33333333-3333-4333-8333-333333333330",
+        "provider": "claudecode",
+        "lastActivity": "2026-03-09T18:12:03.000Z",
+        "attribution": null
+      },
+      {
+        "inputTokens": 1600721,
+        "outputTokens": 36844265,
+        "cacheCreationTokens": 184091656,
+        "cacheReadTokens": 5181377812,
+        "reasoningTokens": 0,
+        "totalCost": 492.25,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 492.25,
+            "missingPricing": false
+          }
+        ],
+        "sessionId": "44444444-3333-4333-8333-333333333331",
+        "provider": "claudecode",
+        "lastActivity": "2026-03-09T18:12:03.000Z",
+        "attribution": null
+      },
+      {
+        "inputTokens": 1600721,
+        "outputTokens": 36844265,
+        "cacheCreationTokens": 184091656,
+        "cacheReadTokens": 5181377812,
+        "reasoningTokens": 0,
+        "totalCost": 492.25,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 492.25,
+            "missingPricing": false
+          }
+        ],
+        "sessionId": "55555555-3333-4333-8333-333333333332",
+        "provider": "claudecode",
+        "lastActivity": "2026-03-09T18:12:03.000Z",
+        "attribution": null
+      }
+    ],
+    "agents": [
+      {
+        "inputTokens": 54,
+        "outputTokens": 2483,
+        "cacheCreationTokens": 98360,
+        "cacheReadTokens": 1155393,
+        "reasoningTokens": 0,
+        "totalCost": 12.84,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 12.84,
+            "missingPricing": false
+          }
+        ],
+        "peerName": "workshop/atlas",
+        "sessionCount": 1,
+        "lastActivity": "2026-03-09T14:58:02.875Z"
+      },
+      {
+        "inputTokens": 31,
+        "outputTokens": 1902,
+        "cacheCreationTokens": 64180,
+        "cacheReadTokens": 812004,
+        "reasoningTokens": 0,
+        "totalCost": 6.41,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 6.41,
+            "missingPricing": false
+          }
+        ],
+        "peerName": "workshop/nova",
+        "sessionCount": 1,
+        "lastActivity": "2026-03-09T11:20:44.100Z"
+      },
+      {
+        "inputTokens": 4802163,
+        "outputTokens": 110532795,
+        "cacheCreationTokens": 552274968,
+        "cacheReadTokens": 15544133436,
+        "reasoningTokens": 0,
+        "totalCost": 1476.75,
+        "missingPricing": false,
+        "pricing": [
+          {
+            "costKind": "estimated_equivalent",
+            "currency": "USD",
+            "source": "usage_import",
+            "amountUsd": 1476.75,
+            "missingPricing": false
+          }
+        ],
+        "peerName": "(unattributed)",
+        "sessionCount": 3,
+        "lastActivity": "2026-03-09T18:12:03.000Z"
+      }
+    ],
+    "totals": {
+      "inputTokens": 4802248,
+      "outputTokens": 110537180,
+      "cacheCreationTokens": 552437508,
+      "cacheReadTokens": 15546100833,
+      "reasoningTokens": 0,
+      "totalCost": 1496.0,
+      "missingPricing": false,
+      "pricing": [
+        {
+          "costKind": "estimated_equivalent",
+          "currency": "USD",
+          "source": "usage_import",
+          "amountUsd": 1496.0,
+          "missingPricing": false
+        }
+      ]
+    }
+  }
+}

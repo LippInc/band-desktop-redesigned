@@ -1,0 +1,40 @@
+{
+  "sessions": [
+    {
+      "agent_session_id": null,
+      "binding": "detached",
+      "handle": null,
+      "host_pid": null,
+      "id": "default",
+      "last_activity_at": 1789810402000,
+      "last_seen_at": null,
+      "presence": "unknown",
+      "provider": "claudecode",
+      "provider_session_id": null,
+      "room": null,
+      "runtime": "owned/claude-code-cli",
+      "runtime_host_id": null,
+      "runtime_session_id": null,
+      "runtime_template_id": null,
+      "window_pid": null
+    },
+    {
+      "agent_session_id": "c0ffee00-0000-4000-8000-000000000002",
+      "binding": "bound",
+      "handle": null,
+      "host_pid": null,
+      "id": "default-5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "last_activity_at": 1789810402000,
+      "last_seen_at": null,
+      "presence": "live",
+      "provider": "claudecode",
+      "provider_session_id": null,
+      "room": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "runtime": "owned/claude-code-cli",
+      "runtime_host_id": null,
+      "runtime_session_id": null,
+      "runtime_template_id": "default",
+      "window_pid": null
+    }
+  ]
+}

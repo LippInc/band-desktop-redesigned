@@ -1,0 +1,80 @@
+{
+  "permissions": [
+    {
+      "request": {
+        "id": "claude-permission:claudecode:turn-4:1",
+        "session_id": "s1",
+        "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+        "agent_session_id": "as1",
+        "turn_id": "turn-4",
+        "source_message_id": "m12",
+        "provider": "claudecode",
+        "action": "Write",
+        "description": "Write the migration checklist",
+        "metadata_json": "{}",
+        "display_truncated": false,
+        "durable_rule": "",
+        "command": [],
+        "created_at": 1789740600000,
+        "expires_at": null
+      },
+      "status": "resolved",
+      "decision": {
+        "id": "d1",
+        "outcome": "allow_once",
+        "decided_at": 1789740640000,
+        "reason": ""
+      },
+      "resolved_at": 1789740640000
+    },
+    {
+      "request": {
+        "id": "claude-permission:claudecode:turn-5:1",
+        "session_id": "s1",
+        "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+        "agent_session_id": "as1",
+        "turn_id": "turn-5",
+        "source_message_id": "m18",
+        "provider": "claudecode",
+        "action": "Bash",
+        "description": "Run the import script",
+        "metadata_json": "{}",
+        "display_truncated": false,
+        "durable_rule": "",
+        "command": [],
+        "created_at": 1789741200000,
+        "expires_at": null
+      },
+      "status": "resolved",
+      "decision": {
+        "id": "d2",
+        "outcome": "deny_once",
+        "decided_at": 1789741260000,
+        "reason": "Not this time"
+      },
+      "resolved_at": 1789741260000
+    },
+    {
+      "request": {
+        "id": "claude-permission:claudecode:turn-6:1",
+        "session_id": "s1",
+        "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+        "agent_session_id": "as1",
+        "turn_id": "turn-6",
+        "source_message_id": "m22",
+        "provider": "claudecode",
+        "action": "Write",
+        "description": "Update the release notes",
+        "metadata_json": "{}",
+        "display_truncated": false,
+        "durable_rule": "",
+        "command": [],
+        "created_at": 1789742000000,
+        "expires_at": 1789742060000
+      },
+      "status": "pending",
+      "decision": null,
+      "resolved_at": null
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "plan": {
+    "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+    "source": {
+      "raw": "D:/plans/checkout-plan.md",
+      "canonical": "D:\\plans\\checkout-plan.md",
+      "label": "Checkout plan",
+      "attachment_id": "9d8c7b6a-5f4e-4d3c-8b2a-1f0e9d8c7b6a",
+      "kind": "markdown",
+      "event_profile": "default",
+      "snapshot": true
+    },
+    "cache": {
+      "body": "# Checkout plan\n\nMake checkout one page, keep the saved cart, and ship it behind a flag.\n\n## Steps\n\n1. Merge the address and payment steps into one page.\n2. Keep the cart across sign-in.\n3. Show delivery dates before payment.\n4. Ship behind the `one-page-checkout` flag, then remove the old flow.\n\n## Open questions\n\n- Should guest checkout ask for an email first?\n- Which delivery estimates can we trust?\n\n| Step | Owner | State |\n| --- | --- | --- |\n| Address and payment | web | in progress |\n| Saved cart | api | to do |\n\nBackground: [checkout guidelines](https://example.com/checkout-guidelines).\n",
+      "content_type": "markdown",
+      "fetched_at": 1789764012482,
+      "bytes": 602
+    },
+    "last_error": "",
+    "live_source_state": "snapshot",
+    "watch_error": "",
+    "overlay": {
+      "states": {},
+      "focus": ""
+    },
+    "updated_at": 1789764012482,
+    "doc_rev": 1
+  }
+}

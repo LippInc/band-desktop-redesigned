@@ -1,0 +1,12 @@
+{
+  "page": {
+    "messages": [],
+    "page": 1,
+    "total_pages": 1,
+    "next_cursor": null,
+    "has_more": false,
+    "limit": 50,
+    "account_instance": "1:https://app.example.invalid/0000",
+    "last_included_mutation_sequence": 0
+  }
+}

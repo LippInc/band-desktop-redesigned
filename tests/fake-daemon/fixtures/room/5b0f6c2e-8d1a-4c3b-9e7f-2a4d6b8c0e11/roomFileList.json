@@ -1,0 +1,42 @@
+{
+  "page": {
+    "files": [
+      {
+        "id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+        "local_artifact_id": "art-5d2c9e1b7a4f0c8e3b6d1a92",
+        "name": "checkout-plan.md",
+        "mime": "text/markdown",
+        "bytes": 602,
+        "sha256": "c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0",
+        "path": "D:\\jam-data\\cfg\\artifacts\\c41f6e2a9b3d7058e1f4a6c2d9b0e7f3a5c8d1e4f7a0b3c6d9e2f5a8b1c4d7e0\\checkout-plan.md",
+        "has_thumb": false,
+        "uploader_id": "",
+        "uploader_type": "Local",
+        "uploader_name": null,
+        "created_at": 1789764012486,
+        "expires_at": null,
+        "local_only": true
+      },
+      {
+        "id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+        "local_artifact_id": "art-9e4b1d7c2a8f5e3b6c0d4a17",
+        "name": "cart-wireframe.png",
+        "mime": "image/png",
+        "bytes": 48213,
+        "sha256": "7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c",
+        "path": "D:\\jam-data\\cfg\\artifacts\\7a1c3e5b9d2f4a6c8e0b1d3f5a7c9e2b4d6f8a0c1e3b5d7f9a2c4e6b8d0f1a3c\\cart-wireframe.png",
+        "has_thumb": false,
+        "uploader_id": "",
+        "uploader_type": "Local",
+        "uploader_name": null,
+        "created_at": 1789677612482,
+        "expires_at": null,
+        "local_only": true
+      }
+    ],
+    "next_cursor": null,
+    "has_more": false,
+    "limit": 0,
+    "status": "local_complete"
+  }
+}

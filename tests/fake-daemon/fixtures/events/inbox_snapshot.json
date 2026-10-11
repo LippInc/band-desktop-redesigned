@@ -1,0 +1,91 @@
+{
+  "peer": "human/default",
+  "kind": {
+    "kind": "inbox_snapshot",
+    "profile": "default",
+    "snapshot": {
+      "account_instance": "fixture-instance",
+      "account_generation": 1,
+      "direct_mentions": [
+        {
+          "message": {
+            "id": "6d000009-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+            "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+            "content": "@[[3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70]] I read the current steps. The summary lists the order, the delivery and the **payment**, so I need the provider before I lay it out.",
+            "message_type": "text",
+            "sender_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+            "sender_name": "Atlas",
+            "sender_type": "Agent",
+            "inserted_at": "2026-09-19T09:32:10.000000Z",
+            "updated_at": "2026-09-19T09:32:10.000000Z",
+            "mention_names": {
+              "3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70": "Sam Rivera"
+            },
+            "tool_name": null,
+            "tool_call_id": null,
+            "thought_stream_id": null,
+            "system_event": null,
+            "system_subject": null,
+            "connectivity_account_instance": null,
+            "connectivity_profile": null,
+            "attachments": []
+          },
+          "mutation_sequence": 9
+        }
+      ],
+      "attention_overflow_count": 0,
+      "attention_truncated_count": 0,
+      "mentions": [],
+      "open_questions_by_task": {
+        "default/atlas\u00005b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11:2e4c6a8f-1b3d-4f5a-8c7e-9a1b3d5f7c02": [
+          {
+            "id": "2e4c6a8f-1b3d-4f5a-8c7e-9a1b3d5f7c02:q1",
+            "group_id": "2e4c6a8f-1b3d-4f5a-8c7e-9a1b3d5f7c02",
+            "group_revision": 1,
+            "answer_code": "7F3A21C9",
+            "prompt": "Which payment provider should the checkout use first?",
+            "options": ["Stripe", "Adyen"],
+            "multi_select": false
+          }
+        ]
+      },
+      "accepted_question_replies": [],
+      "accepted_question_replies_revision": 0,
+      "pending_permissions": [
+        {
+          "peer_key": "default/nova",
+          "record": {
+            "request": {
+              "id": "claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1",
+              "session_id": "default-5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+              "agent_session_id": "c0ffee00-0000-4000-8000-000000000002",
+              "turn_id": "claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000",
+              "source_message_id": "6d000004-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+              "provider": "claudecode",
+              "action": "Write",
+              "description": "Claude Code Write: {\"content\":\"export function Confirmation() {}\\n\",\"file_path\":\"/work/nova/src/checkout/confirmation.tsx\"}",
+              "metadata_json": "",
+              "display_truncated": false,
+              "durable_rule": "",
+              "command": [],
+              "created_at": 1789810401000,
+              "expires_at": null
+            },
+            "status": "pending",
+            "decision": null,
+            "resolved_at": null
+          }
+        }
+      ],
+      "read_ids": [],
+      "done_ids": [],
+      "recovery": {
+        "state": "idle",
+        "detail": "",
+        "completed_rooms": 0,
+        "total_rooms": 0
+      }
+    }
+  }
+}

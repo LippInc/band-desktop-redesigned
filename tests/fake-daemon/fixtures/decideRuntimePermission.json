@@ -1,0 +1,29 @@
+{
+  "permission": {
+    "request": {
+      "id": "claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1",
+      "session_id": "default-5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+      "agent_session_id": "c0ffee00-0000-4000-8000-000000000002",
+      "turn_id": "claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000",
+      "source_message_id": "6d000004-1a2b-4c3d-8e4f-5a6b7c8d9e0f",
+      "provider": "claudecode",
+      "action": "Write",
+      "description": "Claude Code Write: {\"content\":\"export function Confirmation() {}\\n\",\"file_path\":\"/work/nova/src/checkout/confirmation.tsx\"}",
+      "metadata_json": "",
+      "display_truncated": false,
+      "durable_rule": "",
+      "command": [],
+      "created_at": 1789810401000,
+      "expires_at": null
+    },
+    "status": "resolved",
+    "decision": {
+      "id": "claude-permission:claudecode:4d6f8a1c-3e5b-4c7d-9f1a-6b8d0e2f4a35:1789800000000:1",
+      "outcome": "allow_once",
+      "decided_at": 1789810442000,
+      "reason": ""
+    },
+    "resolved_at": 1789810442000
+  }
+}

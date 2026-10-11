@@ -1,0 +1,14 @@
+{
+  "team": {
+    "id": "5b8e2c4a-1f3d-4e6b-9a7c-0d2e4f6a8b1c",
+    "profile": "default",
+    "name": "Checkout crew",
+    "description": "Plans and ships the checkout flow, one reviewed step at a time.",
+    "guidelines": "Atlas drafts each step and Nova builds it. Every change says why in one line, and nothing merges without a passing test.",
+    "agent_ids": ["7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21", "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13"],
+    "template_id": null,
+    "role_ids": [],
+    "created_at_ms": 1789900000000,
+    "updated_at_ms": 1789990000000
+  }
+}

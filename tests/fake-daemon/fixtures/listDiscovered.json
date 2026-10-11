@@ -1,0 +1,72 @@
+{
+  "snapshot": {
+    "discoverable": true,
+    "multicast": "ok",
+    "share_room_titles": true,
+    "share_cost": true,
+    "users": [
+      {
+        "deployment_scope": "3f5a7c9e1b3d4f5a8c7e9d1b3f5a7c9e",
+        "user_id": "1c3e5a79-2b4d-4f61-8a3c-5e7f9b1d3a52",
+        "owner_handle": "sam-rivera",
+        "display_name": "Sam Rivera",
+        "agents": [
+          {
+            "agent_id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+            "handle": "sam-rivera/atlas",
+            "name": "Atlas",
+            "state": "connected",
+            "activity": { "kind": "working" },
+            "tasks": { "pending": 2, "in_progress": 1, "completed": 4 },
+            "cost": 1.82
+          },
+          {
+            "agent_id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+            "handle": "sam-rivera/nova",
+            "name": "Nova",
+            "state": "connected",
+            "activity": { "kind": "idle" },
+            "tasks": { "pending": 0, "in_progress": 0, "completed": 3 },
+            "cost": 0.0
+          }
+        ],
+        "teams": [],
+        "last_seen_ms": 1789763940000,
+        "online": true,
+        "origins": ["lan"]
+      },
+      {
+        "deployment_scope": "3f5a7c9e1b3d4f5a8c7e9d1b3f5a7c9e",
+        "user_id": "5e7f9b1d-3a52-4c6e-8b0d-2f4a6c8e0b24",
+        "owner_handle": "robin-vale",
+        "display_name": "Robin Vale",
+        "agents": [
+          {
+            "agent_id": "b7c9e1f3-0a2c-4e6b-8d0f-2a4c6e8b0d2f",
+            "handle": "robin-vale/juno",
+            "name": "Juno",
+            "state": "disconnected",
+            "activity": { "kind": "idle" },
+            "tasks": { "pending": 0, "in_progress": 0, "completed": 0 },
+            "cost": 0.0
+          }
+        ],
+        "teams": [],
+        "last_seen_ms": 1789677540000,
+        "online": false,
+        "origins": ["lan"]
+      },
+      {
+        "deployment_scope": "8c7e9d1b3f5a7c9e3f5a7c9e1b3d4f5a",
+        "user_id": "2f4a6c8e-0b24-4d6f-8a0c-2e46b8d0f2a4",
+        "owner_handle": "kit-marlow",
+        "display_name": "Kit Marlow",
+        "agents": [],
+        "teams": [],
+        "last_seen_ms": 1789763900000,
+        "online": true,
+        "origins": []
+      }
+    ]
+  }
+}

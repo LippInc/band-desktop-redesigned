@@ -1,0 +1,126 @@
+{
+  "lanes": [
+    {
+      "peer_id": "default/atlas",
+      "lane_id": "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d51",
+      "active": true,
+      "items": [
+        {
+          "id": "8e1f2a3b-4c5d-4e6f-9a0b-1c2d3e4f5a63",
+          "subject": "Wire the summary to the cart",
+          "status": "pending",
+          "active_form": "Wiring the summary to the cart",
+          "owner": "",
+          "detail": "Totals come from the cart.",
+          "linked_room_task_uid": "",
+          "linked_chat_id": null,
+          "origin_chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+          "updated_at": 1789810310000,
+          "first_seen_at": 1789810310000,
+          "status_changed_at": 1789810310000,
+          "started_at": 0,
+          "completed_at": 0,
+          "blocks": [],
+          "blocked_by": ["8e1f2a3b-4c5d-4e6f-9a0b-1c2d3e4f5a62"],
+          "metadata": {},
+          "deleted_at": null
+        },
+        {
+          "id": "8e1f2a3b-4c5d-4e6f-9a0b-1c2d3e4f5a62",
+          "subject": "Draft the summary step",
+          "status": "in_progress",
+          "active_form": "Drafting the summary step",
+          "owner": "",
+          "detail": "Order, delivery and payment.",
+          "linked_room_task_uid": "",
+          "linked_chat_id": null,
+          "origin_chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+          "updated_at": 1789810309000,
+          "first_seen_at": 1789810309000,
+          "status_changed_at": 1789810309000,
+          "started_at": 1789810312000,
+          "completed_at": 0,
+          "blocks": [],
+          "blocked_by": [],
+          "metadata": {},
+          "deleted_at": null
+        },
+        {
+          "id": "8e1f2a3b-4c5d-4e6f-9a0b-1c2d3e4f5a61",
+          "subject": "Read the checkout steps",
+          "status": "completed",
+          "active_form": "Reading the checkout steps",
+          "owner": "",
+          "detail": "The steps as they are now.",
+          "linked_room_task_uid": "",
+          "linked_chat_id": null,
+          "origin_chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+          "updated_at": 1789810307000,
+          "first_seen_at": 1789810307000,
+          "status_changed_at": 1789810307000,
+          "started_at": 1789810308000,
+          "completed_at": 1789810311000,
+          "blocks": [],
+          "blocked_by": [],
+          "metadata": {},
+          "deleted_at": null
+        }
+      ],
+      "source": {
+        "kind": "jam_authoritative",
+        "adapter": "cli"
+      }
+    },
+    {
+      "peer_id": "default/nova",
+      "lane_id": "b1c2d3e4-f5a6-4b7c-8d9e-0f1a2b3c4d52",
+      "active": true,
+      "items": [
+        {
+          "id": "8e1f2a3b-4c5d-4e6f-9a0b-1c2d3e4f5a72",
+          "subject": "Write the confirmation copy",
+          "status": "pending",
+          "active_form": "Writing the confirmation copy",
+          "owner": "",
+          "detail": "Short and friendly.",
+          "linked_room_task_uid": "",
+          "linked_chat_id": null,
+          "origin_chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+          "updated_at": 1789810384000,
+          "first_seen_at": 1789810384000,
+          "status_changed_at": 1789810384000,
+          "started_at": 0,
+          "completed_at": 0,
+          "blocks": [],
+          "blocked_by": [],
+          "metadata": {},
+          "deleted_at": null
+        },
+        {
+          "id": "8e1f2a3b-4c5d-4e6f-9a0b-1c2d3e4f5a71",
+          "subject": "Build the confirmation screen",
+          "status": "in_progress",
+          "active_form": "Building the confirmation screen",
+          "owner": "",
+          "detail": "The screen after payment.",
+          "linked_room_task_uid": "",
+          "linked_chat_id": null,
+          "origin_chat_id": "5b0f6c2e-8d1a-4c3b-9e7f-2a4d6b8c0e11",
+          "updated_at": 1789810383000,
+          "first_seen_at": 1789810383000,
+          "status_changed_at": 1789810383000,
+          "started_at": 1789810385000,
+          "completed_at": 0,
+          "blocks": [],
+          "blocked_by": [],
+          "metadata": {},
+          "deleted_at": null
+        }
+      ],
+      "source": {
+        "kind": "jam_authoritative",
+        "adapter": "cli"
+      }
+    }
+  ]
+}

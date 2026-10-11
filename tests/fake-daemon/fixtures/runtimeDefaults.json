@@ -1,0 +1,11 @@
+{
+  "defaults": {
+    "compact_at_tokens": null,
+    "permission_timeout_secs": null,
+    "question_timeout_secs": null,
+    "idle_secs": null,
+    "room_activity": null,
+    "room_owner_approvals": null,
+    "resume": null
+  }
+}

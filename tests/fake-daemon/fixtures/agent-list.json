@@ -1,0 +1,34 @@
+{
+  "list": {
+    "rows": [
+      {
+        "id": "7a1d3c5e-2b4f-4a6c-8e0d-1f3a5c7e9b21",
+        "name": "Atlas",
+        "handle": "sam-rivera/atlas",
+        "is_external": false,
+        "description": "Builds the checkout flow.",
+        "tags": [],
+        "local": {
+          "peer_key": "default/atlas",
+          "cwd": "/work/atlas",
+          "host": "claudecode"
+        }
+      },
+      {
+        "id": "9c2e4a6f-8b1d-4e3a-a5c7-2d4f6b8e0a13",
+        "name": "Nova",
+        "handle": "sam-rivera/nova",
+        "is_external": false,
+        "description": "Writes screens and their copy.",
+        "tags": [],
+        "local": {
+          "peer_key": "default/nova",
+          "cwd": "/work/nova",
+          "host": "claudecode"
+        }
+      }
+    ],
+    "remote": "Fresh",
+    "org_name": null
+  }
+}

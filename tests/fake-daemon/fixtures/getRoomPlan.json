@@ -1,0 +1,13 @@
+{
+  "plan": {
+    "chat_id": "00000000-0000-4000-8000-000000000000",
+    "source": null,
+    "cache": null,
+    "last_error": "",
+    "live_source_state": "snapshot",
+    "watch_error": "",
+    "overlay": { "states": {}, "focus": "" },
+    "updated_at": 0,
+    "doc_rev": 0
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "outcome": {
+    "chat_id": "2f9c4e51-7a3b-4d16-9c08-5b1e7d4a6f30",
+    "task_uid": "1",
+    "message_id": "8d5a2c73-6e14-4b90-a7f2-0c3d9e8b1a54",
+    "delivery": "bound",
+    "collaborator_agent_ids": [],
+    "runs_elsewhere": false
+  }
+}

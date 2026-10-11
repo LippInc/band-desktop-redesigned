@@ -1,0 +1,120 @@
+{
+  "status": {
+    "peer": {
+      "scope": "atlas",
+      "profile": "default",
+      "cwd": "/workspace/checkout",
+      "agent_id": "3d7b8c02-6e41-4a95-b1f8-0c5d9e2a7461",
+      "agent_name": "Atlas",
+      "handle": "sam-rivera/atlas",
+      "host": "claudecode",
+      "started_at": 1789808400000,
+      "identity_class": "owned",
+      "host_sessions": [
+        {
+          "id": "default",
+          "room": null,
+          "provider": "claudecode",
+          "runtime": {
+            "template_id": "owned/claude-code-cli",
+            "session_id": "default",
+            "local_platform_bridge": true,
+            "mode": "owned",
+            "transport": "stdio",
+            "spawn": {
+              "command": "claude",
+              "args": [],
+              "cwd": "/workspace/checkout",
+              "env_allowlist": [],
+              "auth_mode": "subscription",
+              "runtime_version": "2.4.1",
+              "sandbox": {
+                "enabled": false,
+                "name": "",
+                "agent": "",
+                "kits": [],
+                "static_mcp_servers": [],
+                "configuration_source": { "kind": "local_config" },
+                "no_clone": true,
+                "github_access": "none"
+              }
+            },
+            "claude_code": {
+              "strict_mcp_config": true,
+              "disallowed_tools": ["WebFetch", "WebSearch"],
+              "permission_mode": "default",
+              "model": "sonnet",
+              "reasoning_effort": "medium",
+              "context_mode": "local_config"
+            },
+            "thread": {
+              "model": null,
+              "reasoning_effort": null,
+              "approval_policy": null,
+              "sandbox_mode": null,
+              "web_search": null,
+              "compact_at_tokens": null
+            }
+          },
+          "presence": "unknown",
+          "binding": "detached",
+          "last_activity_at": 1789810402000,
+          "last_seen_at": null
+        },
+        {
+          "id": "atlas-8f4c1e27-5a93-4d60-b2e8-1c7f6a0d3b45",
+          "room": "8f4c1e27-5a93-4d60-b2e8-1c7f6a0d3b45",
+          "provider": "claudecode",
+          "runtime": {
+            "template_id": "owned/claude-code-cli",
+            "session_id": "atlas-8f4c1e27-5a93-4d60-b2e8-1c7f6a0d3b45",
+            "local_platform_bridge": true,
+            "mode": "owned",
+            "transport": "stdio",
+            "spawn": {
+              "command": "claude",
+              "args": [],
+              "cwd": "/workspace/checkout",
+              "env_allowlist": [],
+              "auth_mode": "subscription",
+              "runtime_version": "2.4.1",
+              "sandbox": {
+                "enabled": false,
+                "name": "",
+                "agent": "",
+                "kits": [],
+                "static_mcp_servers": [],
+                "configuration_source": { "kind": "local_config" },
+                "no_clone": true,
+                "github_access": "none"
+              }
+            },
+            "claude_code": {
+              "strict_mcp_config": true,
+              "disallowed_tools": ["WebFetch", "WebSearch"],
+              "permission_mode": "default",
+              "model": "sonnet",
+              "reasoning_effort": "high",
+              "context_mode": "local_config"
+            },
+            "thread": {
+              "model": null,
+              "reasoning_effort": null,
+              "approval_policy": null,
+              "sandbox_mode": null,
+              "web_search": null,
+              "compact_at_tokens": null
+            }
+          },
+          "presence": "live",
+          "binding": "bound",
+          "last_activity_at": 1789812000000,
+          "last_seen_at": 1789812000000
+        }
+      ]
+    },
+    "state": "connected",
+    "running": true,
+    "warning": ""
+  }
+}

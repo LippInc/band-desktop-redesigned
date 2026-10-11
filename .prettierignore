@@ -1,0 +1,8 @@
+out
+dist
+node_modules
+pnpm-lock.yaml
+design/reference
+.local
+# Markdown stays hand-formatted: prettier pads every table to its widest cell, and these docs are read raw in every chat.
+*.md

@@ -1,0 +1,11 @@
+{
+  "snapshot": {
+    "chat_id": "00000000-0000-4000-8000-000000000000",
+    "account_instance": "fixture-instance",
+    "last_included_mutation_sequence": 0,
+    "messages": [],
+    "next_cursor": null,
+    "has_more": false,
+    "recovery": { "state": "idle", "detail": "", "completed_rooms": 0, "total_rooms": 0 }
+  }
+}

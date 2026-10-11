@@ -1,0 +1,8 @@
+{
+  "preferences": {
+    "version": 1,
+    "direct_mentions": true,
+    "human_requests": true,
+    "task_updates": "completed_only"
+  }
+}

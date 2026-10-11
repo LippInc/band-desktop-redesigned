@@ -1,0 +1,21 @@
+{
+  "participants": [
+    {
+      "id": "3f6c2a1e-8b7d-4c5e-9a10-2b3c4d5e6f70",
+      "handle": "sam-rivera",
+      "name": "Sam Rivera",
+      "kind": "User",
+      "role": "owner",
+      "status": "active",
+      "connection_status": null,
+      "connection_observation": {
+        "profile": "default",
+        "account_instance": "fixture-instance",
+        "generation": 1,
+        "revision": 2
+      },
+      "room_service": null,
+      "avatar_url": null
+    }
+  ]
+}

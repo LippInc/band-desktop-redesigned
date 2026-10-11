@@ -1,0 +1,22 @@
+node_modules/
+out/
+dist/
+*.tsbuildinfo
+test-results/
+playwright-report/
+.env
+.env.*
+
+# Screenshots: design references and this app's own ui:check output. A reference can show a real account, so none is
+# ever committed.
+design/reference/**/*.png
+
+# Local data for the build scripts: raw answers from the live daemon (pnpm fixtures:record), which hold real account
+# data (fixtures are written by hand from them), and the live guard's optional blackout days.
+.local/
+
+# Local tool folders (worktrees, transcripts, locks); prettier and oxlint would check them otherwise.
+.claude/worktrees/
+.claude/checkpoints/
+.claude/scheduled_tasks.lock
+.agents/
