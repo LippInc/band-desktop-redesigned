@@ -28,7 +28,7 @@ What you can **change** from here is listed under "Act on its own" above. What s
 | Platform | State |
 |---|---|
 | Windows | Builds and runs from source; an unsigned installer (`pnpm dist:win`) |
-| Linux | Not run yet: one transport serves the socket as well as the pipe, and a run under WSL is planned |
+| Linux | Installs, builds and passes the unit tests under WSL, the daemon client included over a Unix socket; the app window has not been opened on Linux yet |
 | macOS | Not run yet, and nothing here has been checked on a Mac |
 
 ## Develop
